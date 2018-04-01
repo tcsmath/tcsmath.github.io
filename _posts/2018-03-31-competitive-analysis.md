@@ -3,7 +3,7 @@ layout:     post
 title:      Regret minimization and competitive analysis
 date:       2018-03-31
 summary:    Regret minimization vs. competitive analysis
-categories: jekyll pixyll
+categories: online
 ---
 
 These are notes for the first lecture of a course I am co-teaching with [Seb Bubeck][Seb] on

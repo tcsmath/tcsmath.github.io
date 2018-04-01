@@ -10,7 +10,7 @@
         
             <item>
                 <title>tcsmath relaunch</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
+                <link>http://localhost:4000/admin/2018/03/31/relaunch/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>I am relaunching tcsmath on a new platform in anticipation
@@ -22,7 +22,7 @@ There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/relaunch/</guid>
+                <guid isPermaLink="false">/admin/2018/03/31/relaunch/</guid>
                 <description>
                     
                     A relaunching of tcsmath
@@ -36,7 +36,7 @@ There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
         
             <item>
                 <title>Regret minimization and competitive analysis</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</link>
+                <link>http://localhost:4000/online/2018/03/31/competitive-analysis/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>These are notes for the first lecture of a course I am co-teaching with <a href="https://sbubeck.com/">Seb Bubeck</a> on
@@ -388,7 +388,7 @@ we will need to ensure that the resulting trajectory is absolutely continuous.</
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/competitive-analysis/</guid>
+                <guid isPermaLink="false">/online/2018/03/31/competitive-analysis/</guid>
                 <description>
                     
                     Regret minimization vs. competitive analysis
@@ -402,7 +402,7 @@ we will need to ensure that the resulting trajectory is absolutely continuous.</
         
             <item>
                 <title>An entropy optimal drift</title>
-                <link>http://localhost:4000/jekyll/pixyll/2015/11/21/follmer-drift/</link>
+                <link>http://localhost:4000/entropy/2015/11/21/follmer-drift/</link>
                 <content:encoded>
                     <![CDATA[
                     <h2 id="construction-of-föllmers-drift">Construction of Föllmer’s drift</h2>
@@ -591,7 +591,7 @@ its rate of decay toward equilibrium is faster.
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2015/11/21/follmer-drift/</guid>
+                <guid isPermaLink="false">/entropy/2015/11/21/follmer-drift/</guid>
                 <description>
                     
                     F&amp;ouml;llmer's drift, Ito's lemma, and the Gaussian log-Sobolev inequality

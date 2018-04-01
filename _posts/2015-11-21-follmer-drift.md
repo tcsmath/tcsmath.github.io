@@ -3,7 +3,7 @@ layout:     post
 title:      An entropy optimal drift
 date:       2015-11-21
 summary:    F&ouml;llmer's drift, Ito's lemma, and the Gaussian log-Sobolev inequality
-categories: jekyll pixyll
+categories: entropy
 ---
 
 ## Construction of F&ouml;llmer's drift

@@ -16,8 +16,8 @@ There may be some DNS/https hiccups.  I hope those are resolved soon.&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</guid>
+        <link>http://localhost:4000/admin/2018/03/31/relaunch/</link>
+        <guid isPermaLink="true">http://localhost:4000/admin/2018/03/31/relaunch/</guid>
       </item>
     
       <item>
@@ -370,8 +370,8 @@ we will need to ensure that the resulting trajectory is absolutely continuous.&l
 
 </description>
         <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</guid>
+        <link>http://localhost:4000/online/2018/03/31/competitive-analysis/</link>
+        <guid isPermaLink="true">http://localhost:4000/online/2018/03/31/competitive-analysis/</guid>
       </item>
     
       <item>
@@ -561,8 +561,8 @@ its rate of decay toward equilibrium is faster.
 &lt;/p&gt;
 </description>
         <pubDate>Sat, 21 Nov 2015 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2015/11/21/follmer-drift/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2015/11/21/follmer-drift/</guid>
+        <link>http://localhost:4000/entropy/2015/11/21/follmer-drift/</link>
+        <guid isPermaLink="true">http://localhost:4000/entropy/2015/11/21/follmer-drift/</guid>
       </item>
     
   </channel>
