@@ -330,7 +330,7 @@ We are left to consider the movement cost of the algorithm.
 &lt;p&gt;
 Here we use a trick from online algorithms:
 Instead of bounding the total movement cost
-$\int_0^T |\partial_t p_t|_1\,dt,$
+$\int_0^T \|\partial_t p_t\|_1\,dt,$
 we will bound only the &lt;em&gt;incoming movement&lt;/em&gt;
 $\int_0^T \|\left(\partial_t p_t\right)_+\|_1\,dt$.
 &lt;/p&gt;
