@@ -3,7 +3,7 @@ title:       tcs math
 email:       jrl@cs.washington.edu
 author:      James R. Lee
 description: "some mathematics & computation"
-url:         "http://tcsmath.org"
+url:         "https://blog.tcsmath.org"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
