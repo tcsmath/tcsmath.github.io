@@ -9,21 +9,26 @@
     
         
             <item>
-                <title>From geometric entropy to entropic geometry</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/02/22/test-post/</link>
+                <title>tcsmath relaunch</title>
+                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
                 <content:encoded>
                     <![CDATA[
-                    
+                    <p>I am relaunching tcsmath on a new platform in anticipation
+of resuming regular posting.  The old pages
+should still be available here <a href="https://tcsmath.wordpress.com/">tcsmath</a>,
+and some of them will be slowly migrated to the new format.
+There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
+
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/02/22/test-post/</guid>
+                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/relaunch/</guid>
                 <description>
                     
-                    The k-server problem and entropy capacity in metric spaces
+                    A relaunching of tcsmath
                     
                 </description>
-                <pubDate>Thu, 22 Feb 2018 00:00:00 -0800</pubDate>
+                <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
                 <author>James R. Lee</author>
             </item>
         
