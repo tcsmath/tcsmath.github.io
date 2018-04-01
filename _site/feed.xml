@@ -7,6 +7,20 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>tcsmath relaunch</title>
+        <description>&lt;p&gt;I am relaunching tcsmath on a new platform in anticipation
+of resuming regular posting.  The old pages
+should still be available here &lt;a href=&quot;https://tcsmath.wordpress.com/&quot;&gt;tcsmath&lt;/a&gt;,
+and some of them will be slowly migrated to the new format.
+There may be some DNS/https hiccups.  I hope those are resolved soon.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</guid>
+      </item>
+    
+      <item>
         <title>Regret minimization and competitive analysis</title>
         <description>&lt;p&gt;These are notes for the first lecture of a course I am co-teaching with &lt;a href=&quot;https://sbubeck.com/&quot;&gt;Seb Bubeck&lt;/a&gt; on
 &lt;a href=&quot;https://homes.cs.washington.edu/~jrl/teaching/cse599I-spring-2018/&quot;&gt;Competitive analysis via convex optimization&lt;/a&gt;.&lt;/p&gt;
@@ -355,20 +369,6 @@ we will need to ensure that the resulting trajectory is absolutely continuous.&l
         <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</link>
         <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</guid>
-      </item>
-    
-      <item>
-        <title>tcsmath relaunch</title>
-        <description>&lt;p&gt;I am relaunching tcsmath on a new platform in anticipation
-of resuming regular posting.  The old pages
-should still be available here &lt;a href=&quot;https://tcsmath.wordpress.com/&quot;&gt;tcsmath&lt;/a&gt;,
-and some of them will be slowly migrated to the new format.
-There may be some DNS/https hiccups.  I hope those are resolved soon.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</guid>
       </item>
     
       <item>

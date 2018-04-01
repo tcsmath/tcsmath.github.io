@@ -9,6 +9,32 @@
     
         
             <item>
+                <title>tcsmath relaunch</title>
+                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>I am relaunching tcsmath on a new platform in anticipation
+of resuming regular posting.  The old pages
+should still be available here <a href="https://tcsmath.wordpress.com/">tcsmath</a>,
+and some of them will be slowly migrated to the new format.
+There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
+
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/relaunch/</guid>
+                <description>
+                    
+                    A relaunching of tcsmath
+                    
+                </description>
+                <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
+                <author>James R. Lee</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Regret minimization and competitive analysis</title>
                 <link>http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</link>
                 <content:encoded>
@@ -363,32 +389,6 @@ we will need to ensure that the resulting trajectory is absolutely continuous.</
                 <description>
                     
                     Regret minimization vs. competitive analysis
-                    
-                </description>
-                <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-                <author>James R. Lee</author>
-            </item>
-        
-    
-        
-            <item>
-                <title>tcsmath relaunch</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>I am relaunching tcsmath on a new platform in anticipation
-of resuming regular posting.  The old pages
-should still be available here <a href="https://tcsmath.wordpress.com/">tcsmath</a>,
-and some of them will be slowly migrated to the new format.
-There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
-
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/relaunch/</guid>
-                <description>
-                    
-                    A relaunching of tcsmath
                     
                 </description>
                 <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
