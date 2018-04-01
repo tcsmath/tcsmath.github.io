@@ -200,7 +200,7 @@ Indeed:
 \]
 i.e.,
 \[
-   \partial_t \log p_t(x_0) = - p_t(x_0)^2,
+   \partial_t p_t(x_0) = - p_t(x_0)^2,
 \]
 thus it will take roughly $1/\epsilon$ time before $p_t(x_0) < 1/2$.
 </p>
