@@ -313,10 +313,13 @@ We are left to consider the movement cost of the algorithm.
 <p>
 Here we use a trick from online algorithms:
 Instead of bounding the total movement cost
-$\int_0^T |\partial_t p_t|_1\,dt$,
+$\int_0^T |\partial_t p_t|_1\,dt,$
 we will bound only the <em>incoming movement</em>
 $\int_0^T \|\left(\partial_t p_t\right)_+\|_1\,dt$.
+</p>
+
 Since "what goes in must come out (unless it stays there forever)," we have:
+<p>
 $$
    \int_0^T \|\partial_t p_t\|_1\,dt \leq
    2 \int_0^T \|\left(\partial_t p_t\right)_+\|_1\,dt + 1\,.
