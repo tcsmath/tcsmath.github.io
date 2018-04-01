@@ -293,7 +293,7 @@ Plugging this into \eqref{eq:first-mts} and rearranging gives
 \begin{align}\nonumber
    (1+& \delta N)^{-1} \int_0^T \langle p_t + \delta, \hat{c}_t\rangle\,dt \\
 &\leq 
-   \left[ D_{\delta}(x_{T}^*; p_0) - D_{\delta}(x_0^*, p_T) \right]
+   \left[ D_{\delta}(x_{0}^*; p_0) - D_{\delta}(x_T^*, p_T) \right]
     + \log(1/\delta) \sum_{t=1}^{\lfloor T\rfloor} d(x_t^*, x_{t-1}^*) + 
    \int_0^T \hat{c}_t(x_t^*)\,dt  \nonumber \\
    &\leq
