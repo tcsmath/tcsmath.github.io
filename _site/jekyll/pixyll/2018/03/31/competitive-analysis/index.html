@@ -1,19 +1,151 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title></title>
-    <link>http://localhost:4000</link>
-    <description>
-      some mathematics &amp; computation
-    </description>
+<!DOCTYPE html>
+<html>
+<head>
     
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Regret minimization and competitive analysis &#8211; tcs math</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Regret minimization vs. competitive analysis">
+    <meta name="robots" content="all">
+    <meta name="author" content="James R. Lee">
+    
+    <meta name="keywords" content="jekyll, pixyll">
+    <link rel="canonical" href="http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201803312221" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } } });
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\[","\]"], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        messageStyle: "none",
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+    </script>
+
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Regret minimization and competitive analysis">
+    <meta property="og:description" content="some mathematics &amp; computation">
+    <meta property="og:url" content="http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/">
+    <meta property="og:site_name" content="tcs math">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Regret minimization and competitive analysis" />
+    <meta name="twitter:description" content="Regret minimization vs. competitive analysis" />
+    <meta name="twitter:url" content="http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+       <a href="http://localhost:4000" class="site-title">tcs math</a>
+      <nav class="site-nav">
         
-            <item>
-                <title>Regret minimization and competitive analysis</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/competitive-analysis/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>These are notes for the first lecture of a course I am co-teaching with <a href="https://sbubeck.com/">Seb Bubeck</a> on
+
+
+
+
+    
+    
+    
+    
+        <a href="/about/">about</a>
+    
+
+
+    
+    
+    
+    
+        <a href="/contact/">contact</a>
+    
+
+
+
+<a href="https://tcsmath.wordpress.com/">old tcsmath</a>
+    
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+    <div class="measure">
+       [by <a href="http://www.cs.washington.edu/homes/jrl/">James R. Lee</a>]
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-header mb2">
+  <h1>Regret minimization and competitive analysis</h1>
+  <span class="post-meta">Mar 31, 2018</span><br>
+  
+</div>
+
+<article class="post-content">
+  <p>These are notes for the first lecture of a course I am co-teaching with <a href="https://sbubeck.com/">Seb Bubeck</a> on
 <a href="https://homes.cs.washington.edu/~jrl/teaching/cse599I-spring-2018/">Competitive analysis via convex optimization</a>.</p>
 
 <p>I want to set the groundwork by reviewing the bandits model in online learning
@@ -357,247 +489,62 @@ When we argue formally about the existence of the Lagrangian multipliers $\lambd
 we will need to ensure that the resulting trajectory is absolutely continuous.</p>
 
 
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/competitive-analysis/</guid>
-                <description>
-                    
-                    Regret minimization vs. competitive analysis
-                    
-                </description>
-                <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-                <author>James R. Lee</author>
-            </item>
-        
+</article>
+
+
+  <div class="share-page">
+  Share this post
+
+  <span class="share-links">
     
-        
-            <item>
-                <title>tcsmath relaunch</title>
-                <link>http://localhost:4000/jekyll/pixyll/2018/03/31/relaunch/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>I am relaunching tcsmath on a new platform in anticipation
-of resuming regular posting.  The old pages
-should still be available here <a href="https://tcsmath.wordpress.com/">tcsmath</a>,
-and some of them will be slowly migrated to the new format.
-There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
-
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2018/03/31/relaunch/</guid>
-                <description>
-                    
-                    A relaunching of tcsmath
-                    
-                </description>
-                <pubDate>Sat, 31 Mar 2018 00:00:00 -0700</pubDate>
-                <author>James R. Lee</author>
-            </item>
-        
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fjekyll%2Fpixyll%2F2018%2F03%2F31%2Fcompetitive-analysis%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
     
-        
-            <item>
-                <title>An entropy optimal drift</title>
-                <link>http://localhost:4000/jekyll/pixyll/2015/11/21/follmer-drift/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <h2 id="construction-of-föllmers-drift">Construction of Föllmer’s drift</h2>
 
-<p>In a previous post, we saw how an entropy-optimal drift process
-could be used to prove the Brascamp-Lieb inequalities.
-Our main tool was a result of Föllmer that we now recall and justify.
-Afterward, we will use it to prove the Gaussian log-Sobolev inequality.</p>
-
-<p>Consider $f : \mathbb R^n \to \mathbb R_+$ with $\int f \,d\gamma_n = 1$,
-where $\gamma_n$ is the standard Gaussian measure on $\mathbb R^n$.
-Let $\{B_t\}$ denote an $n$-dimensional Brownian motion with $B_0=0$.
-We consider all processes of the form
-\begin{equation}\label{eq:drift}
-W_t = B_t + \int_0^t v_s\,ds\,,
-\end{equation}
-where $\{v_s\}$ is a progressively measurable drift
-and such that $W_1$ has law $f\,d\gamma_n$.</p>
-
-<div class="theorem" text="Energy-entropy">
-It holds that
-\[
-D(f d\gamma_n \,\|\, d\gamma_n) = \min D(W_{[0,1]} \,\|\, B_{[0,1]}) = \min \frac12 \int_0^1 \mathbb{E}\,\|v_t\|^2\,dt\,,
-\]
-where the minima are over all processes of the form \eqref{eq:drift}.
-</div>
-
-<div class="proof">
-In the preceding post (Lemma 2), we have already seen that
-for any drift of the form \eqref{eq:drift}, it holds that
-\[
-D(f d\gamma_n \,\|\,d\gamma_n) \leq \frac12 \int_0^1 \mathbb{E}\,\|v_t\|^2\,dt \leq D(W_{[0,1]} \,\|\, B_{[0,1]})\,,
-\]
-thus we need only exhibit a drift $\\{v_t\\}$ achieving equality.
-
-<p>
-We define
-\[
-v_t = \nabla \log P_{1-t} f(W_t) = \frac{\nabla P_{1-t} f(W_t)}{P_{1-t} f(W_t)}\,,
-\]
-where $\\{P_t\\}$ is the Brownian semigroup defined by
-\[
-P_t f(x) = \mathbb{E}[f(x + B_t)]\,.
-\]
-</p>
-
-<p>
-Note that $v_t$ is almost surely constant conditioned on the past, hence the chain rule yields
-\begin{equation}\label{eq:chain}
-D(W_{[0,1]} \,\|\, B_{[0,1]}) =
-\frac12 \int_0^1 \mathbb{E}\,\|v_t\|^2\,dt\,.
-\end{equation}
-(See line (7) of Lemma 2 in the previous post.  Note that $h(v_t)=0$ since $v_t$ is deterministic given the past.)
-We are left to show that $W_1$ has law $f \,d\gamma_n$ and $D(W_{[0,1]} \,\|\, B_{[0,1]}) = D(f d\gamma_n \,\|\,d\gamma_n)$.
-</p>
-
-<p>
-We will prove the first fact using Girsanov's theorem to argue about
-the change of measure between $\{W_t\}$ and $\{B_t\}$.
-As in the previous post, we will argue somewhat informally
-using the heuristic that the law of $dB_t$ is a Gaussian
-random variable in $\mathbb R^n$ with covariance $dt \cdot I$.
-It&ocirc;'s formula states that this heuristic is justified (see our use
-of the formula below).
-</p>
-
-The following lemma says that, given any sample path $\{W_s : s \in [0,t]\}$
-of our process up to time $s$, the probability that Brownian motion (without drift)
-would have
-"done the same thing is $\frac{1}{M_t}$.
-</div>
-
-<div class="remark">
-I chose to present various steps in the next proof at varying levels of formality.
-The arguments have the same structure as corresponding formal proofs,
-but I thought (perhaps na&iuml;vely) that this would be instructive.
-</div>
-
-<div class="lemma" text="Heuristic Girsanov">
-Let $\mu_t$ denote the law of $\\{W_s : s \in [0,t]\\}$.
-If we define
-\[
-M_t = \exp\left(-\int_0^t \langle v_s,dB_s\rangle - \frac12 \int_0^t \|v_s\|^2\,ds\right)\,,
-\]
-then under the measure $\nu_t$ given by
-\[
-d\nu_t = M_t \,d\mu_t\,,
-\]
-the process $\\{W_s : s \in [0,t]\\}$ has the same law as $\\{B_s : s \in [0,t]\\}$.
-</div>
-
-<div class="proof">
-We argue by analogy with the discrete proof.
-First, let us define the infinitesimal ``transition kernel'' of Brownian motion
-using our heuristic that $dB_t$ has covariance $dt \cdot I$:
-\[
-p(x,y) = \frac{e^{-\|x-y\|^2/2dt}}{(2\pi dt)^{n/2}}\,.
-\]
-<p>
-We can also compute the (time-inhomogeneous) transition kernel $q_t$ of $\\{W_t\\}$:
-\[
-q_t(x,y) =  \frac{e^{-\|v_t dt + x - y\|^2/2dt}}{(2\pi dt)^{n/2}} = p(x,y) e^{-\frac12 \|v_t\|^2 dt} e^{-\langle v_t, x-y\rangle}\,.
-\]
-Here we are using that $dW_t = dB_t + v_t\,dt$ and $v_t$ is deterministic conditioned on the past, thus
-the law of $dW_t$ is a normal with mean $v_t\,dt$ and covariance $dt \cdot I$.
-</p>
-
-<p>
-To avoid confusion of derivatives, let's use $\alpha_t$ for the density of $\mu_t$ and $\beta_t$ for the density of
-Brownian motion (recall that these are densities on paths).
-Now let us relate the density $\alpha_{t+dt}$ to the density $\alpha_{t}$.
-We use here the notations $\\{\hat W_t, \hat v_t, \hat B_t\\}$ to denote
-a (non-random) sample path of $\\{W_t\\}$:
-\begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \alpha_t(\hat W_{[0,t]})  q_t(\hat W_t, \hat W_{t+dt}) \\
-&amp;=  \alpha_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt-\langle \hat v_t,\hat W_t-\hat W_{t+dt}\rangle} \\
-&amp;=
-\alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t,d \hat W_t\rangle} \\
-&amp;=
-\alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle}\,,
-\end{align*}
-where the last line uses $d\hat W_t = d\hat B_t + \hat v_t\,dt$.
-</p>
-
-Now by ``heuristic'' induction, we can assume $\alpha_t(\hat W_{[0,t]})=\frac{1}{M_t} \beta_t(\hat W_{[0,t]})$, yielding
-\begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \frac{1}{M_t} \beta_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle} \\
-&amp;=
-\frac{1}{M_{t+dt}}  \beta_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) \\
-&amp;=
-\frac{1}{M_{t+dt}}  \beta_{t+dt}(\hat W_{[0,t+dt]})\,.
-\end{align*}
-In the last line, we used the fact that $p$ is the infinitesimal transition kernel for Brownian motion.
-</div>
-
-<h2 id="the-gaussian-log-sobolev-inequality">The Gaussian log-Sobolev inequality</h2>
-
-<p>Consider again a measurable $f : \mathbb R^n \to \mathbb R_+$ with $\int f\,d\gamma_n=1$.
-Let us define $\mathrm{Ent}_{\gamma_n}(f) = D(f\,d\gamma_n \,\|\,d\gamma_n)$.
-Then the classical log-Sobolev inequality in Gaussian space asserts that</p>
-
-<p>\begin{equation}\label{eq:logsob}
-\mathrm{Ent}_{\gamma_n}(f) \leq \frac12 \int \frac{|\nabla f|^2}{f}\,d\gamma_n\,.
-\end{equation}</p>
-
-<p>First, we discuss the correct way to interpret this.
-Define the Ornstein-Uhlenbeck semi-group $\{U_t\}$ by its action
-\[
-U_t f(x) = \mathbb{E}[f(e^{-t} x + \sqrt{1-e^{-2t}} B_1)]\,.
-\]
-This is the natural stationary diffusion process on Gaussian space.  For every measurable $f$, we have
-\[
-U_t f \to \int f d\gamma_n \quad \textrm{ as $t \to \infty$}\,,
-\]
-or equivalently
-\[
-\mathrm{Ent}_{\gamma_n}(U_t f) \to 0 \quad \textrm{ as $t \to \infty$}\,.
-\]</p>
-
-<p>
-The log-Sobolev inequality yields quantitative convergence in the relative entropy
-distance as follows:
-Define the <em>Fisher information</em>
-\[
-I(f) = \int \frac{\|\nabla f\|^2}{f} \,d\gamma_n\,.
-\]
-</p>
-
-<p>
-One can check that
-$$
-\frac{d}{dt} \mathrm{Ent}_{\gamma_n} (U_t f)\Big|_{t=0} = - I(f)\,,
-$$
-thus the Fisher information describes the instantaneous decay of the relative entropy of $f$
-under diffusion.
-</p>
-
-<p>
-So we can rewrite the log-Sobolev inequality as:
-\[
-- \frac{d}{dt} \mathrm{Ent}_{\gamma_n}(U_t f)\Big|_{t=0} \geq \mathrm{Ent}_{\gamma_n}(f)\,.
-\]
-This expresses the intuitive fact that when the relative entropy is large,
-its rate of decay toward equilibrium is faster.
-</p>
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/jekyll/pixyll/2015/11/21/follmer-drift/</guid>
-                <description>
-                    
-                    F&amp;ouml;llmer's drift, Ito's lemma, and the Gaussian log-Sobolev inequality
-                    
-                </description>
-                <pubDate>Sat, 21 Nov 2015 00:00:00 -0800</pubDate>
-                <author>James R. Lee</author>
-            </item>
-        
     
-  </channel>
-</rss>
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Regret+minimization+and+competitive+analysis&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fjekyll%2Fpixyll%2F2018%2F03%2F31%2Fcompetitive-analysis%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      pixyll theme available on
+      <a href="https://github.com/johnotander/pixyll">github</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

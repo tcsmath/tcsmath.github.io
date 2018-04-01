@@ -23,3 +23,7 @@ sup {
   vertical-align: middle;
   top: -0.9ex;
 }
+
+li:not(:last-child) {
+   margin-bottom: 8px;
+}
