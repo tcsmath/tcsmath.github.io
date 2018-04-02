@@ -86,7 +86,7 @@ Now we can analogously bound the regret:
 </p>
 where $x_T^* \seteq \argmin_{x \in \cE} \int_0^T \ell_t(x)\,dt$.
 
-We will start with $p_t(x) = 1/N$ for every $x \in \cE$, and
+We will start with $p_0(x) = 1/N$ for every $x \in \cE$, and
 employ the following exponential-weights strategy for updating $p_t$:
 \begin{equation}\label{eq:dynamics}
 \partial_t \log p_t(x) = \eta\left( - \ell_t(x) + \langle p_t, \ell_t\rangle\right),
