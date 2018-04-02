@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Regret minimization and competitive analysis
-date:       2018-03-31
+date:       2018-04-01
 summary:    Regret minimization vs. competitive analysis
 categories: online
 ---
