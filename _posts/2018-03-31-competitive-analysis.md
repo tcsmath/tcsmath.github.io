@@ -124,7 +124,7 @@ Integrating \eqref{eq:lya} over $[0,T]$ gives
 Applying this with $x=x_T^\*$ and recalling \eqref{eq:cont-regret}, we have
 <p>
 \begin{align*}
-   R_T  &\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{D(x_T^*;p_0)-D(x_T^*;p_T)}{\eta} \\
+   R_T  &\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{D(x_0^*;p_0)-D(x_T^*;p_T)}{\eta} \\
         &\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{\log N}{\eta} \\
         &\leq \eta T + \frac{\log N}{\eta}\,,
 \end{align*}
@@ -217,8 +217,12 @@ To fix this, we will design an algorithm that devotes a constant fraction of the
 it is currently incurring to exploring the strategy space.
 Essentially, this can be achieved by pretending that $p_t(x) \geq 1/(2N)$ for every $x \in \cE$.
 (Recall that $N = |\cE|$.)
-Define $p_0(x)=\1_{x_0}(x)$ where $x_0 \in X$ is the starting point.
+This transformation (mixing with the uniform distribution)
+is not uncommon in the bandit literature.
+In the setting of metrical task systems, I saw it for the first time
+in this paper of [Bansal, Buchbinder, and Naor](http://www.cs.technion.ac.il/~nivb/papers/weighted-paging.pdf) on the weighted paging problem.
 
+Define $p_0(x)=\1_{x_0}(x)$ where $x_0 \in X$ is the starting point.
 Let $\delta > 0$ be a number we will choose soon,
 and consider the dynamics:
 \begin{equation}\label{eq:mts-dynamics}
