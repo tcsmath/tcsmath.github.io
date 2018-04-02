@@ -17,7 +17,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201803312242" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804012022" type="text/css">
 
     <!-- Fonts -->
     
@@ -261,7 +261,7 @@ Integrating \eqref{eq:lya} over $[0,T]$ gives
 <p>Applying this with $x=x_T^*$ and recalling \eqref{eq:cont-regret}, we have</p>
 <p>
 \begin{align*}
-   R_T  &amp;\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{D(x_T^*;p_0)-D(x_T^*;p_T)}{\eta} \\
+   R_T  &amp;\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{D(x_0^*;p_0)-D(x_T^*;p_T)}{\eta} \\
         &amp;\leq \int_0^T \|\partial_t p_t\|_1\,dt + \frac{\log N}{\eta} \\
         &amp;\leq \eta T + \frac{\log N}{\eta}\,,
 \end{align*}
@@ -339,7 +339,7 @@ Indeed:
 \]
 i.e.,
 \[
-   \partial_t \log p_t(x_0) = - p_t(x_0)^2,
+   \partial_t p_t(x_0) = - p_t(x_0)^2,
 \]
 thus it will take roughly $1/\epsilon$ time before $p_t(x_0) &lt; 1/2$.
 </p>
@@ -355,9 +355,13 @@ to keep up with an offline algorithm that can switch strategies.</p>
 it is currently incurring to exploring the strategy space.
 Essentially, this can be achieved by pretending that $p_t(x) \geq 1/(2N)$ for every $x \in \cE$.
 (Recall that $N = |\cE|$.)
-Define $p_0(x)=\1_{x_0}(x)$ where $x_0 \in X$ is the starting point.</p>
+This transformation (mixing with the uniform distribution)
+is not uncommon in the bandit literature.
+In the setting of metrical task systems, I saw it for the first time
+in this paper of <a href="/assets/papers/pot.pdf">Bansal, Buchbinder, and Naor</a> on the weighted paging problem.</p>
 
-<p>Let $\delta &gt; 0$ be a number we will choose soon,
+<p>Define $p_0(x)=\1_{x_0}(x)$ where $x_0 \in X$ is the starting point.
+Let $\delta &gt; 0$ be a number we will choose soon,
 and consider the dynamics:
 \begin{equation}\label{eq:mts-dynamics}
    \partial_t \log (p_t(x)+\delta) = - \hat{c}_t(x) + \llangle \frac{p_t+\delta}{1+\delta N}, \hat{c}_t\rrangle\,,
@@ -433,7 +437,7 @@ Plugging this into \eqref{eq:first-mts} and rearranging gives
 \begin{align}\nonumber
    (1+&amp; \delta N)^{-1} \int_0^T \langle p_t + \delta, \hat{c}_t\rangle\,dt \\
 &amp;\leq 
-   \left[ D_{\delta}(x_{T}^*; p_0) - D_{\delta}(x_0^*, p_T) \right]
+   \left[ D_{\delta}(x_{0}^*; p_0) - D_{\delta}(x_T^*, p_T) \right]
     + \log(1/\delta) \sum_{t=1}^{\lfloor T\rfloor} d(x_t^*, x_{t-1}^*) + 
    \int_0^T \hat{c}_t(x_t^*)\,dt  \nonumber \\
    &amp;\leq

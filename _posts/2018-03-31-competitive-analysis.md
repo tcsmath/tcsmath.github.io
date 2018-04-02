@@ -220,7 +220,7 @@ Essentially, this can be achieved by pretending that $p_t(x) \geq 1/(2N)$ for ev
 This transformation (mixing with the uniform distribution)
 is not uncommon in the bandit literature.
 In the setting of metrical task systems, I saw it for the first time
-in this paper of [Bansal, Buchbinder, and Naor](http://www.cs.technion.ac.il/~nivb/papers/weighted-paging.pdf) on the weighted paging problem.
+in this paper of [Bansal, Buchbinder, and Naor](/assets/papers/pot.pdf) on the weighted paging problem.
 
 Define $p_0(x)=\1_{x_0}(x)$ where $x_0 \in X$ is the starting point.
 Let $\delta > 0$ be a number we will choose soon,
