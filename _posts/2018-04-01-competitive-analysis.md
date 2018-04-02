@@ -56,7 +56,7 @@ Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:
 <p>
 \begin{align}
    R_T &= \sum_{t=1}^T \langle p_t - p_{t+1},\ell_t\rangle + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \\
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \nonumber \\
    &\leq \sum_{t=1}^T \|p_t-p_{t+1}\|_1 + 
    \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,\label{eq:pseudo-regret}
 \end{align}
