@@ -4,19 +4,18 @@ layout: default
 
 <div class="post-header mb2">
   <h1>{{ page.title }}</h1>
-  <span class="post-meta">{{ page.date | date: site.date_format }}</span><br>
-  {% if page.update_date %}
-    <span class="post-meta">{{ site.text.post.updated }}: {{ page.update_date | date: site.date_format }}</span><br>
-  {% endif %}
+  <span class="post-meta">{{ page.date | date: site.date_format }}</span>
+   {% if page.update_date %}
+   <span class="post-meta">{{ site.text.post.updated }}: {{ page.update_date | date: site.date_format }}</span>
+   {% endif %}
+   {% if site.show_sharing_icons %}
+      &nbsp; {% include post_share_buttons.html %}
+   {% endif %}
 </div>
 
-<article class="post-content">
+<article class="post-content mb2">
   {{ content }}
 </article>
-
-{% if site.show_sharing_icons %}
-  {% include share_buttons.html %}
-{% endif %}
 
 {% if site.show_post_footers %}
   {% include post_footer.html %}
