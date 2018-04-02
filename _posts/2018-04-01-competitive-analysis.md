@@ -54,12 +54,12 @@ where for $f,g : \cE \to \R$, we write $\langle f,g\rangle = \sum_{y \in \cE} f(
 We will bound the regret in two steps.
 Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:
 <p>
-\begin{align*}
+\begin{align}
    R_T &= \sum_{t=1}^T \langle p_t - p_{t+1},\ell_t\rangle + 
    \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \\
    &\leq \sum_{t=1}^T \|p_t-p_{t+1}\|_1 + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,
-\end{align*}
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,\label{eq:pseudo-regret}
+\end{align}
 </p>
 where the inequality uses that the losses lie in $[0,1]$.
 
@@ -69,8 +69,14 @@ where the inequality uses that the losses lie in $[0,1]$.
 For a number of reasons, the analysis will be much cleaner in continuous time.
 We can think about the losses as a trajectory $\left\\{ \ell_t : \cE \to [0,1] \mid t \geq 0 \right\\}$,
 where the instantaneous loss incurred is $\ell_t\,dt$.
-To recover the discrete time setting, simply consider a trajectory $\\{ \ell_t : t \geq 0 \\}$
+As long as we are bounding the expression \eqref{eq:pseudo-regret},
+our continuous-time model will be *more general*
+than the discrete-time model.  The latter can be recovered by
+considering a trajectory $\\{ \ell_t : t \geq 0 \\}$
 that is piecewise-constant.
+If we were bounding the regret itself, the continuous-time model would have a time advantage,
+but once we shift time by one as in \eqref{eq:pseudo-regret},
+this advantage disappears.
 
 Now we can analogously bound the regret:
 <p>
