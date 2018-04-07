@@ -9,6 +9,288 @@
     
         
             <item>
+                <title>Navigating a convex body online</title>
+                <link>http://localhost:4000/online/2018/04/06/navigating/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>In the last lecture, we saw some algorithms that, while simple and appealing,
+were somewhat unmotivated.  We now try to derive them from general
+principles, and in a setting that will allow us to attack other
+problems in competitive analysis.
+<script type="math/tex">\def\K{\mathsf{K}}
+\def\R{\mathbb{R}}
+\def\seteq{\mathrel{\vcenter{:}}=}
+\def\cE{\mathcal{E}}
+\def\argmin{\mathrm{argmin}}
+\def\llangle{\left\langle}
+\def\rrangle{\right\rangle}
+\def\1{\mathbf{1}}
+\def\e{\varepsilon}</script></p>
+
+<h2 id="gradient-descent--the-proximal-view">Gradient descent:  The proximal view</h2>
+
+<p>Let us first recall the upper bound we derived for the regret in the last lecture:</p>
+
+<p>
+\begin{equation}\label{eq:regret}
+   R_T \leq \sum_{t=1}^T \left[ \|p_t-p_{t+1}\|_1 + \left\langle p_{t+1}, \ell_t - \ell_t(x_T^*) \right\rangle\right].
+\end{equation}
+</p>
+
+<p>Trying to minimize this expression this leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
+to simultaneously be stable (control the first term) and competitive (the second term).</p>
+
+<p>A very natural algorithm in this setting is gradient descent.
+Indeed, suppose that $\ell : \R^n \to \R$ is differentiable, and consider the optimization</p>
+<p>
+\[
+   \min \left\{  \frac12 \|x-x_0\|^2 + \eta \ell(x) : x \in \R^n \right\},
+\]
+</p>
+<p>where $\eta &gt; 0$ is a small constant and $\|\cdot\|$ denotes the Euclidean norm.  Then first-order optimality
+conditions dictate that the optimizer satisfies
+[
+   x^* = x_0 - \eta \nabla \ell(x_0) + O(\eta^2)\,.
+]</p>
+
+<p>Two questions immediately arise:  Why do we use the Euclidean norm when our reference problem \eqref{eq:regret}
+refers to the $\ell_1$ norm, and if $x$ is meant to encode a probability distribution,
+how do we maintain this constraint for $x^*$?</p>
+
+<h2 id="projected-gradient-descent">Projected gradient descent</h2>
+
+<p>Let’s address the feasibility problem first.  Suppose $\K \subseteq \R^n$ is a closed convex set
+and $F : \R^n \to \R^n$ is a sufficiently smooth vector field (think of $F = \nabla \ell$).
+How should we move in the direction of $F$ while simultaneously remaining inside $\K$?</p>
+
+<p>The unconstrained flow along $F$ can be described as
+a trajectory $x : [0,\infty) \to \R^n$ given by
+[
+   x’(t) = F(x(t))\,.
+]
+The most natural way to keep this flow inside $\K$ is to project back into the body whenever we leave.
+Define the Euclidean projection</p>
+<p>
+\[
+   P_{\K}(y) \seteq \argmin \left\{ \|y-z\|^2 : z \in \K \right\},
+\]
+</p>
+<p>and the result of taking an infinitesimal step in direction $v$ and and then projecting:
+[
+   \Pi_{\K}(x,v) \seteq \lim_{\e \to 0} \frac{P_{\K}(x+\e v) -x}{\e}\,.
+]
+Then the projected dynamics looks like
+[
+   x’(t) = \Pi_{\K} \left(x(t), F(x(t))\right)\,.
+]
+(As we will see, this is well-defined under mild assumptions.)
+This maintains feasibility,
+but still leaves us with the question of what
+role the Euclidean norm is playing.</p>
+
+<h2 id="a-riemannian-version">A Riemannian version</h2>
+
+<p>One can view $\Pi_{\K}(x, \cdot)$ as a function on the tangent space at $x$.
+To specify such a projection,
+we only need a local Euclidean structure.
+An inner product $\langle \cdot,\cdot\rangle_x$ that varies smoothly
+over $x \in \R^n$ is precisely a Riemannian metric.</p>
+
+<p>Equivalently, we specify at every point $x \in \R^n$, a smoothly varying positive-definite matrix $M(x)$
+so that</p>
+<p>
+\begin{align*}
+   \langle u,v\rangle_{M,x} &amp;= \langle u, M(x) v\rangle \\
+   \|u\|^2_{M,x} &amp;= \langle u,u\rangle_{M,x}.
+\end{align*}
+</p>
+<p>The associated projection operator is then given by</p>
+<p>
+\begin{align*}
+   P_{\K}^M(y; x) &amp;\seteq \argmin \left\{ \left\|y-z\right\|_{M,x}^2 : z \in \K \right\} \\
+   \Pi_{\K}^M(x,v) &amp;\seteq \lim_{\e \to 0} \frac{P_{\K}^M(x+\e v,x)-x}{\e}\,.
+\end{align*}
+</p>
+<p>This leads to the dynamical system:</p>
+<p>
+\begin{align*}
+   x'(t) &amp;= \Pi^M_{\K}\left(x(t),F(x(t))\right) \\
+   x(0) &amp;= x_0 \in \K\,.
+\end{align*}
+</p>
+
+<h2 id="lyapunov-functions">Lyapunov functions</h2>
+
+<p>The problem with stating things at this level of generality is that even when
+$F = \nabla \ell$ is the gradient of a convex function $\ell : \R^n \to \R$,
+we don’t have a global way of controlling convergence of $F(x(t))$ to $\min \{ F(x) : x \in \K \}$.
+In the Euclidean setting ($M(x) \equiv \mathrm{Id}$), there is a natural <a href="https://en.wikipedia.org/wiki/Lyapunov_function">Lyapunov function</a>:
+If $\ell$ is convex and $\ell(x^*) = \min \{ \ell(x) : x \in \K \}$,
+then for every $x \in \K$:</p>
+<p>
+\[
+   \langle - \nabla \ell(x), x^* - x\rangle \geq 0\,.
+\]
+</p>
+<p>In other words,
+gradient descent always makes progress toward $x^*$.</p>
+
+<p>If $x’(t) = \Pi_{\K}\left(x(t), \nabla \ell(x(t))\right)$, then
+in the language of competitive analysis, the quantity $\frac12 \|x(t)-x^*\|^2$
+acts a potential function (a global measure of progress).</p>
+
+<p>We will consider geometries that come equipped with such a
+Lyapunov function.  In a sense that can be formalized in various ways,
+these are the {\em Hessian structures on $\R^n$,} i.e., those
+arising when $M(x) = \nabla^2 \Phi(x)$ for some strongly convex function $\Phi : \K \to \R$.</p>
+
+<h1 id="mirror-descent-dynamics">Mirror descent dynamics</h1>
+
+<p>Consider now a compact, convex set $\K \subseteq \R^n$,
+a strongly convex function $\Phi : \K \to \R$,
+and a continuous time-varying vector field $F : [0,\infty) \times \K \to \R^n$.
+We will refer to <strong>continuous-time mirror descent</strong>
+as the dynamics specified by</p>
+<p>
+\begin{align*}
+   x'(t) &amp;= \Pi_{\K}^{\nabla^2 \Phi}\left(\vphantom{\bigoplus} x(t), F(t, x(t))\right) \\
+   x(0)  &amp;= x_0 \in \K.
+\end{align*}
+</p>
+
+<p>As one might expect, we can decompose $x’(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
+and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
+We recall the <strong>normal cone to $\K$ at $x$</strong> is given by</p>
+<p>
+\[
+   N_{\K}(x) = \left\{ p \in \R^n : \langle p,y -x \rangle \leq 0 \textrm{ for all } y \in \K \right\}.
+\]
+</p>
+<p>This is the set of directions that point out of the body $\K$.
+The next theorem is proved in 
+the paper
+<a href="https://homes.cs.washington.edu/~jrl/papers/pdf/kserver.pdf">k-server via multiscale entropic regularization</a>.</p>
+
+<p class="theorem" text="MD">
+<a name="thm:md"></a>
+   If $\nabla^2 \Phi(x)^{-1}$ is continuous on $\K$, then for any $x_0 \in \K$, there
+   is an absolutely continuous trajectory $x : [0,\infty) \to \K$ satisfying
+   \begin{align*}
+      \nabla^2 \Phi(x(t)) x'(t) &amp;\in F(t,x(t)) - N_{\K}(x(t)), \\
+      x(0) &amp;= x_0.
+   \end{align*}
+   Moreover, if $\nabla^2 \Phi(x)$ is Lipschitz on $\K$ and $F$ is locally Lipschitz, then the solution is unique.
+</p>
+
+<h2 id="lagrangian-multipliers">Lagrangian multipliers</h2>
+
+<p>If $\K$ is a polyhedron, the one can write</p>
+<p>
+\begin{equation}\label{eq:polyhedron}
+   \K = \{ x \in \R^n : Ax \leq b \}, \qquad A \in \R^{m \times n}, b \in \R^m\,.
+\end{equation}
+</p>
+<p>In this case, the normal cone at $x$ is the cone spanned by the normals of the tight constraints at $x$:</p>
+<p>
+\begin{equation}\label{eq:cone-poly}
+   N_{\K}(x) = \left\{ A^T y : y \geq 0 \textrm{ and } y^T(b-Ax)=0 \right\}.
+\end{equation}
+</p>
+
+<p>Consider now the application of <a href="#thm:md">Theorem MD</a> to a polyhedron and a solution $x : [0,\infty) \to \K$,
+$\lambda : [0,\infty) \to \R^n$ such that</p>
+<p>
+\begin{equation}\label{eq:traj}
+   \nabla^2 \Phi(x(t)) x'(t) = F(t,x(t)) - \lambda(t),
+\end{equation}
+</p>
+<p>and $\lambda(t) \in N_{\K}(x(t))$ for $t \geq 0$.</p>
+
+<p>Let us consider the dual variables to the constraints \eqref{eq:polyhedron}:
+We can fix a measurable $\hat{\lambda} : [0,\infty) \to \R^m_+$ such that
+[
+   A^T \hat{\lambda}(t) = \lambda(t), \quad t \geq 0.
+]
+Now \eqref{eq:cone-poly} and $\lambda(t) \in N_{\K}(x(t))$ yield the complementary-slackness
+conditions:  For all $i=1,2,\ldots,m$ and $t \geq 0$:
+[
+   \hat{\lambda}_i(t) &gt; 0 \implies \langle A_i,x(t)\rangle = b_i,
+]
+where $A_i$ is the $i$th row of $A$.</p>
+
+<h2 id="the-bregman-divergence-as-a-lyapunov-function">The Bregman divergence as a Lyapunov function</h2>
+
+<p>We promised earlier the existence of a functional to control the dynamics,
+and this is provided by the <strong>Bregman divergence associated to $\Phi$</strong>:</p>
+<p>
+\[
+   D_{\Phi}(y; x) \seteq \Phi(y) - \Phi(x) - \langle \nabla \Phi(x), y-x\rangle\,.
+\]
+</p>
+<p>Let $x(t)$ be a trajectory satisfying \eqref{eq:traj}.  Then for any $y \in \K$:</p>
+<p>
+\begin{align}
+   \partial_t D_{\Phi}(y; x(t)) &amp;= - \langle \nabla \Phi(x(t)), x'(t)\rangle  + \langle \nabla \Phi(x(t)), x'(t) \rangle
+   -\langle \partial_t \Phi(x(t)), y-x(t)\rangle \nonumber \\
+                                &amp;= - \langle \nabla^2 \Phi(x(t)) x'(t), y - x(t) \rangle \nonumber \\
+                                &amp;= - \langle F(t,x(t)) - \lambda(t), y-x(t)\rangle \nonumber \\
+                                &amp;\leq - \langle F(t,x(t)), y-x(t)\rangle \label{eq:div}\,,
+\end{align}
+</p>
+<p>where the last inequality used that $y \in \K$ and $\lambda(t) \in N_{\K}(x(t))$.</p>
+
+<p>If $F(t,x(t))=c(t)$ is a <em>cost function</em>, say, then this inequality
+aligns with a goal stated at the beginning of the first lecture:
+As long as the algorithm $x(t)$ is suffering more cost than some feasible point $y \in \K$,
+we would like to be “learning” about $y$.</p>
+
+<h2 id="the-algorithm-from-last-time">The algorithm from last time</h2>
+
+<p>In the next lecture, we will use this framework to derive and analyze
+algorithms for metrical task systems (MTS) and the $k$-server problem.
+For now, let us show that the algorithm and analysis
+from last time (for MTS on uniform metrics) fit precisely into our framework.</p>
+
+<p>Suppose that $\K = \{ x \in \R_+^n : \sum_{i=1}^n x_i = 1 \}$ is the probability simplex and</p>
+<p>
+\[
+   \Phi(x) = \sum_{i=1}^n (x_i+\delta) \log (x_i+\delta)
+\]
+</p>
+<p>is the (negative) entropy with some shift by $\delta &gt; 0$.</p>
+
+<p>Then $\nabla^2 \Phi(x)$ is a diagonal matrix with $\left(\nabla^2 \Phi(x)\right)_{ii} = \frac{1}{x_i+\delta}$.
+Let $F(t,\cdot) = -c(t)$ be a time-varying cost vector with $c(t) \geq 0$.</p>
+
+<p>Therefore \eqref{eq:traj} gives</p>
+<p>
+\begin{equation}\label{eq:shifted}
+   x_i'(t) = (x_i(t)+\delta) \left(-c_i(t) + \hat{\mu}(t) - \hat{\lambda}_i(t)\right).
+\end{equation}
+Here, $\hat{\lambda}_i(t)$ is the Lagrangian multiplier corresponding to the constraint $x_i \geq 0$,
+and $\hat{\mu}(t)$ is the multiplier corresponding to $\sum_{i=1}^n x_i = 1$.
+</p>
+
+<p>This is precisley the algorithm described before (as an exercise,
+one might try rewriting it to match exactly), and \eqref{eq:div} constitutes half of the analysis.
+In the next lecture, we will discuss some general methods for the other half:  Tracking the movement cost.</p>
+
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/online/2018/04/06/navigating/</guid>
+                <description>
+                    
+                    Continuous-time mirror descent analysis
+                    
+                </description>
+                <pubDate>Fri, 06 Apr 2018 00:00:00 -0700</pubDate>
+                <author>James R. Lee</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Regret minimization and competitive analysis</title>
                 <link>http://localhost:4000/online/2018/04/01/competitive-analysis/</link>
                 <content:encoded>
@@ -61,12 +343,12 @@ $$R_T \seteq \sum_{t=1}^T \langle p_t, \ell_t\rangle - \min_{x \in \cE} \sum_{t=
 <p>We will bound the regret in two steps.
 Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:</p>
 <p>
-\begin{align*}
+\begin{align}
    R_T &amp;= \sum_{t=1}^T \langle p_t - p_{t+1},\ell_t\rangle + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \\
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \nonumber \\
    &amp;\leq \sum_{t=1}^T \|p_t-p_{t+1}\|_1 + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,
-\end{align*}
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,\label{eq:pseudo-regret}
+\end{align}
 </p>
 <p>where the inequality uses that the losses lie in $[0,1]$.</p>
 
@@ -75,8 +357,14 @@ Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:</p>
 <p>For a number of reasons, the analysis will be much cleaner in continuous time.
 We can think about the losses as a trajectory $\left\{ \ell_t : \cE \to [0,1] \mid t \geq 0 \right\}$,
 where the instantaneous loss incurred is $\ell_t\,dt$.
-To recover the discrete time setting, simply consider a trajectory $\{ \ell_t : t \geq 0 \}$
-that is piecewise-constant.</p>
+As long as we are bounding the expression \eqref{eq:pseudo-regret},
+our continuous-time model will be <em>more general</em>
+than the discrete-time model.  The latter can be recovered by
+considering a trajectory $\{ \ell_t : t \geq 0 \}$
+that is piecewise-constant.
+If we were bounding the regret itself, the continuous-time model would have a time advantage,
+but once we shift time by one as in \eqref{eq:pseudo-regret},
+this advantage disappears.</p>
 
 <p>Now we can analogously bound the regret:</p>
 <p>
@@ -86,7 +374,7 @@ that is piecewise-constant.</p>
 </p>
 <p>where $x_T^* \seteq \argmin_{x \in \cE} \int_0^T \ell_t(x)\,dt$.</p>
 
-<p>We will start with $p_t(x) = 1/N$ for every $x \in \cE$, and
+<p>We will start with $p_0(x) = 1/N$ for every $x \in \cE$, and
 employ the following exponential-weights strategy for updating $p_t$:
 \begin{equation}\label{eq:dynamics}
 \partial_t \log p_t(x) = \eta\left( - \ell_t(x) + \langle p_t, \ell_t\rangle\right),

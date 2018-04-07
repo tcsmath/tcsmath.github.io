@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57020016-1"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-57020016-1');
+   </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Regret minimization and competitive analysis &#8211; tcs math</title>
@@ -17,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804012307" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804062251" type="text/css">
 
     <!-- Fonts -->
     
@@ -219,12 +227,12 @@ $$R_T \seteq \sum_{t=1}^T \langle p_t, \ell_t\rangle - \min_{x \in \cE} \sum_{t=
 <p>We will bound the regret in two steps.
 Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:</p>
 <p>
-\begin{align*}
+\begin{align}
    R_T &amp;= \sum_{t=1}^T \langle p_t - p_{t+1},\ell_t\rangle + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \\
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle \nonumber \\
    &amp;\leq \sum_{t=1}^T \|p_t-p_{t+1}\|_1 + 
-   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,
-\end{align*}
+   \sum_{t=1}^T \langle p_{t+1}, \ell_t-\ell_t(x_T^*)\rangle,\label{eq:pseudo-regret}
+\end{align}
 </p>
 <p>where the inequality uses that the losses lie in $[0,1]$.</p>
 
@@ -233,8 +241,14 @@ Denote $x_T^* \seteq \argmin_{x \in \cE} \sum_{t=1}^T \ell_t(x)$.  Then:</p>
 <p>For a number of reasons, the analysis will be much cleaner in continuous time.
 We can think about the losses as a trajectory $\left\{ \ell_t : \cE \to [0,1] \mid t \geq 0 \right\}$,
 where the instantaneous loss incurred is $\ell_t\,dt$.
-To recover the discrete time setting, simply consider a trajectory $\{ \ell_t : t \geq 0 \}$
-that is piecewise-constant.</p>
+As long as we are bounding the expression \eqref{eq:pseudo-regret},
+our continuous-time model will be <em>more general</em>
+than the discrete-time model.  The latter can be recovered by
+considering a trajectory $\{ \ell_t : t \geq 0 \}$
+that is piecewise-constant.
+If we were bounding the regret itself, the continuous-time model would have a time advantage,
+but once we shift time by one as in \eqref{eq:pseudo-regret},
+this advantage disappears.</p>
 
 <p>Now we can analogously bound the regret:</p>
 <p>
@@ -244,7 +258,7 @@ that is piecewise-constant.</p>
 </p>
 <p>where $x_T^* \seteq \argmin_{x \in \cE} \int_0^T \ell_t(x)\,dt$.</p>
 
-<p>We will start with $p_t(x) = 1/N$ for every $x \in \cE$, and
+<p>We will start with $p_0(x) = 1/N$ for every $x \in \cE$, and
 employ the following exponential-weights strategy for updating $p_t$:
 \begin{equation}\label{eq:dynamics}
 \partial_t \log p_t(x) = \eta\left( - \ell_t(x) + \langle p_t, \ell_t\rangle\right),
