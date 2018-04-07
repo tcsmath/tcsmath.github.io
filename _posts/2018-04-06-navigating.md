@@ -218,7 +218,7 @@ where $A_i$ is the $i$th row of $A$.
 ## The Bregman divergence as a Lyapunov function
 
 We promised earlier the existence of a functional to control the dynamics,
-and this is provided by the **Bregman divergence associated to $\Phi$**:
+and this is provided by the *Bregman divergence associated to $\Phi$*:
 <p>
 \[
    D_{\Phi}(y; x) \seteq \Phi(y) - \Phi(x) - \langle \nabla \Phi(x), y-x\rangle\,.
