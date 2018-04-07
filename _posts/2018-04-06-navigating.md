@@ -135,7 +135,7 @@ acts a potential function (a global measure of progress).
 
 We will consider geometries that come equipped with such a
 Lyapunov function.  In a sense that can be formalized in various ways,
-these are the {\em Hessian structures on $\R^n$,} i.e., those
+these are the *Hessian structures on $\R^n$*, i.e., those
 arising when $M(x) = \nabla^2 \Phi(x)$ for some strongly convex function $\Phi : \K \to \R$.
 
 # Mirror descent dynamics
