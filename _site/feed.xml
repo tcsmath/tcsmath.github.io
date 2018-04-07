@@ -177,7 +177,8 @@ the paper
    Moreover, if $\nabla^2 \Phi(x)$ is Lipschitz on $\K$ and $F$ is locally Lipschitz, then the solution is unique.
 &lt;/p&gt;
 
-&lt;p&gt;Note that \eqref{eq:inclusion} is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Differential_inclusion&quot;&gt;differential inclusion&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note that \eqref{eq:inclusion} is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Differential_inclusion&quot;&gt;differential inclusion&lt;/a&gt;:
+We only require that the derivative lies in the specified set.&lt;/p&gt;
 
 &lt;h2 id=&quot;lagrangian-multipliers&quot;&gt;Lagrangian multipliers&lt;/h2&gt;
 
