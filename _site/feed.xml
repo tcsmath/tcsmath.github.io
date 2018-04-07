@@ -78,10 +78,9 @@ Then the projected dynamics looks like
 [
    x’(t) = \Pi_{\K} \left(x(t), F(x(t))\right)\,.
 ]
-(As we will see, this is well-defined under mild assumptions.)
-This maintains feasibility,
-but still leaves us with the question of what
-role the Euclidean norm is playing.&lt;/p&gt;
+This is an example of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Projected_dynamical_system&quot;&gt;projected dynamical system&lt;/a&gt;.
+Having now addressed feasibility,
+but we are left to consider the role of the Euclidean norm.&lt;/p&gt;
 
 &lt;h2 id=&quot;a-riemannian-version&quot;&gt;A Riemannian version&lt;/h2&gt;
 
@@ -152,7 +151,7 @@ as the dynamics specified by&lt;/p&gt;
    x(0)  &amp;amp;= x_0 \in \K.
 \end{align*}
 &lt;/p&gt;
-&lt;p&gt;We will sometimes refer to $\Phi$ as the &lt;em&gt;mirror map&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;We will sometimes refer to $\Phi$ as the &lt;em&gt;mirror map.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;As one might expect, we can decompose $x’(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
 and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
@@ -171,12 +170,14 @@ the paper
 &lt;a name=&quot;thm:md&quot;&gt;&lt;/a&gt;
    If $\nabla^2 \Phi(x)^{-1}$ is continuous on $\K$, then for any $x_0 \in \K$, there
    is an absolutely continuous trajectory $x : [0,\infty) \to \K$ satisfying
-   \begin{align*}
-      \nabla^2 \Phi(x(t)) x'(t) &amp;amp;\in F(t,x(t)) - N_{\K}(x(t)), \\
-      x(0) &amp;amp;= x_0.
-   \end{align*}
+   \begin{align}
+      \nabla^2 \Phi(x(t)) x'(t) &amp;amp;\in F(t,x(t)) - N_{\K}(x(t)), \label{eq:inclusion}\\
+      x(0) &amp;amp;= x_0.\nonumber
+   \end{align}
    Moreover, if $\nabla^2 \Phi(x)$ is Lipschitz on $\K$ and $F$ is locally Lipschitz, then the solution is unique.
 &lt;/p&gt;
+
+&lt;p&gt;Note that \eqref{eq:inclusion} is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Differential_inclusion&quot;&gt;differential inclusion&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;lagrangian-multipliers&quot;&gt;Lagrangian multipliers&lt;/h2&gt;
 

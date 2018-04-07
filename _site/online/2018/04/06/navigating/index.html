@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804070202" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804070206" type="text/css">
 
     <!-- Fonts -->
     
@@ -249,10 +249,9 @@ Then the projected dynamics looks like
 [
    x’(t) = \Pi_{\K} \left(x(t), F(x(t))\right)\,.
 ]
-(As we will see, this is well-defined under mild assumptions.)
-This maintains feasibility,
-but still leaves us with the question of what
-role the Euclidean norm is playing.</p>
+This is an example of a <a href="https://en.wikipedia.org/wiki/Projected_dynamical_system">projected dynamical system</a>.
+Having now addressed feasibility,
+but we are left to consider the role of the Euclidean norm.</p>
 
 <h2 id="a-riemannian-version">A Riemannian version</h2>
 
@@ -323,7 +322,7 @@ as the dynamics specified by</p>
    x(0)  &amp;= x_0 \in \K.
 \end{align*}
 </p>
-<p>We will sometimes refer to $\Phi$ as the <em>mirror map</em>.</p>
+<p>We will sometimes refer to $\Phi$ as the <em>mirror map.</em></p>
 
 <p>As one might expect, we can decompose $x’(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
 and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
@@ -342,12 +341,14 @@ the paper
 <a name="thm:md"></a>
    If $\nabla^2 \Phi(x)^{-1}$ is continuous on $\K$, then for any $x_0 \in \K$, there
    is an absolutely continuous trajectory $x : [0,\infty) \to \K$ satisfying
-   \begin{align*}
-      \nabla^2 \Phi(x(t)) x'(t) &amp;\in F(t,x(t)) - N_{\K}(x(t)), \\
-      x(0) &amp;= x_0.
-   \end{align*}
+   \begin{align}
+      \nabla^2 \Phi(x(t)) x'(t) &amp;\in F(t,x(t)) - N_{\K}(x(t)), \label{eq:inclusion}\\
+      x(0) &amp;= x_0.\nonumber
+   \end{align}
    Moreover, if $\nabla^2 \Phi(x)$ is Lipschitz on $\K$ and $F$ is locally Lipschitz, then the solution is unique.
 </p>
+
+<p>Note that \eqref{eq:inclusion} is a <a href="https://en.wikipedia.org/wiki/Differential_inclusion">differential inclusion</a>.</p>
 
 <h2 id="lagrangian-multipliers">Lagrangian multipliers</h2>
 

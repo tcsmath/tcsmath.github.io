@@ -77,10 +77,9 @@ Then the projected dynamics looks like
 \[
    x'(t) = \Pi_{\K} \left(x(t), F(x(t))\right)\,.
 \]
-(As we will see, this is well-defined under mild assumptions.)
-This maintains feasibility,
-but still leaves us with the question of what
-role the Euclidean norm is playing.
+This is an example of a [projected dynamical system](https://en.wikipedia.org/wiki/Projected_dynamical_system).
+Having now addressed feasibility,
+but we are left to consider the role of the Euclidean norm.
 
 ## A Riemannian version
 
@@ -170,12 +169,14 @@ the paper
 <a name="thm:md"></a>
    If $\nabla^2 \Phi(x)^{-1}$ is continuous on $\K$, then for any $x_0 \in \K$, there
    is an absolutely continuous trajectory $x : [0,\infty) \to \K$ satisfying
-   \begin{align*}
-      \nabla^2 \Phi(x(t)) x'(t) &\in F(t,x(t)) - N_{\K}(x(t)), \\
-      x(0) &= x_0.
-   \end{align*}
+   \begin{align}
+      \nabla^2 \Phi(x(t)) x'(t) &\in F(t,x(t)) - N_{\K}(x(t)), \label{eq:inclusion}\\
+      x(0) &= x_0.\nonumber
+   \end{align}
    Moreover, if $\nabla^2 \Phi(x)$ is Lipschitz on $\K$ and $F$ is locally Lipschitz, then the solution is unique.
 </p>
+
+Note that \eqref{eq:inclusion} is a [differential inclusion](https://en.wikipedia.org/wiki/Differential_inclusion).
 
 ## Lagrangian multipliers
 
