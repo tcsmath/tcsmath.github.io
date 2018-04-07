@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804062305" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804070202" type="text/css">
 
     <!-- Fonts -->
     
@@ -203,7 +203,7 @@ problems in competitive analysis.
 \end{equation}
 </p>
 
-<p>Trying to minimize this expression this leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
+<p>Trying to minimize this expression leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
 to simultaneously be stable (control the first term) and competitive (the second term).</p>
 
 <p>A very natural algorithm in this setting is gradient descent.
@@ -323,6 +323,7 @@ as the dynamics specified by</p>
    x(0)  &amp;= x_0 \in \K.
 \end{align*}
 </p>
+<p>We will sometimes refer to $\Phi$ as the <em>mirror map</em>.</p>
 
 <p>As one might expect, we can decompose $x’(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
 and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
@@ -423,7 +424,9 @@ from last time (for MTS on uniform metrics) fit precisely into our framework.</p
    \Phi(x) = \sum_{i=1}^n (x_i+\delta) \log (x_i+\delta)
 \]
 </p>
-<p>is the (negative) entropy with some shift by $\delta &gt; 0$.</p>
+<p>is the (negative) entropy with some shift by $\delta &gt; 0$.
+In the next lecture, we will see why the negative entropy
+arises naturally as a mirror map.</p>
 
 <p>Then $\nabla^2 \Phi(x)$ is a diagonal matrix with $\left(\nabla^2 \Phi(x)\right)_{ii} = \frac{1}{x_i+\delta}$.
 Let $F(t,\cdot) = -c(t)$ be a time-varying cost vector with $c(t) \geq 0$.</p>

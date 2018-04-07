@@ -151,6 +151,7 @@ as the dynamics specified by
    x(0)  &= x_0 \in \K.
 \end{align*}
 </p>
+We will sometimes refer to $\Phi$ as the *mirror map.*
 
 As one might expect, we can decompose $x'(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
 and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
@@ -252,6 +253,8 @@ Suppose that $\K = \\{ x \in \R_+^n : \sum_{i=1}^n x_i = 1 \\}$ is the probabili
 \]
 </p>
 is the (negative) entropy with some shift by $\delta > 0$.
+In the next lecture, we will see why the negative entropy
+arises naturally as a mirror map.
 
 Then $\nabla^2 \Phi(x)$ is a diagonal matrix with $\left(\nabla^2 \Phi(x)\right)_{ii} = \frac{1}{x_i+\delta}$.
 Let $F(t,\cdot) = -c(t)$ be a time-varying cost vector with $c(t) \geq 0$.

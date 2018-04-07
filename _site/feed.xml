@@ -32,7 +32,7 @@ problems in competitive analysis.
 \end{equation}
 &lt;/p&gt;
 
-&lt;p&gt;Trying to minimize this expression this leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
+&lt;p&gt;Trying to minimize this expression leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
 to simultaneously be stable (control the first term) and competitive (the second term).&lt;/p&gt;
 
 &lt;p&gt;A very natural algorithm in this setting is gradient descent.
@@ -152,6 +152,7 @@ as the dynamics specified by&lt;/p&gt;
    x(0)  &amp;amp;= x_0 \in \K.
 \end{align*}
 &lt;/p&gt;
+&lt;p&gt;We will sometimes refer to $\Phi$ as the &lt;em&gt;mirror map&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;As one might expect, we can decompose $x’(t)$ into two components:  One flowing in the direction $F(t,x(t))$,
 and the other component arising from the normal forces that are keeping $x(t)$ inside $\K$.
@@ -252,7 +253,9 @@ from last time (for MTS on uniform metrics) fit precisely into our framework.&lt
    \Phi(x) = \sum_{i=1}^n (x_i+\delta) \log (x_i+\delta)
 \]
 &lt;/p&gt;
-&lt;p&gt;is the (negative) entropy with some shift by $\delta &amp;gt; 0$.&lt;/p&gt;
+&lt;p&gt;is the (negative) entropy with some shift by $\delta &amp;gt; 0$.
+In the next lecture, we will see why the negative entropy
+arises naturally as a mirror map.&lt;/p&gt;
 
 &lt;p&gt;Then $\nabla^2 \Phi(x)$ is a diagonal matrix with $\left(\nabla^2 \Phi(x)\right)_{ii} = \frac{1}{x_i+\delta}$.
 Let $F(t,\cdot) = -c(t)$ be a time-varying cost vector with $c(t) \geq 0$.&lt;/p&gt;
