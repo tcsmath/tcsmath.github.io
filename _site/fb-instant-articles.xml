@@ -239,7 +239,7 @@ and this is provided by the <strong>Bregman divergence associated to $\Phi$</str
 </p>
 <p>where the last inequality used that $y \in \K$ and $\lambda(t) \in N_{\K}(x(t))$.</p>
 
-<p>If $F(t,x(t))=c(t)$ is a <em>cost function</em>, say, then this inequality
+<p>If $F(t,x(t)) = - c(t)$ is a <em>cost function</em>, say, then this inequality
 aligns with a goal stated at the beginning of the first lecture:
 As long as the algorithm $x(t)$ is suffering more cost than some feasible point $y \in \K$,
 we would like to be “learning” about $y$.</p>

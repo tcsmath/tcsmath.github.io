@@ -233,7 +233,7 @@ Let $x(t)$ be a trajectory satisfying \eqref{eq:traj}.  Then for any $y \in \K$:
 </p>
 where the last inequality used that $y \in \K$ and $\lambda(t) \in N_{\K}(x(t))$.
 
-If $F(t,x(t))=c(t)$ is a *cost function*, say, then this inequality
+If $F(t,x(t)) = - c(t)$ is a *cost function*, say, then this inequality
 aligns with a goal stated at the beginning of the first lecture:
 As long as the algorithm $x(t)$ is suffering more cost than some feasible point $y \in \K$,
 we would like to be "learning" about $y$.
