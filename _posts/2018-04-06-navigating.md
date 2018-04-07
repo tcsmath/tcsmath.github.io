@@ -31,7 +31,7 @@ Let us first recall the upper bound we derived for the regret in the last lectur
 \end{equation}
 </p>
 
-Trying to minimize this expression this leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
+Trying to minimize this expression leads to the question of how we should update our probability distribution $p_t \to p_{t+1}$
 to simultaneously be stable (control the first term) and competitive (the second term).
 
 A very natural algorithm in this setting is gradient descent.
