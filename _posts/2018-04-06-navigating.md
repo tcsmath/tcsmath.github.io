@@ -87,9 +87,9 @@ One can view $\Pi_{\K}(x, \cdot)$ as a function on the tangent space at $x$.
 To specify such a projection,
 we only need a local Euclidean structure.
 An inner product $\langle \cdot,\cdot\rangle_x$ that varies smoothly
-over $x \in \R^n$ is precisely a Riemannian metric.
+over $x \in \K$ is precisely a Riemannian metric.
 
-Equivalently, we specify at every point $x \in \R^n$, a smoothly varying positive-definite matrix $M(x)$
+Equivalently, we specify at every point $x \in \K$, a smoothly varying positive-definite matrix $M(x)$
 so that
 <p>
 \begin{align*}
