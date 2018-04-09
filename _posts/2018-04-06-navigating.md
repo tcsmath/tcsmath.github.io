@@ -79,7 +79,7 @@ Then the projected dynamics looks like
 \]
 This is an example of a [projected dynamical system](https://en.wikipedia.org/wiki/Projected_dynamical_system).
 Having now addressed feasibility,
-but we are left to consider the role of the Euclidean norm.
+we are left to consider the role of the Euclidean norm.
 
 ## A Riemannian version
 
