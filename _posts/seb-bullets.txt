@@ -22,8 +22,12 @@ MTS on a weighted star
 - A\delta = b?
 
 k-server on a weighted star
+- k-server as a special case of MTS
+- The representation problem and online rounding
+- Solve the fractional problem
 - Discuss a different way of implementing the shift
 - Analyze k-server
-- Discuss the marking algorithm
+- Discuss the marking algorithm?
 - Ask about online rounding
+
 

@@ -184,10 +184,10 @@ and therefore
 \begin{align}
    \partial_t D_{\Phi}(z_t; y) &= \langle \nabla \Phi(z_t) - \nabla \Phi(y), \partial_t z_t \rangle \nonumber \\
                                &\leq \left(\|\nabla \Phi(y)\|_* + \|\nabla \Phi(z_t)\|_*\right) \|\partial_t z_t\| \nonumber \\
-                               &\leq 2 \Lip_{\K, \|\cdot\|_*} (\nabla \Phi) \cdot \|\partial_t z_t\|,\label{eq:move}
+                               &\leq 2 \Lip_{\K, \|\cdot\|_*} (\nabla \Phi) \cdot \|\partial_t z_t\|.\label{eq:move}
    \end{align}
 </p>
-the first inequality holds for any norm $\\|\cdot\\|$, we use $\\|\cdot\\|_\*$ for the dual norm, and
+The first inequality holds for any norm $\\|\cdot\\|$, we use $\\|\cdot\\|_\*$ for the dual norm, and
 <p>
 \[
    \Lip_{\K,\|\cdot\|_*}(f) = \sup_{z \in \K} \|f(z)\|_*.
@@ -243,7 +243,7 @@ Note that rearranging yields
 If $q_0=p_0$, then $D_{\Phi}(p_0;q_0) = 0$ and $D_{\Phi} \geq 0$ always, so integrating would seem
 to give us an $O(\log (1/\delta))$-competitive algorithm.
 
-But this is only true if $\\|\partial_t p_t]\\|_{\ell_1(w)} \asymp \langle c_t, p_t\rangle$,
+But this is only true if $\\|\partial_t p_t\\|_{\ell_1(w)} \asymp \langle c_t, p_t\rangle$,
 and our previous calculations toward this end do not necessarily hold
 once we incorporate the shift by $\delta$.
 This will be the fundamental tension in the course:
@@ -274,7 +274,7 @@ Toward this end, let us write
 \]
 </p>
 where $\xi_t : X \to \R_+$ are the multipliers corresponding to the positivity constraints $p(x) \geq 0$
-and $\mu_t : X \to \R$ is the multiplier corresponding to the constraint $\sum_{x \in X} p(x) = 0$.
+and $\mu_t : X \to \R$ is the multiplier corresponding to the constraint $\sum_{x \in X} p(x) = 1$.
 Note that this decomposition is not necessarily unique, but what we want is that
 the complementary slackness conditions hold:  $\xi_t(x) > 0 \implies p_t(x)=0$.
 (See the discussion of the normal cone for a polytope from the preceding lecture.)

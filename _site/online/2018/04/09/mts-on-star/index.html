@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804092207" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804101444" type="text/css">
 
     <!-- Fonts -->
     
@@ -346,7 +346,7 @@ to be a weighted entropy:</p>
 <p>The second thing we need to address is that \eqref{eq:lya} compares our service cost
 against that of a fixed distribution $q$.  In order to analyze how we track a moving target,
 let’s take a step back and compute $\partial_t D_{\Phi}(z_t; y)$ for a general 
-strongly convex function $\Phi$.  Recall that</p>
+strictly convex function $\Phi$.  Recall that</p>
 <p>
 \[
    D_{\Phi}(z;y) = \Phi(z) - \Phi(y) - \langle \nabla \Phi(y), z-y\rangle,
@@ -357,10 +357,10 @@ strongly convex function $\Phi$.  Recall that</p>
 \begin{align}
    \partial_t D_{\Phi}(z_t; y) &amp;= \langle \nabla \Phi(z_t) - \nabla \Phi(y), \partial_t z_t \rangle \nonumber \\
                                &amp;\leq \left(\|\nabla \Phi(y)\|_* + \|\nabla \Phi(z_t)\|_*\right) \|\partial_t z_t\| \nonumber \\
-                               &amp;\leq 2 \Lip_{\K, \|\cdot\|_*} (\nabla \Phi) \cdot \|\partial_t z_t\|,\label{eq:move}
+                               &amp;\leq 2 \Lip_{\K, \|\cdot\|_*} (\nabla \Phi) \cdot \|\partial_t z_t\|.\label{eq:move}
    \end{align}
 </p>
-<p>the first inequality holds for any norm $\|\cdot\|$, we use $\|\cdot\|_*$ for the dual norm, and</p>
+<p>The first inequality holds for any norm $\|\cdot\|$, we use $\|\cdot\|_*$ for the dual norm, and</p>
 <p>
 \[
    \Lip_{\K,\|\cdot\|_*}(f) = \sup_{z \in \K} \|f(z)\|_*.
@@ -416,7 +416,7 @@ that exponential weights is too conservative to be competitive against a moving 
 <p>If $q_0=p_0$, then $D_{\Phi}(p_0;q_0) = 0$ and $D_{\Phi} \geq 0$ always, so integrating would seem
 to give us an $O(\log (1/\delta))$-competitive algorithm.</p>
 
-<p>But this is only true if $\|\partial_t p_t]\|_{\ell_1(w)} \asymp \langle c_t, p_t\rangle$,
+<p>But this is only true if $\|\partial_t p_t\|_{\ell_1(w)} \asymp \langle c_t, p_t\rangle$,
 and our previous calculations toward this end do not necessarily hold
 once we incorporate the shift by $\delta$.
 This will be the fundamental tension in the course:
@@ -447,7 +447,7 @@ and we will implement a different strategy for the exploration shift.</p>
 \]
 </p>
 <p>where $\xi_t : X \to \R_+$ are the multipliers corresponding to the positivity constraints $p(x) \geq 0$
-and $\mu_t : X \to \R$ is the multiplier corresponding to the constraint $\sum_{x \in X} p(x) = 0$.
+and $\mu_t : X \to \R$ is the multiplier corresponding to the constraint $\sum_{x \in X} p(x) = 1$.
 Note that this decomposition is not necessarily unique, but what we want is that
 the complementary slackness conditions hold:  $\xi_t(x) &gt; 0 \implies p_t(x)=0$.
 (See the discussion of the normal cone for a polytope from the preceding lecture.)</p>
