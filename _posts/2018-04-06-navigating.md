@@ -135,12 +135,12 @@ acts a potential function (a global measure of progress).
 We will consider geometries that come equipped with such a
 Lyapunov function.  In a sense that can be formalized in various ways,
 these are the *Hessian structures on $\R^n$*, i.e., those
-arising when $M(x) = \nabla^2 \Phi(x)$ for some strongly convex function $\Phi : \K \to \R$.
+arising when $M(x) = \nabla^2 \Phi(x)$ for some strictly convex function $\Phi : \K \to \R$.
 
 # Mirror descent dynamics
 
 Consider now a compact, convex set $\K \subseteq \R^n$,
-a strongly convex function $\Phi : \K \to \R$,
+a strictly convex function $\Phi : \K \to \R$,
 and a continuous time-varying vector field $F : [0,\infty) \times \K \to \R^n$.
 We will refer to **continuous-time mirror descent**
 as the dynamics specified by

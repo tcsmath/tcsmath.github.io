@@ -173,7 +173,7 @@ as desired.
 The second thing we need to address is that \eqref{eq:lya} compares our service cost
 against that of a fixed distribution $q$.  In order to analyze how we track a moving target,
 let's take a step back and compute $\partial_t D_{\Phi}(z_t; y)$ for a general 
-strongly convex function $\Phi$.  Recall that
+strictly convex function $\Phi$.  Recall that
 <p>
 \[
    D_{\Phi}(z;y) = \Phi(z) - \Phi(y) - \langle \nabla \Phi(y), z-y\rangle,
