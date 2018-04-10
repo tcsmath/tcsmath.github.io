@@ -52,8 +52,8 @@ At every point in time, the adversary chooses a uniformly random $z_t \in X$ and
 the cost function by $c_t(z_t)=+\infty$ and $c_t(z)=0$ for $z \neq z_t$.
 Clearly any online algorithm incurs movement cost $\asymp t/n$ in expectation after $t$ steps.
 On the other hand, an offline algorithm can break the request sequence into phases
-$0 = t_0 < t_1 < t_2 < \cdots$ such that the times $\{t_i\}$
-are minimal subject to the constraint $\{1,2,\ldots,n\} = \{z_{t_i+1}, \ldots, z_{t_{i+1}}\}$.
+$0 = t_0 < t_1 < t_2 < \cdots$ such that the times $\\{t_i\\}$
+are minimal subject to the constraint $\\{1,2,\ldots,n\\} = \\{z_{t_i+1}, \ldots, z_{t_{i+1}}\\}$.
 Clearly the offline algorithm only has to move once per phase, and by a standard coupon collector
 argument, the expected length of each phase is $\asymp n \log n$.  Thus the offline algorithm
 only incurs movement cost $\asymp t/(n \log n)$.
