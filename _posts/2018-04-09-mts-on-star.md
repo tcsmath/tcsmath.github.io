@@ -301,7 +301,6 @@ use $\langle \mu_t, r_0- p_t\rangle=0$ to write
    = \llangle \nabla^2 \Phi(p_t) \partial_t p_t, p_t-r_0 \rrangle = \partial_t D_{\Phi}(r_0; p_t).
 \]
 </p>
-One can interpret this calculation as follows:  As long as we are paying 
 
 Putting this all together and using $r_0 = \frac{1}{n} \1$ yields
 <p>
