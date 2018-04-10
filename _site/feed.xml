@@ -196,7 +196,7 @@ strongly convex function $\Phi$.  Recall that&lt;/p&gt;
 \]
 &lt;/p&gt;
 
-&lt;p&gt;Returning from the abstract to our current setting, it makes sense to choose $|\cdot| = |\cdot|_{\ell_1(w)}$,
+&lt;p&gt;Returning from the abstract to our current setting, it makes sense to choose $\|\cdot\| = \|\cdot\|_{\ell_1(w)}$,
 and then \eqref{eq:move} exactly says that when a point moves away
 from us in the Bregman divergence, it must pay for this with its own movement cost!
 Using the chain rule, we now have&lt;/p&gt;

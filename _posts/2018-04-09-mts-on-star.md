@@ -194,7 +194,7 @@ the first inequality holds for any norm $\\|\cdot\\|$, we use $\\|\cdot\\|_\*$ f
 \]
 </p>
 
-Returning from the abstract to our current setting, it makes sense to choose $\|\cdot\| = \|\cdot\|_{\ell_1(w)}$,
+Returning from the abstract to our current setting, it makes sense to choose $\\|\cdot\\| = \\|\cdot\\|_{\ell_1(w)}$,
 and then \eqref{eq:move} exactly says that when a point moves away
 from us in the Bregman divergence, it must pay for this with its own movement cost!
 Using the chain rule, we now have
