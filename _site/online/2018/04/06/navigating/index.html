@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804070208" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804091728" type="text/css">
 
     <!-- Fonts -->
     
@@ -251,7 +251,7 @@ Then the projected dynamics looks like
 ]
 This is an example of a <a href="https://en.wikipedia.org/wiki/Projected_dynamical_system">projected dynamical system</a>.
 Having now addressed feasibility,
-but we are left to consider the role of the Euclidean norm.</p>
+we are left to consider the role of the Euclidean norm.</p>
 
 <h2 id="a-riemannian-version">A Riemannian version</h2>
 
@@ -259,9 +259,9 @@ but we are left to consider the role of the Euclidean norm.</p>
 To specify such a projection,
 we only need a local Euclidean structure.
 An inner product $\langle \cdot,\cdot\rangle_x$ that varies smoothly
-over $x \in \R^n$ is precisely a Riemannian metric.</p>
+over $x \in \K$ is precisely a Riemannian metric.</p>
 
-<p>Equivalently, we specify at every point $x \in \R^n$, a smoothly varying positive-definite matrix $M(x)$
+<p>Equivalently, we specify at every point $x \in \K$, a smoothly varying positive-definite matrix $M(x)$
 so that</p>
 <p>
 \begin{align*}
@@ -390,7 +390,7 @@ where $A_i$ is the $i$th row of $A$.</p>
 <h2 id="the-bregman-divergence-as-a-lyapunov-function">The Bregman divergence as a Lyapunov function</h2>
 
 <p>We promised earlier the existence of a functional to control the dynamics,
-and this is provided by the <strong>Bregman divergence associated to $\Phi$</strong>:</p>
+and this is provided by the <em>Bregman divergence associated to $\Phi$</em>:</p>
 <p>
 \[
    D_{\Phi}(y; x) \seteq \Phi(y) - \Phi(x) - \langle \nabla \Phi(x), y-x\rangle\,.

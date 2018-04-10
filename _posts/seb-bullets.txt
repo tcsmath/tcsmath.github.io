@@ -1,10 +1,6 @@
 
 Reduction of online learning to MTS with uniform metric
 
-A gradient descent based strategy (three views: descent form, proximal form, and regularization form)
-Beyond Euclidean spaces: mirror descent
-A continuous time mirror descent
-Lyapunov function analysis
 ? Guessing the discrete time bound with second order derivative in the potential
 
 Gradient descent (three forms?)
