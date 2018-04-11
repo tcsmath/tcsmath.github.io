@@ -225,7 +225,7 @@ To fix this problem, we will consider the shifted entropy:
 Observe that now:
 <p>
 \[
-   \Lip_{\K,\|\cdot\|_*} (\nabla \Phi) \leq \log (1/\delta).
+   \Lip_{\K,\|\cdot\|_*} (\Phi) \leq \log (1/\delta).
 \]
 </p>
 Plugging this into \eqref{eq:move} gives

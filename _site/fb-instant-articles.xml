@@ -191,13 +191,14 @@ strictly convex function $\Phi$.  Recall that</p>
 \begin{align}
    \partial_t D_{\Phi}(z_t; y) &amp;= \langle \nabla \Phi(z_t) - \nabla \Phi(y), \partial_t z_t \rangle \nonumber \\
                                &amp;\leq \left(\|\nabla \Phi(y)\|_* + \|\nabla \Phi(z_t)\|_*\right) \|\partial_t z_t\| \nonumber \\
-                               &amp;\leq 2 \Lip_{\K, \|\cdot\|_*} (\nabla \Phi) \cdot \|\partial_t z_t\|.\label{eq:move}
+                               &amp;\leq 2 \Lip_{\K, \|\cdot\|_*} (\Phi) \cdot \|\partial_t z_t\|.\label{eq:move}
    \end{align}
 </p>
-<p>The first inequality holds for any norm $\|\cdot\|$, we use $\|\cdot\|_*$ for the dual norm, and</p>
+<p>The first inequality holds for any norm $\|\cdot\|$, we use $\|\cdot\|_*$ for the dual norm, and
+we write</p>
 <p>
 \[
-   \Lip_{\K,\|\cdot\|_*}(f) = \sup_{z \in \K} \|f(z)\|_*.
+   \Lip_{\K,\|\cdot\|_*}(f) = \sup_{z \in \K} \|\nabla f(z)\|_*.
 \]
 </p>
 
@@ -208,11 +209,11 @@ Using the chain rule, we now have</p>
 <p>
 \begin{equation}\label{eq:breg2}
    \partial_t D_{\Phi}(q_t; p_t) \leq \langle c_t, q_t-p_t\rangle +
-2 \Lip_{\K, \|\cdot\|_{*}} (\nabla \Phi) \cdot \|\partial_t q_t\|_{\ell_1(w)}
+2 \Lip_{\K, \|\cdot\|_{*}} (\Phi) \cdot \|\partial_t q_t\|_{\ell_1(w)}
 \end{equation}
 </p>
 
-<p>This looks great, except that we need to calculate the Lipshitz constant of $\nabla \Phi$.
+<p>This looks great, except that we need to calculate the Lipshitz constant of $\Phi$.
 If we try
 this for the weighted entropy $\Phi_w$, we immediately run into a problem:
 Since $(\nabla \Phi_w(p))(x) = w_x (1+\log p(x))$, the $\ell_{\infty}$ norm blows up as $p(x) \to 0$.
