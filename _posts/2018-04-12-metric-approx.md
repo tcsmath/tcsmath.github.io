@@ -237,12 +237,12 @@ Clearly $P$ is $\Delta$-bounded by construction.
 Fix $r \leq \Delta/8$ and observe first that
 <p>
 \[
-   \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] = \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
+   \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] \geq \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
 \]
 </p>
 This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
 will decide the fate of $B(x,r)$, and the corresponding cluster will contain
-the entire ball only if the point lies in $B(x,\mathbf{R}-r)$.
+all of $B(x,r)$ if the center lies in $B(x,\mathbf{R}-r)$.
 
 Thus we have:
 <p>

@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804122043" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804122048" type="text/css">
 
     <!-- Fonts -->
     
@@ -411,12 +411,12 @@ Our random partitioning is formed by iteratively carving out balls:</p>
 <p>Fix $r \leq \Delta/8$ and observe first that</p>
 <p>
 \[
-   \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] = \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
+   \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] \geq \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
 \]
 </p>
 <p>This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
 will decide the fate of $B(x,r)$, and the corresponding cluster will contain
-the entire ball only if the point lies in $B(x,\mathbf{R}-r)$.</p>
+all of $B(x,r)$ if the center lies in $B(x,\mathbf{R}-r)$.</p>
 
 <p>Thus we have:</p>
 <p>
