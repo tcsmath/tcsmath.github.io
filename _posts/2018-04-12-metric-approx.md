@@ -205,11 +205,11 @@ Define the random subset:
 We claim that
 <p>
 \[
-   d_{\mathcal{P}}(x,y) \geq d(x,y) \geq \frac{\e}{8} d_{\mathcal{P}}(x,y) \qquad \forall x,y \in \mathbf{S}\,.
+   D_{\mathcal{P}}(x,y) \geq d(x,y) \geq \frac{\e}{8} D_{\mathcal{P}}(x,y) \qquad \forall x,y \in \mathbf{S}\,.
 \]
 </p>
 The LHS is simply from \eqref{eq:exp}.
-For the RHS, observe that if $d_{\mathcal{P}}(x,y)=8^{j+1}$, then $P_j(x) \neq P_j(y)$,
+For the RHS, observe that if $D_{\mathcal{P}}(x,y)=8^{j+1}$, then $P_j(x) \neq P_j(y)$,
 hence $B(x,\e 8^j) \subseteq P_j(x) \implies d(x,y) \geq \e 8^j$.
 
 Now the random partitioning lemma gives, for any $x \in X$,
