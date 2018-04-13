@@ -170,7 +170,7 @@ We will first establish these consequences and then prove the lemma.
 
 ## Approximation by a random ultrametric
 
-Let's prove **<a href="#thm1">Theorem 1</a>**.
+Let's prove <a href="#thm1">Theorem 1</a>.
 Let $\mathcal{P} = \\{ P_j : j \in \mathbb{Z} \\}$ be the random sequence where $P_j$ results from the
 random partitioning lemma applied with $\Delta = 8^j$ and we take the partitions to be mutually independent.
 Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
@@ -194,7 +194,7 @@ and in the last inequality we evaluate a telescoping sum.
 
 ## Finding a large approximate ultrametric inside $X$
 
-Now we prove **<a href="#thm2">Theorem 2</a>**.
+Now we prove <a href="#thm2">Theorem 2</a>.
 Let $\mathcal{P}$ be the same random partition sequence chosen above and fix some $0 < \e < 1/8$.
 Define the random subset:
 <p>
