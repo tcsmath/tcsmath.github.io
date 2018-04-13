@@ -182,7 +182,7 @@ We will first establish these consequences and then prove the lemma.</p>
 Let $\mathcal{P} = \{ P_j : j \in \mathbb{Z} \}$ be the random sequence where $P_j$ results from the
 random partitioning lemma applied with $\Delta = 8^j$.
 Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
-Now fix $x \neq y \in X$, and let $j_0 = \min \{ j : 8^{j} \geq d(x,y) \}$.  Then:</p>
+Now fix $x \neq y \in X$, and let $j_0 \mathrel{\vcenter{:}}= \min \{ j : 8^{j} \geq d(x,y) \}$.  Then:</p>
 <p>
 \[
    \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0} + \sum_{j &gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
@@ -207,7 +207,7 @@ Let $\mathcal{P}$ be the same random partition sequence chosen above and fix som
 Define the random subset:</p>
 <p>
 \[
-   \mathbf{S} \subseteq \left\{ x \in X : B(x, \e 8^j) \subseteq P_j(x) \right\}\,.
+   \mathbf{S} \mathrel{\vcenter{:}}= \left\{ x \in X : B(x, \e 8^j) \subseteq P_j(x) \ \forall j \in \mathbb{Z}\right\}\,.
 \]
 </p>
 <p>We claim that</p>
