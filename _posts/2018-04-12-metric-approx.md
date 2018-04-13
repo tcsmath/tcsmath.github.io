@@ -177,7 +177,7 @@ Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ fo
 Now fix $x \neq y \in X$, and let $j_0 \mathrel{\vcenter{:}}= \min \\{ j : 8^{j} \geq d(x,y) \\}$.  Then:
 <p>
 \[
-   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0} + \sum_{j > j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
+   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0+1} + \sum_{j > j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
 \]
 </p>
 and using $\mathbb{P}[P_j(x) = P_j(y)] \geq \mathbb{P}[B(x, d(x,y)) \subseteq P_j(x)]$ yields
