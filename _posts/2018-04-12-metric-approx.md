@@ -58,9 +58,9 @@ If we take expectation with respect to $\mathbf{D}$ as well, it follows that
 <p>
 \[
    \mathbb{E}\left[\sum_{t=1}^T d(x_t, x_{t-1})\right] \leq
-   \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
+   \alpha \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
          + O(1)
-         \leq K 
+         \leq K \alpha
    \sum_{t=1}^T d\!\left(x_t^{*}, x_{t-1}^{*}\right) + O(1)\,,
 \]
 </p>
@@ -160,7 +160,7 @@ Define $B(x,r) \mathrel{\vcenter{:}}= \\{ y \in X : d(x,y) \leq r \\}$ to be the
    <p>
    \begin{equation}\label{eq:rp}
       \mathbb{P}\left[\vphantom{\bigoplus}
-         B_X(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
+         B(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
    \end{equation}
    </p>
 </p>
