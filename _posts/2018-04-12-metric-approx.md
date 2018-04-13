@@ -172,7 +172,7 @@ We will first establish these consequences and then prove the lemma.
 
 Let's prove **<a href="#thm1">Theorem 1</a>**.
 Let $\mathcal{P} = \\{ P_j : j \in \mathbb{Z} \\}$ be the random sequence where $P_j$ results from the
-random partitioning lemma applied with $\Delta = 8^j$.
+random partitioning lemma applied with $\Delta = 8^j$ and we take the partitions to be mutually independent.
 Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
 Now fix $x \neq y \in X$, and let $j_0 \mathrel{\vcenter{:}}= \min \\{ j : 8^{j} \geq d(x,y) \\}$.  Then:
 <p>
