@@ -18,7 +18,7 @@ $$\def\e{\varepsilon}$$
 ## Metric approximations
 
 For a metric space $(X,d)$, let $\alpha_{\mathrm{mts}}(X,d)$ denote
-the best competitive ratio for MTS on $(X,d)$.
+the best (randomized) competitive ratio for MTS on $(X,d)$.
 Suppose $D$ is some other metric on $X$ that satisfies
 <p>
 \begin{equation}\label{eq:distortion}
