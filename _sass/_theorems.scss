@@ -15,6 +15,14 @@
    content: "Theorem (" attr(text) "). ";
 }
 
+.theorem[ord]:before {
+   content: "Theorem " attr(ord)".";
+}
+
+.theorem[text][ord]:before{
+   content: "Theorem " attr(ord) " (" attr(text) ").";
+}
+
 .lemma {
     display: block;
     margin: 12px 0;
@@ -28,6 +36,26 @@
 
 .lemma[text]:before {
    content: "Lemma (" attr(text) "). ";
+}
+
+.corollary {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+
+.corollary:before {
+    content: "Corollary.";
+    font-weight: bold;
+    font-style: normal;
+}
+
+.corollary[text]:before {
+   content: "Corollary (" attr(text) "). ";
+}
+
+.corollary[text][ord]:before{
+   content: "Corollary " attr(ord) " (" attr(text) ").";
 }
 
 .proof {

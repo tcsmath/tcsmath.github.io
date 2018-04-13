@@ -7,6 +7,310 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Approximation by ultrametrics</title>
+        <description>&lt;p&gt;We now take a short detour away from mirror descent, and
+instead examine how a special class of metric spaces called &lt;em&gt;ultrametrics&lt;/em&gt;
+control the competitive ratio of MTS in general metric spaces.
+Hold onto your seats; we’re about to compress two decades and 
+10 papers into a few paragraphs.
+For the sake of continuity, bibliographic remarks are held to the end of the post.
+&lt;script type=&quot;math/tex&quot;&gt;\def\e{\varepsilon}&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;metric-approximations&quot;&gt;Metric approximations&lt;/h2&gt;
+
+&lt;p&gt;For a metric space $(X,d)$, let $\alpha_{\mathrm{mts}}(X,d)$ denote
+the best competitive ratio for MTS on $(X,d)$.
+Suppose $D$ is some other metric on $X$ that satisfies&lt;/p&gt;
+&lt;p&gt;
+\begin{equation}\label{eq:distortion}
+   \frac{D(x,y)}{K} \leq d(x,y) \leq D(x,y) \qquad \forall x,y \in X\,.
+\end{equation}
+&lt;/p&gt;
+&lt;p&gt;Then it is straightforward to verify that $\alpha_{\mathrm{mts}}(X,d) \leq K \cdot \alpha_{\mathrm{mts}}(X,D)$.&lt;/p&gt;
+
+&lt;p&gt;But there is a weaker form of approximation that still allows for such a conclusion.
+Suppose that $\mathbf{D}$ is a &lt;em&gt;random&lt;/em&gt; metric that satisfies, for every $x,y \in X$:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;With probability one, $\mathbf{D}(x,y) \geq d(x,y)$,&lt;/li&gt;
+  &lt;li&gt;$\mathbb{E}\left[\mathbf{D}(x,y)\right] \leq K \cdot d(x,y)$.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If $\alpha_{\mathrm{mts}}(X,\mathbf{D}) \leq \alpha$ with probability one, we claim that
+$\alpha_{\mathrm{mts}}(X,d) \leq K \alpha$.&lt;/p&gt;
+
+&lt;p&gt;The algorithm achieving this is as follows:  Sample the random metric $\mathbf{D}$.
+Now given a cost sequence $\left\langle c_t : X \to \mathbb{R}_+ \mid t \geq 1\right\rangle$,
+let $\left\langle x_0, x_1, x_2, \ldots \right\rangle$ be the random sequence of points produced
+by an $\alpha$-competitive randomized algorithm for $(X,\mathbf{D})$.  Then:&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbb{E}\left[\sum_{t=1}^T \left.\vphantom{\bigoplus}
+         \mathbf{D}(x_t, x_{t-1}) \ \right| \mathbf{D}\right] \leq
+         \alpha \sum_{t=1}^T \mathbf{D}\!\left(x_t^{*}, x_{t-1}^{*}\right)
+         + O(1)\,,
+\]
+&lt;/p&gt;
+&lt;p&gt;where $\left\langle x_t^* : t \geq 0\right\rangle$
+is an optimal offline sequence for $(X,d)$.
+(This may not be the optimal sequence for $(X,\mathbf{D})$, but the algorithm
+is certainly competitive against non-optimal sequences as well.)&lt;/p&gt;
+
+&lt;p&gt;Note that the expectation here is taken only with respect to the randomness in the online algorithm.
+If we take expectation with respect to $\mathbf{D}$ as well, it follows that&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbb{E}\left[\sum_{t=1}^T d(x_t, x_{t-1})\right] \leq
+   \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
+         + O(1)
+         \leq K 
+   \sum_{t=1}^T d\!\left(x_t^{*}, x_{t-1}^{*}\right) + O(1)\,,
+\]
+&lt;/p&gt;
+&lt;p&gt;where $\left\langle x_t^* : t \geq 0\right\rangle$ is an optimal offline sequence in $(X,d)$.
+We have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.&lt;/p&gt;
+
+&lt;h2 id=&quot;ultrametrics&quot;&gt;Ultrametrics&lt;/h2&gt;
+
+&lt;p&gt;Let $T=(V,E)$ be a finite, rooted tree, and let $\mathcal{L}$ denote the leaves of $T$.
+Suppose $w : V\setminus \mathcal{L} \to \mathbb{R}_+$ is a function that assigns
+positive weights to the internal vertices of $T$ such that the vertex
+weights are non-increasing along root-leaf paths.
+Then one can define a distance on $\mathcal{L}$ by
+[
+   d_w\left(\ell,\ell’\right) \mathrel{\vcenter{:}}= w\left(\mathrm{lca}(\ell,\ell’)\right).
+]
+This is an &lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ultrametric_space&quot;&gt;ultrametric&lt;/a&gt;&lt;/em&gt; on $\mathcal{L}$ (and all finite ultrametrics
+arise in this way).&lt;/p&gt;
+
+&lt;p&gt;It turns out that ultrametrics essentially control the competitive ratio
+for metrical task systems on finite metric spaces.
+This follows from the following two facts that
+hold for an arbitrary $n$-point metric space $(X,d)$.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;thm1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;theorem&quot; text=&quot;Random embedding&quot; ord=&quot;1&quot;&gt;
+There is a random ultrametric $\mathbf{D}$ on $(X,d)$ such that (1) and (2) are satisfied with $K \leq O(\log n)$.
+&lt;/p&gt;
+
+&lt;p&gt;By our earlier remarks, this implies that the competitive ratio for MTS on $(X,d)$
+is at most $O(\log n)$ times the competitive ratio for $n$-point ultrametrics.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;thm2&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;theorem&quot; text=&quot;Metric Ramsey&quot; ord=&quot;2&quot;&gt;
+There is a subset $X' \subseteq X$ with $|X'| \geq \sqrt{n}$ and
+an ultrametric $D$ on $X'$ such that 
+\eqref{eq:distortion} is satisfied with $K \leq O(1)$.
+&lt;/p&gt;
+
+&lt;p&gt;Since $\alpha_{\mathrm{mts}}(X,d) \geq \alpha_{\mathrm{mts}}(X’,d) \geq \Omega(\alpha_{\mathrm{mts}}(X’,D))$,
+lower bounds on the competitive ratio for ultrametrics yield lower bounds for $(X,d)$ as well.
+Finally, we remark that MTS on ultrametrics is now well-understood.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;thm3&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;theorem&quot; text=&quot;MTS on ultrametrics&quot; ord=&quot;3&quot;&gt;
+   If $(X,D)$ is an $n$-point ultrametric, then
+   \[
+      \Omega\left(\frac{\log n}{\log \log n}\right) \leq \alpha_{\mathrm{mts}}(X,D) \leq O(\log n)\,.
+   \]
+&lt;/p&gt;
+
+&lt;p&gt;There are ultrametrics (e.g., as we have seen already, when $(X,D)$ is the uniform metric)
+for which the $O(\log n)$ upper bound in &lt;a href=&quot;#thm3&quot;&gt;Theorem 3&lt;/a&gt; is tight.
+Whether the LHS can be made $\Omega(\log n)$ is an intriguing open problem;
+we will address it in the next lecture.
+In conjunction with &lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt; and &lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;,
+this yields.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;cor4&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;corollary&quot; text=&quot;MTS&quot; ord=&quot;4&quot;&gt;
+For any $n$-point metric space $(X,d)$:
+\[
+   \Omega\left(\frac{\log n}{\log \log n}\right) \leq \alpha_{\mathrm{mts}}(X,d) \leq O((\log n)^2)\,.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;Perhaps the central remaining open question for MTS on general metric spaces
+is whether the upper bound can be improved to $O(\log n)$.&lt;/p&gt;
+
+&lt;h2 id=&quot;ultrametrics-from-partitions&quot;&gt;Ultrametrics from partitions&lt;/h2&gt;
+
+&lt;p&gt;Consider a partition $P$ of $X$.  Say that $P$ is &lt;em&gt;$\Delta$-bounded&lt;/em&gt;
+if $S \in P \implies \mathrm{diam}_X(S) \leq \Delta$.
+For a point $x \in X$, we write $P(x)$ for the unique set in $P$ that contains $x$.&lt;/p&gt;
+
+&lt;p&gt;Suppose now that $\mathcal{P} = \{ P_j : j \in \mathbb{Z} \}$ is a sequence of partitions of $X$
+such that $P_j$ is $8^j$-bounded for every $j \in \mathbb{Z}$, and define the metric&lt;/p&gt;
+&lt;p&gt;
+\[
+   D_{\mathcal{P}}(x,y) \mathrel{\vcenter{:}}= \max \left\{ 8^{j+1} : P_j(x) \neq P_j(y) \right\}.
+\]
+&lt;/p&gt;
+&lt;p&gt;One can check that $D_{\mathcal{P}}$ is an ultrametric on $X$ (imagine
+the tree structure induced by the partitions), and moreover&lt;/p&gt;
+&lt;p&gt;
+\begin{equation}\label{eq:exp}
+   D_{\mathcal{P}}(x,y) \geq d(x,y) \qquad \forall x,y \in X\,.
+\end{equation}
+&lt;/p&gt;
+&lt;p&gt;This follows from:  $D_{\mathcal{P}}(x,y) \leq 8^j \implies P_j(x)=P_j(y) \implies d(x,y) \leq 8^j$.&lt;/p&gt;
+
+&lt;p&gt;Define $B(x,r) \mathrel{\vcenter{:}}= \{ y \in X : d(x,y) \leq r \}$ to be the ball of radius $r$ about $x \in X$.&lt;/p&gt;
+
+&lt;p class=&quot;lemma&quot; text=&quot;Random partition lemma&quot;&gt;
+   Suppose $(X,d)$ is an $n$-point metric space.  Then for every $\Delta &amp;gt; 0$,
+   there is a random $\Delta$-bounded partition $P$ of $X$ such that for every $r \leq \Delta/8$:
+   &lt;p&gt;
+   \begin{equation}\label{eq:rp}
+      \mathbb{P}\left[\vphantom{\bigoplus}
+         B_X(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
+   \end{equation}
+   &lt;/p&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Remarkably, the random partitioning lemma can be used to prove both &lt;strong&gt;Theorem 1&lt;/strong&gt; and &lt;strong&gt;Theorem 2&lt;/strong&gt;.
+We will first establish these consequences and then prove the lemma.&lt;/p&gt;
+
+&lt;h2 id=&quot;approximation-by-a-random-ultrametric&quot;&gt;Approximation by a random ultrametric&lt;/h2&gt;
+
+&lt;p&gt;Let’s prove &lt;strong&gt;&lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt;&lt;/strong&gt;.
+Let $\mathcal{P} = \{ P_j : j \in \mathbb{Z} \}$ be the random sequence where $P_j$ results from the
+random partitioning lemma applied with $\Delta = 8^j$.
+Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
+Now fix $x \neq y \in X$, and let $j_0 = \min \{ j : 8^{j} \geq d(x,y) \}$.  Then:&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0} + \sum_{j &amp;gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
+\]
+&lt;/p&gt;
+&lt;p&gt;and using $\mathbb{P}[P_j(x) = P_j(y)] \geq \mathbb{P}[B(x, d(x,y)) \subseteq P_j(x)]$ yields&lt;/p&gt;
+&lt;p&gt;
+\begin{align*}
+\sum_{j &amp;gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1}
+&amp;amp;\leq \sum_{j \in \mathbb{Z}} 8^{j+2} \frac{d(x,y)}{8^{j}} \log \frac{|B(x, 8^j)|}{|B(x,8^{j-1})|} \\
+&amp;amp;\leq 64\, d(x,y) \sum_{j \in \mathbb{Z}} \log \frac{|B(x, 8^j)|}{|B(x,8^{j-1}|} \\
+&amp;amp;= 64 \,d(x,y) \log n\,.
+\end{align*}
+&lt;/p&gt;
+&lt;p&gt;where the second inequality follows from \eqref{eq:rp} and the fact that $e^{-x} \geq 1-x$,
+and in the last inequality we evaluate a telescoping sum.&lt;/p&gt;
+
+&lt;h2 id=&quot;finding-a-large-approximate-ultrametric-inside-x&quot;&gt;Finding a large approximate ultrametric inside $X$&lt;/h2&gt;
+
+&lt;p&gt;Now we prove &lt;strong&gt;&lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;&lt;/strong&gt;.
+Let $\mathcal{P}$ be the same random partition sequence chosen above and fix some $0 &amp;lt; \e &amp;lt; 1/8$.
+Define the random subset:&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbf{S} \subseteq \left\{ x \in X : B(x, \e 8^j) \subseteq P_j(x) \right\}\,.
+\]
+&lt;/p&gt;
+&lt;p&gt;We claim that&lt;/p&gt;
+&lt;p&gt;
+\[
+   d_{\mathcal{P}}(x,y) \geq d(x,y) \geq \frac{\e}{8} d_{\mathcal{P}}(x,y) \qquad \forall x,y \in \mathbf{S}\,.
+\]
+&lt;/p&gt;
+&lt;p&gt;The LHS is simply from \eqref{eq:exp}.
+For the RHS, observe that if $d_{\mathcal{P}}(x,y)=8^{j+1}$, then $P_j(x) \neq P_j(y)$,
+hence $B(x,\e 8^j) \subseteq P_j(x) \implies d(x,y) \geq \e 8^j$.&lt;/p&gt;
+
+&lt;p&gt;Now the random partitioning lemma gives, for any $x \in X$,&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbb{P}[x \in \mathbf{S}] \geq \prod_{j \in \mathbb{Z}} \exp\left(- 8\e \log \frac{|B(x,8^j)|}{|B(x,8^{j-1})|}\right)
+   = \exp\left(-8 \e \log n\right) = n^{-8\e}\,.
+\]
+&lt;/p&gt;
+&lt;p&gt;By linearity of expectation: $\mathbb{E}[|\mathbf{S}|] \geq n^{1-8\e}$.  Taking $\e \mathrel{\vcenter{:}}= 1/16$ completes the proof.&lt;/p&gt;
+
+&lt;h2 id=&quot;proof-of-the-random-partitioning-lemma&quot;&gt;Proof of the random partitioning lemma&lt;/h2&gt;
+
+&lt;p&gt;Let $\mathbf{R} \in [\Delta/4,\Delta/2]$ be chosen uniformly,
+and let $X = \{x_1, x_2, \ldots, x_n\}$ be a uniformly random
+ordering of the points in $X$.
+Our random partitioning is formed by iteratively carving out balls:&lt;/p&gt;
+&lt;p&gt;
+\begin{equation}\label{eq:ckr}
+   P \mathrel{\vcenter{:}}= \left\{ B(x_i, \mathbf{R}) \setminus \bigcup_{j &amp;lt; i} B(x_j, \mathbf{R}) : i=1,2,\ldots,n\right\}.
+\end{equation}
+&lt;/p&gt;
+&lt;p&gt;Clearly $P$ is $\Delta$-bounded by construction.&lt;/p&gt;
+
+&lt;p&gt;Fix $r \leq \Delta/8$ and observe first that&lt;/p&gt;
+&lt;p&gt;
+\[
+   \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] = \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
+\]
+&lt;/p&gt;
+&lt;p&gt;This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
+will decide the fate of $B(x,r)$, and the corresponding cluster will contain
+the entire ball only if the point lies in $B(x,\mathbf{R}-r)$.&lt;/p&gt;
+
+&lt;p&gt;Thus we have:&lt;/p&gt;
+&lt;p&gt;
+\begin{align*}
+   \mathbb{P}\left[B(x,r) \subseteq P(x)\right] &amp;amp;\geq \mathbb{E}\left[\frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}\right] \\
+                                         &amp;amp;= \mathbb{E}\left[\exp\left(- \log \frac{|B(x,\mathbf{R}+r)|}{|B(x,\mathbf{R}-r)|}\right)\right]  \\
+                                         &amp;amp;\geq 
+   \exp \left(\mathbb{E}\left[- \log \frac{|B(x,\mathbf{R}+r)|}{|B(x,\mathbf{R}-r)|}\right]\right)  \\
+&amp;amp;\geq \exp\left(\frac{- 8 r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right)\,,
+\end{align*}
+&lt;/p&gt;
+&lt;p&gt;where the second inequality uses convexity of $e^{-x}$ and
+the last inequality comes from the calculation&lt;/p&gt;
+&lt;p&gt;
+\begin{align*}
+\mathbb{E}\left[ \log \frac{|B(x,\mathbf{R}+r)|}{|B(x,\mathbf{R}-r)|}\right] 
+&amp;amp;= \frac{4}{\Delta} \int_{\Delta/4}^{\Delta/2} 
+\log \frac{|B(x,R+r)|}{|B(x,R-r)|}\,dR \\
+&amp;amp;\leq \frac{8r}{\Delta} \log \frac{|B(x,\Delta/2+r)|}{|B(x,\Delta/4-r)|} \\
+&amp;amp;\leq \frac{8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\,,
+\end{align*}
+&lt;/p&gt;
+&lt;p&gt;using $r \leq \Delta/8$.&lt;/p&gt;
+
+&lt;h2 id=&quot;historical-remarks&quot;&gt;Historical remarks&lt;/h2&gt;
+
+&lt;p&gt;The random embedding theorem (&lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt;)
+is due to &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0022000004000637&quot;&gt;Fakcharoenphol, Rao, and Talwar&lt;/a&gt;.
+The first such result was &lt;a href=&quot;http://ieeexplore.ieee.org/iel3/4141/11790/00548477.pdf&quot;&gt;proved by Bartal&lt;/a&gt;, and he later
+&lt;a href=&quot;https://dl.acm.org/citation.cfm?id=276725&quot;&gt;obtained a near-optimal bound&lt;/a&gt;
+of $O(\log n \log \log n)$ on the distortion.
+The use of random tree approximations of arbitrary metric spaces
+for online algorithms arose somewhat earlier in
+the work of &lt;a href=&quot;http://www.icsi.berkeley.edu/ftp/pub/techreports/1991/tr-91-066.pdf&quot;&gt;Alon, Karp, Peleg, and West&lt;/a&gt;,
+specifically in relation to the $k$-server problem.&lt;/p&gt;
+
+&lt;p&gt;The metric Ramsey theorem (&lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;)
+is a result of &lt;a href=&quot;https://arxiv.org/abs/math/0406353&quot;&gt;Bartal, Linial, Mendel, and Naor&lt;/a&gt;,
+improving over an earlier bound of &lt;a href=&quot;https://arxiv.org/abs/cs/0406028&quot;&gt;Bartal, Bollobas, and Mendel&lt;/a&gt;
+who established that one can take $|X’| \geq \exp(c \sqrt{\log n})$ for some $c &amp;gt; 0$.&lt;/p&gt;
+
+&lt;p&gt;The upper bound in &lt;a href=&quot;#thm3&quot;&gt;Theorem 3&lt;/a&gt;
+is from a forthcoming paper with Bubeck, Cohen, and Y. T. Lee,
+and improves the
+$O(\log n \log \log n)$ upper bound of &lt;a href=&quot;https://arxiv.org/abs/cs/0406034&quot;&gt;Fiat and Mendel&lt;/a&gt;
+to the optimal value (up to a constant factor).
+The lower bound in &lt;a href=&quot;#thm3&quot;&gt;Theorem 3&lt;/a&gt;
+is from the aforementioned paper of Bartal, Bollobas, and Mendel;
+we will discuss it in the next lecture.&lt;/p&gt;
+
+&lt;p&gt;The random partitioning lemma
+and the proof of &lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;
+presented here come from a paper of &lt;a href=&quot;https://arxiv.org/abs/cs/0511084&quot;&gt;Mendel and Naor&lt;/a&gt;.
+This proof of the random partitioning lemma is somewhat
+cleaner than the one presented there.
+The (now famous) distribution on random partitions 
+described in \eqref{eq:ckr} is from &lt;a href=&quot;https://epubs.siam.org/doi/abs/10.1137/S0097539701395978&quot;&gt;Calinescu, Karloff, and Rabani&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 12 Apr 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/online/2018/04/12/metric-approx/</link>
+        <guid isPermaLink="true">http://localhost:4000/online/2018/04/12/metric-approx/</guid>
+      </item>
+    
+      <item>
         <title>Metrical task systems on a weighted star</title>
         <description>&lt;p&gt;Let’s recall the definition of MTS.
 &lt;script type=&quot;math/tex&quot;&gt;\def\K{\mathsf{K}}
@@ -227,7 +531,7 @@ that exponential weights is too conservative to be competitive against a moving 
 &lt;p&gt;Observe that now:&lt;/p&gt;
 &lt;p&gt;
 \[
-   \Lip_{\K,\|\cdot\|_*} (\nabla \Phi) \leq \log (1/\delta).
+   \Lip_{\K,\|\cdot\|_*} (\Phi) \leq \log (1/\delta).
 \]
 &lt;/p&gt;
 &lt;p&gt;Plugging this into \eqref{eq:move} gives&lt;/p&gt;
