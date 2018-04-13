@@ -117,7 +117,7 @@ for which the $O(\log n)$ upper bound in <a href="#thm3">Theorem 3</a> is tight.
 Whether the LHS can be made $\Omega(\log n)$ is an intriguing open problem;
 we will address it in the next lecture.
 In conjunction with <a href="#thm1">Theorem 1</a> and <a href="#thm2">Theorem 2</a>,
-this yields.
+this yields:
 
 <a name="cor4"></a>
 <p class="corollary" text="MTS" ord="4">
