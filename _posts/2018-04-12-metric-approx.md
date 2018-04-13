@@ -64,8 +64,7 @@ If we take expectation with respect to $\mathbf{D}$ as well, it follows that
    \sum_{t=1}^T d\!\left(x_t^{*}, x_{t-1}^{*}\right) + O(1)\,,
 \]
 </p>
-where $\left\langle x_t^* : t \geq 0\right\rangle$ is an optimal offline sequence in $(X,d)$.
-We have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.
+where we have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.
 
 ## Ultrametrics
 
