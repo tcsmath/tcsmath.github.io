@@ -81,7 +81,7 @@ arise in this way).
 
 It turns out that ultrametrics essentially control the competitive ratio
 for metrical task systems on finite metric spaces.
-This follows from the following two facts that
+This follows from the next two facts that
 hold for an arbitrary $n$-point metric space $(X,d)$.
 
 <a name="thm1"></a>
