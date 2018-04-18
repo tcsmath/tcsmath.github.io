@@ -239,8 +239,8 @@ Fix $r \leq \Delta/8$ and observe first that
    \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] \geq \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
 \]
 </p>
-This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
-will decide the fate of $B(x,r)$, and the corresponding cluster will contain
+This follows because if we condition on $\mathbf{R}$, then only centers in $B(x,\mathbf{R}+r)$
+can decide the fate of $B(x,r)$, and the corresponding cluster will contain
 all of $B(x,r)$ if the center lies in $B(x,\mathbf{R}-r)$.
 
 Thus we have:
