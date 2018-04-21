@@ -25,7 +25,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201804122048" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201804202351" type="text/css">
 
     <!-- Fonts -->
     
@@ -190,7 +190,7 @@ For the sake of continuity, bibliographic remarks are held to the end of the pos
 <h2 id="metric-approximations">Metric approximations</h2>
 
 <p>For a metric space $(X,d)$, let $\alpha_{\mathrm{mts}}(X,d)$ denote
-the best competitive ratio for MTS on $(X,d)$.
+the best (randomized) competitive ratio for MTS on $(X,d)$.
 Suppose $D$ is some other metric on $X$ that satisfies</p>
 <p>
 \begin{equation}\label{eq:distortion}
@@ -232,14 +232,13 @@ If we take expectation with respect to $\mathbf{D}$ as well, it follows that</p>
 <p>
 \[
    \mathbb{E}\left[\sum_{t=1}^T d(x_t, x_{t-1})\right] \leq
-   \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
+   \alpha \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
          + O(1)
-         \leq K 
+         \leq K \alpha
    \sum_{t=1}^T d\!\left(x_t^{*}, x_{t-1}^{*}\right) + O(1)\,,
 \]
 </p>
-<p>where $\left\langle x_t^* : t \geq 0\right\rangle$ is an optimal offline sequence in $(X,d)$.
-We have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.</p>
+<p>where we have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.</p>
 
 <h2 id="ultrametrics">Ultrametrics</h2>
 
@@ -256,7 +255,7 @@ arise in this way).</p>
 
 <p>It turns out that ultrametrics essentially control the competitive ratio
 for metrical task systems on finite metric spaces.
-This follows from the following two facts that
+This follows from the next two facts that
 hold for an arbitrary $n$-point metric space $(X,d)$.</p>
 
 <p><a name="thm1"></a></p>
@@ -291,7 +290,7 @@ for which the $O(\log n)$ upper bound in <a href="#thm3">Theorem 3</a> is tight.
 Whether the LHS can be made $\Omega(\log n)$ is an intriguing open problem;
 we will address it in the next lecture.
 In conjunction with <a href="#thm1">Theorem 1</a> and <a href="#thm2">Theorem 2</a>,
-this yields.</p>
+this yields:</p>
 
 <p><a name="cor4"></a></p>
 <p class="corollary" text="MTS" ord="4">
@@ -334,7 +333,7 @@ the tree structure induced by the partitions), and moreover</p>
    <p>
    \begin{equation}\label{eq:rp}
       \mathbb{P}\left[\vphantom{\bigoplus}
-         B_X(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
+         B(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
    \end{equation}
    </p>
 </p>
@@ -344,14 +343,14 @@ We will first establish these consequences and then prove the lemma.</p>
 
 <h2 id="approximation-by-a-random-ultrametric">Approximation by a random ultrametric</h2>
 
-<p>Let’s prove <strong><a href="#thm1">Theorem 1</a></strong>.
+<p>Let’s prove <a href="#thm1">Theorem 1</a>.
 Let $\mathcal{P} = \{ P_j : j \in \mathbb{Z} \}$ be the random sequence where $P_j$ results from the
 random partitioning lemma applied with $\Delta = 8^j$ and we take the partitions to be mutually independent.
 Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
 Now fix $x \neq y \in X$, and let $j_0 \mathrel{\vcenter{:}}= \min \{ j : 8^{j} \geq d(x,y) \}$.  Then:</p>
 <p>
 \[
-   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0} + \sum_{j &gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
+   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0+1} + \sum_{j &gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
 \]
 </p>
 <p>and using $\mathbb{P}[P_j(x) = P_j(y)] \geq \mathbb{P}[B(x, d(x,y)) \subseteq P_j(x)]$ yields</p>
@@ -368,7 +367,7 @@ and in the last inequality we evaluate a telescoping sum.</p>
 
 <h2 id="finding-a-large-approximate-ultrametric-inside-x">Finding a large approximate ultrametric inside $X$</h2>
 
-<p>Now we prove <strong><a href="#thm2">Theorem 2</a></strong>.
+<p>Now we prove <a href="#thm2">Theorem 2</a>.
 Let $\mathcal{P}$ be the same random partition sequence chosen above and fix some $0 &lt; \e &lt; 1/8$.
 Define the random subset:</p>
 <p>
@@ -414,8 +413,8 @@ Our random partitioning is formed by iteratively carving out balls:</p>
    \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] \geq \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
 \]
 </p>
-<p>This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
-will decide the fate of $B(x,r)$, and the corresponding cluster will contain
+<p>This follows because if we condition on $\mathbf{R}$, then only centers in $B(x,\mathbf{R}+r)$
+can decide the fate of $B(x,r)$, and the corresponding cluster will contain
 all of $B(x,r)$ if the center lies in $B(x,\mathbf{R}-r)$.</p>
 
 <p>Thus we have:</p>

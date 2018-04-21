@@ -7,6 +7,140 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Lower bounds for MTS</title>
+        <description>&lt;p&gt;Consider a rooted tree &lt;span class=&quot;math inline&quot;&gt;\(T=(V,E)\)&lt;/span&gt; with leaf set &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L\subseteq V\)&lt;/span&gt; and positive vertex weights &lt;span class=&quot;math inline&quot;&gt;\(w : V\setminus \mathcal L\to \mathbb R_+\)&lt;/span&gt; that are non-increasing along root-leaf paths. We recall the ultrametric &lt;span class=&quot;math inline&quot;&gt;\(d_w\)&lt;/span&gt; defined on &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L\)&lt;/span&gt; by 
+&lt;p&gt;
+$$
+  d_w(\ell,\ell') \mathrel{\vcenter{:}}= w(\mathrm{lca}(\ell,\ell')).
+$$
+&lt;/p&gt;
+
+Say that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span&gt;&lt;em&gt;&lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST metric&lt;/em&gt;&lt;/span&gt; for some &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq 1\)&lt;/span&gt; if &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L\)&lt;/span&gt; is the leaf set of some weighted tree &lt;span class=&quot;math inline&quot;&gt;\(T=(V,E)\)&lt;/span&gt;, and &lt;span class=&quot;math inline&quot;&gt;\(d_w\)&lt;/span&gt; is the ultrametric corresponding to a weight &lt;span class=&quot;math inline&quot;&gt;\(w\)&lt;/span&gt; on &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; with the property that &lt;span class=&quot;math inline&quot;&gt;\(w(y) \leq w(x)/\tau\)&lt;/span&gt; whenever &lt;span class=&quot;math inline&quot;&gt;\(y\)&lt;/span&gt; is a child of &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;. (So for a finite metric space, the notions of &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST metric and ultrametic are equivalent.) Say that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is a &lt;span&gt;&lt;em&gt;strict &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST metric&lt;/em&gt;&lt;/span&gt; if we require the stronger property that &lt;span class=&quot;math inline&quot;&gt;\(w(y)=w(x)/\tau\)&lt;/span&gt; whenever &lt;span class=&quot;math inline&quot;&gt;\(x,y \in V\)&lt;/span&gt; are internal nodes and &lt;span class=&quot;math inline&quot;&gt;\(y\)&lt;/span&gt; is a child of &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Two metrics &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(d'\)&lt;/span&gt; on a set &lt;span class=&quot;math inline&quot;&gt;\(X\)&lt;/span&gt; are &lt;span&gt;&lt;em&gt;&lt;span class=&quot;math inline&quot;&gt;\(K\)&lt;/span&gt;-equivalent&lt;/em&gt;&lt;/span&gt; if there is a constant &lt;span class=&quot;math inline&quot;&gt;\(c &amp;gt; 0\)&lt;/span&gt; such that &lt;span class=&quot;math display&quot;&gt;\[d(x,y) \leq c d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]&lt;/span&gt; We leave the following statements as an exercise:
+For every &lt;span class=&quot;math inline&quot;&gt;\(\tau &amp;gt; 1\)&lt;/span&gt;, every &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST is &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-equivalent to some strict &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;thm:bbm&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;theorem&quot; text=&quot;Bartal-Bollobas-Mendel&quot; ord=&quot;1&quot;&gt;
+There is a constant &lt;span class=&quot;math inline&quot;&gt;\(C \geq 1\)&lt;/span&gt; such that if &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(C (\log n)^2\)&lt;/span&gt;-HST metric, where &lt;span class=&quot;math inline&quot;&gt;\(n=|\mathcal L|\)&lt;/span&gt;, then the competitive ratio for MTS on &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is &lt;span class=&quot;math inline&quot;&gt;\(\Omega\left(\log n\right)\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;While the preceding theorem applies only to $\tau$-HSTs with $\tau$ sufficiently large,
+the next lemma shows how we can improve the separation parameter by passing
+to a subset of leaves.&lt;/p&gt;
+
+&lt;p class=&quot;lemma&quot;&gt;
+If &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is a strict &lt;span class=&quot;math inline&quot;&gt;\(2\)&lt;/span&gt;-HST, then for every &lt;span class=&quot;math inline&quot;&gt;\(k \in \mathbb N\)&lt;/span&gt;, there is a subset &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L' \subseteq \mathcal L\)&lt;/span&gt; with
+&lt;p&gt;
+$$
+|\mathcal{L}'| \geq |\mathcal{L}|^{1/k},
+$$
+&lt;/p&gt;
+and such that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L', d)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(2^k\)&lt;/span&gt;-HST metric.
+&lt;/p&gt;
+
+&lt;p&gt;Combining this with &lt;a href=&quot;#thm:bbm&quot;&gt;Theorem 1&lt;/a&gt; yields:&lt;/p&gt;
+&lt;p class=&quot;corollary&quot;&gt;
+If &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST metric with &lt;span class=&quot;math inline&quot;&gt;\(n=|\mathcal L|\)&lt;/span&gt;, then the competitive ratio for MTS on &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is at least
+&lt;span class=&quot;math inline&quot;&gt;\(\Omega\left(\frac{\log n}{\log \log n}\right)\)&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;Recall that the Metric Ramsey theorem from the preceding lecture implies that every &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt;-point metric space contains a subset of size &lt;span class=&quot;math inline&quot;&gt;\(\sqrt{n}\)&lt;/span&gt; that is &lt;span class=&quot;math inline&quot;&gt;\(O(1)\)&lt;/span&gt;-equivalent to a &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST. This yields:&lt;/p&gt;
+
+&lt;p class=&quot;theorem&quot;&gt;
+For every &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt;-point metric space, the competitive ratio for MTS is at least &lt;span class=&quot;math inline&quot;&gt;\(\Omega(\log n/\log \log n)\)&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;We will not prove &lt;a href=&quot;#thm:bbm&quot;&gt;Theorem 1&lt;/a&gt;, but we will prove a lower bound for two special cases that together capture the essential elements of the full argument. The general case is discussed at the end.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-complete-d-ary-tree&quot;&gt;The complete d-ary tree&lt;/h2&gt;
+
+&lt;p&gt;The first case we’ll consider is when &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-ary tree of height &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;, so that &lt;span class=&quot;math inline&quot;&gt;\(|\mathcal L|=d^h\)&lt;/span&gt;. Define &lt;span class=&quot;math inline&quot;&gt;\(w(x)=\tau^{-\mathrm{dist}_T(x,r)}\)&lt;/span&gt;, where &lt;span class=&quot;math inline&quot;&gt;\(r\)&lt;/span&gt; is the root of &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mathrm{dist}_T\)&lt;/span&gt; denotes the combinatorial distance on &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;. Then &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST.&lt;/p&gt;
+&lt;p&gt;Our goal is to establish a lower bound of &lt;span class=&quot;math inline&quot;&gt;\(\Omega(h \log d)\)&lt;/span&gt; on the competitive ratio for MTS when &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt; is sufficiently large. Note that when &lt;span class=&quot;math inline&quot;&gt;\(\tau = \Theta(1)\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(d=2\)&lt;/span&gt;, it is an open problem to exhibit an &lt;span class=&quot;math inline&quot;&gt;\(\Omega(h)\)&lt;/span&gt; lower bound, and proving such a bound is likely the most difficult obstacle in obtaining an &lt;span class=&quot;math inline&quot;&gt;\(\Omega(\log n)\)&lt;/span&gt; lower bound for every &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt;-point ultrametric.&lt;/p&gt;
+&lt;p&gt;Our costs functions will be of the form &lt;span class=&quot;math inline&quot;&gt;\(\{\epsilon\cdot c_\ell : \ell \in \mathcal L\}\)&lt;/span&gt;, where &lt;span class=&quot;math inline&quot;&gt;\(\epsilon&amp;gt; 0\)&lt;/span&gt; is a number, and &lt;span class=&quot;math display&quot;&gt;\[c_\ell(\ell') = \begin{cases}
+                        0 &amp;amp; \ell=\ell' \\
+                        1 &amp;amp; \ell \neq \ell'\,.
+   \end{cases}\]&lt;/span&gt; More succinctly: &lt;span class=&quot;math inline&quot;&gt;\(c_\ell \mathrel{\vcenter{:}}= \mathbf{1}-\mathbf{1}_\ell\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Let &lt;span class=&quot;math inline&quot;&gt;\(\alpha_h\)&lt;/span&gt; be the competitive ratio for height &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;. We will prove inductively that &lt;span class=&quot;math inline&quot;&gt;\(\alpha_h \geq \Omega(h \log d)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Consider first the case &lt;span class=&quot;math inline&quot;&gt;\(h=1\)&lt;/span&gt;. We define the height-&lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt; cost sequence. The root &lt;span class=&quot;math inline&quot;&gt;\(r\)&lt;/span&gt; has &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt; leaves beneath it. We do the following &lt;span class=&quot;math inline&quot;&gt;\(d \log d\)&lt;/span&gt; times: Choose a random leaf &lt;span class=&quot;math inline&quot;&gt;\(\ell\)&lt;/span&gt; and play the cost function &lt;span class=&quot;math inline&quot;&gt;\(c_\ell\)&lt;/span&gt;. It is straightforward that if &lt;span class=&quot;math inline&quot;&gt;\(\mathrm{alg}_1\)&lt;/span&gt; denotes the cost of an online algorithm, then:
+&lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{alg}_1] \geq \log d\,.\]&lt;/span&gt; (Note that if a cost comes at &lt;span class=&quot;math inline&quot;&gt;\(\ell\)&lt;/span&gt;, then the algorithm must either move and pay movement cost &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;, or stay in place and pay service cost &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;.)&lt;/p&gt;
+&lt;p&gt;Consider the following offline algorithm: Move to the leaf that will be chosen the smallest number of times, and stay there. The movement cost if &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;, and a standard coupon collecting argument shows that the service cost is &lt;span class=&quot;math inline&quot;&gt;\(O(1)\)&lt;/span&gt;, hence: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_1] \leq O(1)\,.\]&lt;/span&gt; We conclude that the competitive ratio satisfies &lt;span class=&quot;math display&quot;&gt;\[\alpha_1 \geq c \log d\]&lt;/span&gt; for some &lt;span class=&quot;math inline&quot;&gt;\(c &amp;gt; 0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Consider now the case of &lt;span class=&quot;math inline&quot;&gt;\(h \geq 2\)&lt;/span&gt;. We define the height-&lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt; cost sequence. The root has beneath it &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt; subtrees &lt;span class=&quot;math inline&quot;&gt;\(T_1, T_2, \ldots, T_d\)&lt;/span&gt; of height &lt;span class=&quot;math inline&quot;&gt;\(h-1\)&lt;/span&gt;. For some number &lt;span class=&quot;math inline&quot;&gt;\(\mu_h\)&lt;/span&gt; to be chosen shortly, we do the following &lt;span class=&quot;math inline&quot;&gt;\(\mu_h d\)&lt;/span&gt; times: Choose &lt;span class=&quot;math inline&quot;&gt;\(i \in \{1,2,\ldots,d\}\)&lt;/span&gt; uniformly at random and play in &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; the height-&lt;span class=&quot;math inline&quot;&gt;\((h-1)\)&lt;/span&gt; cost sequence scaled by &lt;span class=&quot;math inline&quot;&gt;\(1/\tau\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Consider first what an online algorithm can do. If the algorithm’s state lies in &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; when a height-&lt;span class=&quot;math inline&quot;&gt;\((h-1)\)&lt;/span&gt; cost sequence is imposed on &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt;, it can either leave &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; at some point during the sequence, or it can remain in &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt;. Hence the algorithm pays at least
+$\min\left(1,\tau^{-1} \mathbb{E}[\mathrm{alg}_{h-1}]\right)$.
+It follows that:
+
+&lt;p&gt;
+\[\mathbb{E}[\mathrm{alg}_h] \geq \mu_h \min\left(1,\tau^{-1} \mathbb{E}[\mathrm{alg}_{h-1}]\right)
+   \geq \mu_h \min\left(1,\tau^{-1} \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\right)\,.\]
+&lt;/p&gt;
+Thus if 
+   &lt;p&gt;
+   \begin{equation}\label{eq:tauchoice}
+   \tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\end{equation}
+   &lt;/p&gt;
+it holds that &lt;span class=&quot;math display&quot;&gt;\begin{equation}\label{eq:alg}
+   \mathbb{E}[\mathrm{alg}_h] 
+   \geq \mu_h \tau^{-1} \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\,.\end{equation}&lt;/span&gt;
+We will choose &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt; so that
+\eqref{eq:tauchoice} holds.&lt;/p&gt;
+
+&lt;p&gt;
+Let us now analyze an offline algorithm. Let &lt;span class=&quot;math inline&quot;&gt;\(\rho_i\)&lt;/span&gt; denote the number of times that &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; is chosen. The offline algorithm first moves to some &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; with &lt;span class=&quot;math inline&quot;&gt;\(\rho_i\)&lt;/span&gt; minimal, and then plays optimally against level-&lt;span class=&quot;math inline&quot;&gt;\((h-1)\)&lt;/span&gt; cost sequences arriving in &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If &lt;span class=&quot;math inline&quot;&gt;\(\mu_h \geq \Omega(\log d)\)&lt;/span&gt;, then the normal approximation to a binomial distribution shows that there is a constant &lt;span class=&quot;math inline&quot;&gt;\(0 &amp;lt; c' &amp;lt; 1\)&lt;/span&gt; such that &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}\left[\min(\rho_1,\ldots,\rho_d)\right] \leq \mu_h - c'\sqrt{\mu_h \log d}\,.\]&lt;/span&gt; Hence incorporating the movement cost yields: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \leq 1 + \left(\mu_h - c'\sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}]\,.\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We now choose &lt;span class=&quot;math inline&quot;&gt;\(\mu_h\)&lt;/span&gt; so that &lt;span class=&quot;math display&quot;&gt;\[c' \sqrt{\mu_h \log d} \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] = 2\,,\]&lt;/span&gt; i.e., &lt;span class=&quot;math display&quot;&gt;\[\mu_h \mathrel{\vcenter{:}}= \frac{4}{\log d} \left(\frac\tau{c' \mathbb{E}[\mathrm{opt}_{h-1}]}\right)^2\]&lt;/span&gt; Note from \eqref{eq:tauchoice}, we have &lt;span class=&quot;math display&quot;&gt;\begin{equation}\label{eq:muh}
+   \mu_h \geq \frac{4}{(c')^2\log d} \alpha_{h-1}^2.\end{equation}&lt;/span&gt; Since &lt;span class=&quot;math inline&quot;&gt;\(\alpha_{h-1} \geq \alpha_1 \geq \Omega(\log d)\)&lt;/span&gt; it follows that &lt;span class=&quot;math inline&quot;&gt;\(\mu_h \geq \log d\)&lt;/span&gt; for &lt;span class=&quot;math inline&quot;&gt;\(c'\)&lt;/span&gt; chosen small enough. (In particular, the normal approximation applies.)&lt;/p&gt;
+&lt;p&gt;Our choice of &lt;span class=&quot;math inline&quot;&gt;\(\mu_h\)&lt;/span&gt; ensures that
+&lt;span class=&quot;math display&quot;&gt;
+\begin{align}
+   \mathbb{E}[\mathrm{opt}_h] &amp;amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \nonumber \\
+              &amp;amp;= \mu_h \left(1- \frac{c'}{2} \sqrt{\frac\log d\mu_h}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}].
+\label{eq:opt}\end{align}&lt;/span&gt;
+Combining this with \eqref{eq:alg} yields
+&lt;p&gt;
+   $$
+   \alpha_h \geq \frac{\mathbb{E}[\mathrm{alg}_h]}{\mathbb{E}[\mathrm{opt}_h]}
+   \geq \frac{\alpha_{h-1}}{1-\frac{c'}{2} \sqrt{\frac{\log d}{\mu_h}}}
+   \geq \alpha_{h-1} \left(1+\frac{c'}{2} \sqrt{\frac{\log d}{\mu_h}}\right),
+   $$
+&lt;/p&gt;
+where the latter inequality holds because &lt;span class=&quot;math inline&quot;&gt;\(c' &amp;lt; 1\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mu_h \geq \log d\)&lt;/span&gt;. Using \eqref{eq:muh}, this gives &lt;span class=&quot;math display&quot;&gt;\[\alpha_h \geq \alpha_{h-1} + \frac{c'}{2} \log d\,,\]&lt;/span&gt; completing the argument.&lt;/p&gt;
+&lt;p&gt;Note that in \eqref{eq:tauchoice}, we required &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt;. So let us use \eqref{eq:opt} to compute: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \leq \mu_h \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \leq \frac{O(1)}\log d \frac\tau{\mathbb{E}[\mathrm{opt}_{h-1}]}\]&lt;/span&gt; Since &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \cdot \mathbb{E}[\mathrm{opt}_{h-1}] \leq O(\tau/\log d)\,,\]&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \geq \mathbb{E}[\mathrm{opt}_{h-1}] \geq 1\)&lt;/span&gt; for all &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;,
+it follows that &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \leq \frac{O(\sqrt{\tau})}{\log d}\)&lt;/span&gt;, meaning that &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt; will be satisfied for &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq C(\alpha_{h-1}/\log d)^2 \asymp h^2\)&lt;/span&gt;. Since &lt;span class=&quot;math inline&quot;&gt;\(h \asymp \frac{\log n}{\log d}\)&lt;/span&gt;, this yields completes the proof of in the special case of a &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-regular HST.&lt;/p&gt;
+
+&lt;h2&gt;The “superincreasing” metric&lt;/h2&gt;
+
+&lt;p&gt;Let us define the trees &lt;span class=&quot;math inline&quot;&gt;\(\{T_n\}\)&lt;/span&gt; as follows: The root &lt;span class=&quot;math inline&quot;&gt;\(r_{n}\)&lt;/span&gt; of &lt;span class=&quot;math inline&quot;&gt;\(T_n\)&lt;/span&gt; has two children. The left child is a copy of &lt;span class=&quot;math inline&quot;&gt;\(T_{n-1}\)&lt;/span&gt; of rooted at &lt;span class=&quot;math inline&quot;&gt;\(r_{n-1}\)&lt;/span&gt;, and the right child is a single leaf. We denote &lt;span class=&quot;math inline&quot;&gt;\(w_n(r_n)=1\)&lt;/span&gt;, and &lt;span class=&quot;math inline&quot;&gt;\(w_n(r_{n-1}) = 1/\tau_n\)&lt;/span&gt;, where &lt;span class=&quot;math inline&quot;&gt;\(\tau_n &amp;gt; \tau_{n-1} &amp;gt; \cdots &amp;gt; 0\)&lt;/span&gt; is a sequence of positive weights we will choose soon, and such that &lt;span class=&quot;math inline&quot;&gt;\(\tau_n \leq O(\log n)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The basic structure of our argument will be similar to the &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-regular case. We do the following &lt;span class=&quot;math inline&quot;&gt;\(2 \mu_n\)&lt;/span&gt; times: Choose &lt;span class=&quot;math inline&quot;&gt;\(i \in \{L,R\}\)&lt;/span&gt; uniformly at random. If &lt;span class=&quot;math inline&quot;&gt;\(i=L\)&lt;/span&gt;, we play a height-&lt;span class=&quot;math inline&quot;&gt;\((n-1)\)&lt;/span&gt; cost sequence on the left subtree (scaled by &lt;span class=&quot;math inline&quot;&gt;\(1/\tau_n\)&lt;/span&gt;). Otherwise, we play &lt;span class=&quot;math inline&quot;&gt;\(c_\ell\)&lt;/span&gt;, where &lt;span class=&quot;math inline&quot;&gt;\(\ell\)&lt;/span&gt; is the leaf constituting the right subtree.&lt;/p&gt;
+&lt;p&gt;Consider an online algorithm. If the algorithm sits in the left subtree when &lt;span class=&quot;math inline&quot;&gt;\(i=L\)&lt;/span&gt;, then either the algorithm moves out of the subtree (movement cost &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;), or it incurs the cost of a height-&lt;span class=&quot;math inline&quot;&gt;\((n-1)\)&lt;/span&gt; inductive sequence scaled by &lt;span class=&quot;math inline&quot;&gt;\(1/\tau_n\)&lt;/span&gt;. If it sits in the right subtree, then it pays cost &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt; (either by moving or staying and incurring the service cost). If we choose
+&lt;span class=&quot;math inline&quot;&gt;\(\tau_n \mathrel{\vcenter{:}}=\alpha_{n-1} \mathbb{E}[\mathrm{opt}_{n-1}]\)&lt;/span&gt;, then such an algorithm always pays at least &lt;span class=&quot;math inline&quot;&gt;\(\tau_n^{-1} \alpha_{n-1} \mathbb{E}[\mathrm{opt}_{n-1}]\)&lt;/span&gt; in any of these cases. Therefore:
+&lt;/p&gt;
+&lt;p&gt;
+\begin{equation}\label{eq:algn}
+\mathbb{E}[\mathrm{alg}_n] \geq \mu_n \tau_n^{-1} \alpha_{n-1} \mathbb{E}[\mathrm{opt}_{n-1}].
+\end{equation}
+&lt;/p&gt;
+&lt;p&gt;We now bound the cost of the optimal offline algorithm. Let &lt;span class=&quot;math inline&quot;&gt;\(\rho_L\)&lt;/span&gt; be the number of times &lt;span class=&quot;math inline&quot;&gt;\(i=L\)&lt;/span&gt; and let &lt;span class=&quot;math inline&quot;&gt;\(\rho_R \mathrel{\vcenter{:}}= 2\mu_n - \rho_L\)&lt;/span&gt;. The algorithm will always sit by default in the left subtree. If &lt;span class=&quot;math inline&quot;&gt;\(\rho_R=0\)&lt;/span&gt;, it will move to the right subtree, suffer zero service cost there, and then move back to the left subtree (paying total cost &lt;span class=&quot;math inline&quot;&gt;\(2\)&lt;/span&gt;). If &lt;span class=&quot;math inline&quot;&gt;\(\rho_R &amp;gt; 0\)&lt;/span&gt;, the algorithm will remain in the left subtree and play an optimal strategy for &lt;span class=&quot;math inline&quot;&gt;\(T_{n-1}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;This yields: &lt;span class=&quot;math display&quot;&gt;\[\begin{aligned}
+   \mathbb{E}[\mathrm{opt}_n] &amp;amp;\leq \left(1-{\mathbb{P}}[\rho_R=0]\right) \mathbb{E}\left[\rho_L \tau_n^{-1} \mathrm{opt}_{n-1} \mid \rho_R &amp;gt; 0\right]
+   + 2 {\mathbb{P}}[\rho_R=0]  \\
+   &amp;amp;\leq (1-4^{-\mu_n}) \mu_n \tau_n^{-1} \mathbb{E}[\mathrm{opt}_{n-1}] + 2 \cdot 4^{-\mu_n}.\end{aligned}\]&lt;/span&gt; Now choose: &lt;span class=&quot;math display&quot;&gt;\[\mu_n \mathrel{\vcenter{:}}=\frac{4 \tau_n}{\mathbb{E}[\mathrm{opt}_{n-1}]} = 4 \alpha_{n-1}\,.\]&lt;/span&gt; This yields: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_n] \leq \left(1-\tfrac12 4^{-4 \alpha_n}\right) \mu_n \tau_n^{-1} \mathbb{E}[\mathrm{opt}_{n-1}].\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Combined with \eqref{eq:algn}, we have
+&lt;span class=&quot;math display&quot;&gt;\[\alpha_n \geq \frac{\mathbb{E}[\mathrm{alg}_n]}{\mathbb{E}[\mathrm{opt}_n]} \geq \alpha_{n-1} + \tfrac12 4^{-4\alpha_{n-1}}.\]&lt;/span&gt; This implies that &lt;span class=&quot;math inline&quot;&gt;\(\alpha_n \geq \beta \log n\)&lt;/span&gt; for some positive &lt;span class=&quot;math inline&quot;&gt;\(\beta &amp;lt; 1\)&lt;/span&gt;. (To see this observe, that if &lt;span class=&quot;math inline&quot;&gt;\(f(x)=\beta \log x\)&lt;/span&gt;, then &lt;span class=&quot;math inline&quot;&gt;\(f'(x) = \beta/x &amp;lt; \frac12 4^{-4 \beta \log x}\)&lt;/span&gt; for &lt;span class=&quot;math inline&quot;&gt;\(\beta\)&lt;/span&gt; chosen small enough.)&lt;/p&gt;
+&lt;p&gt;Note furthermore that &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_n] \leq 4\,,\]&lt;/span&gt; and therefore &lt;span class=&quot;math inline&quot;&gt;\(\tau_n \leq O(\log n)\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;h2&gt;The general case&lt;/h2&gt;
+
+&lt;p&gt;We have demonstrated lower bounds in two cases: When the underlying tree &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; is regular, and when it is unbalanced and binary. The general case can be proved by combining these two strategies along any &lt;span class=&quot;math inline&quot;&gt;\(\Omega((\log n)^2)\)&lt;/span&gt;-HST. The next lemma contains the basic idea. We leave it to the reader as a basic exercise. (Hint: Use the concavity of &lt;span class=&quot;math inline&quot;&gt;\(x \mapsto \sqrt{x}\)&lt;/span&gt;.)&lt;/p&gt;
+&lt;p class=&quot;lemma&quot;&gt;
+Suppose that &lt;span class=&quot;math inline&quot;&gt;\(n=n_1+n_2+\cdots+n_m\)&lt;/span&gt; where &lt;span class=&quot;math inline&quot;&gt;\(n_1 \geq n_2 \geq \cdots \geq n_m \geq 1\)&lt;/span&gt;. Then either &lt;span class=&quot;math inline&quot;&gt;\(\sqrt{n_1}+\sqrt{n_2} \geq \sqrt{n}\)&lt;/span&gt;, or there is some &lt;span class=&quot;math inline&quot;&gt;\(\ell \geq 3\)&lt;/span&gt; such that &lt;span class=&quot;math inline&quot;&gt;\(\ell \cdot \sqrt{n_\ell} \geq \sqrt{n}\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;Suppose now that &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; is a rooted tree with subtrees &lt;span class=&quot;math inline&quot;&gt;\(T_1, T_2, \ldots, T_m\)&lt;/span&gt; beneath the root, and such that &lt;span class=&quot;math inline&quot;&gt;\(T_i\)&lt;/span&gt; has &lt;span class=&quot;math inline&quot;&gt;\(n_i\)&lt;/span&gt; leaves with &lt;span class=&quot;math inline&quot;&gt;\(n_1 \geq n_2 \geq \cdots \geq n_m \geq 1\)&lt;/span&gt;. The lemma says we can either consider only the first two subtrees (the binary, possibly “unbalanced” case), or we can take the first &lt;span class=&quot;math inline&quot;&gt;\(\ell\)&lt;/span&gt; subtrees for some &lt;span class=&quot;math inline&quot;&gt;\(\ell \geq 3\)&lt;/span&gt;, prune them so they all have exactly &lt;span class=&quot;math inline&quot;&gt;\(n_\ell\)&lt;/span&gt; leaves, and then prove a lower bound. Analyzing these two cases correspond roughly to the two lower bound arguments above.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Apr 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/online/2018/04/20/mts-lower-bounds/</link>
+        <guid isPermaLink="true">http://localhost:4000/online/2018/04/20/mts-lower-bounds/</guid>
+      </item>
+    
+      <item>
         <title>Approximation by ultrametrics</title>
         <description>&lt;p&gt;We now take a short detour away from mirror descent, and
 instead examine how a special class of metric spaces called &lt;em&gt;ultrametrics&lt;/em&gt;
@@ -19,7 +153,7 @@ For the sake of continuity, bibliographic remarks are held to the end of the pos
 &lt;h2 id=&quot;metric-approximations&quot;&gt;Metric approximations&lt;/h2&gt;
 
 &lt;p&gt;For a metric space $(X,d)$, let $\alpha_{\mathrm{mts}}(X,d)$ denote
-the best competitive ratio for MTS on $(X,d)$.
+the best (randomized) competitive ratio for MTS on $(X,d)$.
 Suppose $D$ is some other metric on $X$ that satisfies&lt;/p&gt;
 &lt;p&gt;
 \begin{equation}\label{eq:distortion}
@@ -61,14 +195,13 @@ If we take expectation with respect to $\mathbf{D}$ as well, it follows that&lt;
 &lt;p&gt;
 \[
    \mathbb{E}\left[\sum_{t=1}^T d(x_t, x_{t-1})\right] \leq
-   \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
+   \alpha \mathbb{E}\left[\sum_{t=1}^T \mathbf{D}\left(x_t^{*}, x_{t-1}^{*}\right)\right]
          + O(1)
-         \leq K 
+         \leq K \alpha
    \sum_{t=1}^T d\!\left(x_t^{*}, x_{t-1}^{*}\right) + O(1)\,,
 \]
 &lt;/p&gt;
-&lt;p&gt;where $\left\langle x_t^* : t \geq 0\right\rangle$ is an optimal offline sequence in $(X,d)$.
-We have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.&lt;/p&gt;
+&lt;p&gt;where we have used property (1) of $\mathbf{D}$ for the LHS and property (2) to bound the RHS.&lt;/p&gt;
 
 &lt;h2 id=&quot;ultrametrics&quot;&gt;Ultrametrics&lt;/h2&gt;
 
@@ -85,7 +218,7 @@ arise in this way).&lt;/p&gt;
 
 &lt;p&gt;It turns out that ultrametrics essentially control the competitive ratio
 for metrical task systems on finite metric spaces.
-This follows from the following two facts that
+This follows from the next two facts that
 hold for an arbitrary $n$-point metric space $(X,d)$.&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;thm1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -120,7 +253,7 @@ for which the $O(\log n)$ upper bound in &lt;a href=&quot;#thm3&quot;&gt;Theorem
 Whether the LHS can be made $\Omega(\log n)$ is an intriguing open problem;
 we will address it in the next lecture.
 In conjunction with &lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt; and &lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;,
-this yields.&lt;/p&gt;
+this yields:&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;cor4&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p class=&quot;corollary&quot; text=&quot;MTS&quot; ord=&quot;4&quot;&gt;
@@ -163,7 +296,7 @@ the tree structure induced by the partitions), and moreover&lt;/p&gt;
    &lt;p&gt;
    \begin{equation}\label{eq:rp}
       \mathbb{P}\left[\vphantom{\bigoplus}
-         B_X(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
+         B(x,r) \subseteq P(x)\right] \geq \exp\left(\frac{-8r}{\Delta} \log \frac{|B(x,\Delta)|}{|B(x,\Delta/8)|}\right).
    \end{equation}
    &lt;/p&gt;
 &lt;/p&gt;
@@ -173,14 +306,14 @@ We will first establish these consequences and then prove the lemma.&lt;/p&gt;
 
 &lt;h2 id=&quot;approximation-by-a-random-ultrametric&quot;&gt;Approximation by a random ultrametric&lt;/h2&gt;
 
-&lt;p&gt;Let’s prove &lt;strong&gt;&lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt;&lt;/strong&gt;.
+&lt;p&gt;Let’s prove &lt;a href=&quot;#thm1&quot;&gt;Theorem 1&lt;/a&gt;.
 Let $\mathcal{P} = \{ P_j : j \in \mathbb{Z} \}$ be the random sequence where $P_j$ results from the
 random partitioning lemma applied with $\Delta = 8^j$ and we take the partitions to be mutually independent.
 Then from \eqref{eq:exp}, we know $\mathbf{D}_{\mathcal{P}}(x,y) \geq d(x,y)$ for all $x,y \in X$.
 Now fix $x \neq y \in X$, and let $j_0 \mathrel{\vcenter{:}}= \min \{ j : 8^{j} \geq d(x,y) \}$.  Then:&lt;/p&gt;
 &lt;p&gt;
 \[
-   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0} + \sum_{j &amp;gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
+   \mathbb{E}\left[\mathbf{D}_{\mathcal{P}}(x,y)\right] \leq 8^{j_0+1} + \sum_{j &amp;gt; j_0} \mathbb{P}[P_j(x) \neq P_j(y)] 8^{j+1},
 \]
 &lt;/p&gt;
 &lt;p&gt;and using $\mathbb{P}[P_j(x) = P_j(y)] \geq \mathbb{P}[B(x, d(x,y)) \subseteq P_j(x)]$ yields&lt;/p&gt;
@@ -197,7 +330,7 @@ and in the last inequality we evaluate a telescoping sum.&lt;/p&gt;
 
 &lt;h2 id=&quot;finding-a-large-approximate-ultrametric-inside-x&quot;&gt;Finding a large approximate ultrametric inside $X$&lt;/h2&gt;
 
-&lt;p&gt;Now we prove &lt;strong&gt;&lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;&lt;/strong&gt;.
+&lt;p&gt;Now we prove &lt;a href=&quot;#thm2&quot;&gt;Theorem 2&lt;/a&gt;.
 Let $\mathcal{P}$ be the same random partition sequence chosen above and fix some $0 &amp;lt; \e &amp;lt; 1/8$.
 Define the random subset:&lt;/p&gt;
 &lt;p&gt;
@@ -243,8 +376,8 @@ Our random partitioning is formed by iteratively carving out balls:&lt;/p&gt;
    \mathbb{P}\left[B(x,r) \subseteq P(x) \mid \mathbf{R}\right] \geq \frac{|B(x,\mathbf{R}-r)|}{|B(x,\mathbf{R}+r)|}.
 \]
 &lt;/p&gt;
-&lt;p&gt;This follows because if we condition on $\mathbf{R}$, then the first center chosen in $B(x,\mathbf{R}+r)$
-will decide the fate of $B(x,r)$, and the corresponding cluster will contain
+&lt;p&gt;This follows because if we condition on $\mathbf{R}$, then only centers in $B(x,\mathbf{R}+r)$
+can decide the fate of $B(x,r)$, and the corresponding cluster will contain
 all of $B(x,r)$ if the center lies in $B(x,\mathbf{R}-r)$.&lt;/p&gt;
 
 &lt;p&gt;Thus we have:&lt;/p&gt;
