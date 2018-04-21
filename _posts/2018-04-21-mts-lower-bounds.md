@@ -91,8 +91,7 @@ Let us now analyze an offline algorithm. Let <span class="math inline">\(\rho_i\
 <p>Our choice of <span class="math inline">\(\mu_h\)</span> ensures that
 <span class="math display">
 \begin{align}
-   \mathbb{E}[\mathrm{opt}_h] &amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \nonumber \\
-              &amp;= \mu_h \left(1- \frac{c'}{2} \sqrt{\frac\log d\mu_h}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}].
+   \mathbb{E}[\mathrm{opt}_h] &amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}]
 \label{eq:opt}\end{align}</span>
 Combining this with \eqref{eq:alg} yields
 <p>
