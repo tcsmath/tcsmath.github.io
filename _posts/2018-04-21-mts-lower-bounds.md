@@ -19,7 +19,7 @@ Say that <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span><em><s
 <p>Two metrics <span class="math inline">\(d\)</span> and <span class="math inline">\(d'\)</span> on a set <span class="math inline">\(X\)</span> are <span><em><span class="math inline">\(K\)</span>-equivalent</em></span> if there is a constant <span class="math inline">\(c &gt; 0\)</span> such that <span class="math display">\[d(x,y) \leq c\, d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]</span> We leave the following statements as an exercise:
 For every <span class="math inline">\(\tau &gt; 1\)</span>, every <span class="math inline">\(1\)</span>-HST is <span class="math inline">\(\tau\)</span>-equivalent to some strict <span class="math inline">\(\tau\)</span>-HST.</p>
 
-<a name="thm:bbm">
+<a name="thm:bbm"></a>
 <p class="theorem" text="Bartal-Bollobas-Mendel" ord="1">
 There is a constant <span class="math inline">\(C \geq 1\)</span> such that if <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span class="math inline">\(C (\log n)^2\)</span>-HST metric, where <span class="math inline">\(n=|\mathcal L|\)</span>, then the competitive ratio for MTS on <span class="math inline">\((\mathcal L,d_w)\)</span> is <span class="math inline">\(\Omega\left(\log n\right)\)</span>.</p>
 
