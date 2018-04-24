@@ -52,7 +52,7 @@ For every <span class="math inline">\(n\)</span>-point metric space, the competi
 
 <p>We will not prove <a href="#thm:bbm">Theorem 1</a>, but we will prove a lower bound for two special cases that together capture the essential elements of the full argument. The general case is discussed at the end.</p>
 
-## The complete d-ary tree
+<h2>The complete d-ary tree</h2>
 
 <p>The first case we’ll consider is when <span class="math inline">\(T\)</span> is a <span class="math inline">\(d\)</span>-ary tree of height <span class="math inline">\(h\)</span>, so that <span class="math inline">\(|\mathcal L|=d^h\)</span>. Define <span class="math inline">\(w(x)=\tau^{-\mathrm{dist}_T(x,r)}\)</span>, where <span class="math inline">\(r\)</span> is the root of <span class="math inline">\(T\)</span> and <span class="math inline">\(\mathrm{dist}_T\)</span> denotes the combinatorial distance on <span class="math inline">\(T\)</span>. Then <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span class="math inline">\(\tau\)</span>-HST.</p>
 <p>Our goal is to establish a lower bound of <span class="math inline">\(\Omega(h \log d)\)</span> on the competitive ratio for MTS when <span class="math inline">\(\tau\)</span> is sufficiently large. Note that when <span class="math inline">\(\tau = \Theta(1)\)</span> and <span class="math inline">\(d=2\)</span>, it is an open problem to exhibit an <span class="math inline">\(\Omega(h)\)</span> lower bound, and proving such a bound is likely the most difficult obstacle in obtaining an <span class="math inline">\(\Omega(\log n)\)</span> lower bound for every <span class="math inline">\(n\)</span>-point ultrametric.</p>
