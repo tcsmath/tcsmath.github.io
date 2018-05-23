@@ -1,7 +1,8 @@
 ---
 layout:     post
-title:      Optimization in the face of uncertainty
+title:      Optimization against adversarial uncertainty
 date:       2018-05-21
+summary:    Mirror descent in competitive analysis
 categories: online, expository
 ---
 
