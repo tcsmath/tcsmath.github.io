@@ -200,8 +200,8 @@ At the same time, Yin Tat Lee had joined us in Seattle (as
 a postdoc at MSR, and then as faculty at UW), and we continued to study the dark side
 of the exploration shift:  When the confidence of the
 algorithm is artificially reduced, it becomes more willing
-to move servers, and one has to control the increase
-in the corresponding movement cost.
+to move servers, and one has to control the corresponding increase
+in movement cost.
 (The resulting analytic mess is enough to make 
 "inverse Hessian" start to sound like foul language.)
 
