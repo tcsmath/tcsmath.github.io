@@ -102,7 +102,7 @@ twice as often as the 10th.
 In these settings, hedging is a tradeoff between cost (or utility)
 and entropy.
 In modern play of no-limit Texas hold 'em, this tradeoff is now
-explicit in the vernacular.  Poker players talk of "balancing
+explicit in the vernacular: Professional players talk of "balancing
 their range."  For instance, it generally makes sense to bet with strong hands,
 and even to bet more as a hand gets stronger.  But a player has to
 weigh this against their loss in entropy (from the perspective of an observer
@@ -124,8 +124,113 @@ approaches for the classical problems in online algorithms.
 But a collaboration seeded at the Simons Institute,
 and spanning from the [Algorithmic Spectral Graph Theory][ASGT] program (Fall 2014)
 to the [Continuous and Discrete Optimization][CDO] program three years later was key
-in developing a theory of entropic regularization suited to competitive analysis,
-and leading to the resolution of some long-standing open problems in the field.
+in developing a theory of entropic regularization strong enough
+to attack some of the long-standing open problems in the field.
+
+## The randomized $k$-server conjecture
+
+The $k$-server problem has been referred to as the "holy grail" of online algorithms,
+largely because of the central role it has played in the development of the field.
+Fix an integer $k \geq 1$ and let $(X,d)$ denote a metric space.
+The input is a sequence $\left\langle \rho_1,\rho_2, \ldots \right\rangle$
+of requests $\rho_t \in X$ that arrive online.
+The algorithm maintain a configuration of $k$ *servers*
+at points of $X$, and at time $t=1,2,\ldots$, must move one of the servers to $\rho_t$
+to service the request.
+The cost incurred is the total server movement of the algorithm (in the metric $d$).
+
+[Koutsoupias and Papadimitriou][KP] famously established that the deterministic *Work Function Algorithm* is $2k-1$ competitive.
+It has long been conjectured that *randomized* online algorithms should be capable of achieving a $(\log k)^{O(1)}$ competitive ratio
+(a strong version of the conjecture asserts that the competitive ratio is $\Theta(\log k)$ for *every* metric space on more
+than $k$ points).
+Over the course of a decade, primal-dual algorithms were the weapon of choice, culminating
+in a result of [Bansal, Buchbinder, Mądry, and Naor][BBMN] that established
+a $\mathrm{poly}(\log n)$-competitive algorithm for the case when the underlying metric space has $n$ points.
+
+## From Berkeley, to Seattle, to Cambridge, and back
+
+During the reunion workshop for the [ASGT program][ASGT], I spoke about joint work that
+Prasad Raghavendra, David Steurer, and I had completed a year earlier
+establishing lower bounds on the size of semidefinite programming relaxations.
+A major theme in that work is the use of quantum entropy maximization.
+After my talk extoling the virtues of entropy maximizers, Olek Mądry (MIT)
+suggested that recent work on [weighted paging][BBN] (a special case of the $k$-server
+problem) seemed to match the narrative.
+
+I returned to UW and taught a course on [entropy optimality][eo-course];
+Seb Bubeck (Microsoft Research) sat in on the lectures,
+and we began discussing the theory of mirror descent and
+its recent applications in online learning.
+One thing that became clear early on is that
+the classical exponential weights approach
+is *too conservative* to be competitive 
+for $k$-server and related problems.
+While exponential weights is very effective in the bandit
+setting, there one generally competes against the
+optimal *fixed* strategy.
+
+A solution to this problem
+(for the special case of weighted paging) lies
+in the paper of [Bansal, Buchbinder, and Naor][BBN], where
+the authors consider an algorithm that can be interpreted
+in the following way:  Run exponential weights,
+but never let the algorithm become too confident
+about its server placement.  If the algorithm
+asserts "I am 99.9% sure there should be a server here,"
+we cap this confidence at 95% (more formally, at $1-1/2k$).
+One can [consult these lecture notes][ca-course]
+where this is referred to as the "exploration shift."
+
+Since the work of [Bartal][Bartal-hst] (1996), it has been understood
+that solving $k$-server on *hierarchically separated tree (HST) metrics*
+is a fundamental first step in designing an algorithm
+for general metric spaces.
+Problematically, even with the above understanding for weighted paging,
+the HST case is far more daunting
+because one cannot write down the dynamics of the algorithm explicitly.
+This is where a [general theory of mirror descent][mirror] becomes crucial,
+though the correct notion of *multiscale entropy* (suitable for
+hedging simultaneously at many scales) requires a detailed understanding
+of the associated polytope.
+
+Fortunately, Olek recruited an ambitious young graduate student named
+Michael Cohen, and they understood well the structure of the 
+*allocation polytope* underlying previous work on HSTs.
+At the same time, Yin Tat Lee had joined us in Seattle (as
+a postdoc at MSR, and then as faculty at UW), and we continued to study the dark side
+of the exploration shift:  When the confidence of the
+algorithm is artificially reduced, it becomes more willing
+to move servers, and one has to control the increase
+in the corresponding movement cost.
+(The resulting analytic mess is enough to make 
+"inverse Hessian" start to sound like foul language.)
+
+## With a little help from 0.1 friends
+
+A rather brilliant observation of Michael is that the cost of the 
+exploration shift can be controlled almost effortlessly
+if we just have a little extra help:  Instead of $k$ servers,
+$k+0.1$ servers.  (This requires passing to a fractional
+relaxation of the $k$-server problem, which we had
+already done implicitly five paragraphs and 10+ years ago.)
+Moreover, on HSTs one can show that $k+0.1$ fractional servers
+can always be simulated by $k$ fractional servers while
+increasing the movement costs by only a constant factor.
+
+Seb, Michael, Yin Tat, Olek, and I were all long-term partipants in
+the Optimization program (Olek was an organizer) this past fall.
+Our work culminated in an $O((\log k)^2)$-competitive randomized
+algorithm for the $k$-server problem on trees:  [$k$-server via entropic regularization][BCLLM].
+In followup work, I show how this can be utilized
+to obtain a [$\mathrm{poly}(\log k)$-competitive algorithm
+for any metric space][fusible].
+
+## Additional references
+
+- The book [Competitive Analysis][ca-book] by Borodin and El-Yaniv.
+- [Algorithms and Uncertainty program][AUprog] (Fall 2016) at the Simons Institute.
+- The course [Competitive analysis via convex optimization][ca-course] (Spring 2018), taught 
+at UW, jointly with Sebastien Bubeck.
 
 [competitive]: https://en.wikipedia.org/wiki/Competitive_analysis_(online_algorithm)
 [tree-rotate]: https://en.wikipedia.org/wiki/Tree_rotation
@@ -136,3 +241,15 @@ and leading to the resolution of some long-standing open problems in the field.
 [ASGT]: https://simons.berkeley.edu/programs/spectral2014
 [CDO]: https://simons.berkeley.edu/programs/optimization2017
 [MTS-blog]: http://blog.tcsmath.org/online/2018/04/01/competitive-analysis/
+[ca-book]: https://www.amazon.com/Online-Computation-Competitive-Analysis-Borodin/dp/0521619467
+[AUprog]: https://simons.berkeley.edu/programs/uncertainty2016
+[ca-course]: https://homes.cs.washington.edu/~jrl/teaching/cse599I-spring-2018/
+[KP]: https://dl.acm.org/citation.cfm?id=210128
+[BBMN]: https://dl.acm.org/citation.cfm?id=2783434
+[eo-course]: https://homes.cs.washington.edu/~jrl/teaching/cse599swi16/
+[BBN]: https://dl.acm.org/citation.cfm?id=2339126
+[shift-lec]: http://blog.tcsmath.org/online/2018/04/09/mts-on-star/
+[Bartal-hst]: https://ieeexplore.ieee.org/document/548477/
+[mirror]: http://blog.tcsmath.org/online/2018/04/06/navigating/
+[BCLLM]: https://arxiv.org/abs/1711.01085
+[fusible]: https://homes.cs.washington.edu/~jrl/papers/pdf/fusion.pdf
