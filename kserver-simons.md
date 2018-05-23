@@ -207,7 +207,7 @@ in movement cost.
 
 ## With a little help from 0.1 friends
 
-A rather ingenius observation of Michael is that the cost of the 
+A rather ingenious observation of Michael is that the cost of the 
 exploration shift can be controlled almost effortlessly
 if we just have a little extra help:  Instead of $k$ servers,
 $k+0.1$ servers.  (This requires passing to a fractional
