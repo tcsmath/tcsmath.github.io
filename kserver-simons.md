@@ -207,7 +207,7 @@ in the corresponding movement cost.
 
 ## With a little help from 0.1 friends
 
-A rather brilliant observation of Michael is that the cost of the 
+A rather ingenius observation of Michael is that the cost of the 
 exploration shift can be controlled almost effortlessly
 if we just have a little extra help:  Instead of $k$ servers,
 $k+0.1$ servers.  (This requires passing to a fractional
@@ -218,12 +218,16 @@ can always be simulated by $k$ fractional servers while
 increasing the movement costs by only a constant factor.
 
 Seb, Michael, Yin Tat, Olek, and I were all long-term partipants in
-the Optimization program (Olek was an organizer) this past fall.
+the [Optimization program][CDO] (Olek was an organizer) this past fall.
 Our work culminated in an $O((\log k)^2)$-competitive randomized
-algorithm for the $k$-server problem on trees:  [$k$-server via entropic regularization][BCLLM].
+algorithm for the $k$-server problem on HSTs: [$k$-server via entropic regularization][BCLLM].
 In followup work, I show how this can be utilized
 to obtain a [$\mathrm{poly}(\log k)$-competitive algorithm
 for any metric space][fusible].
+
+Tragically, Michael passed away unexpectedly during the program.
+The [memorial symposium held in his honor][michael] offers
+a glimpse of the brilliance and impact of his short time with us.
 
 ## Additional references
 
@@ -253,3 +257,4 @@ at UW, jointly with Sebastien Bubeck.
 [mirror]: http://blog.tcsmath.org/online/2018/04/06/navigating/
 [BCLLM]: https://arxiv.org/abs/1711.01085
 [fusible]: https://homes.cs.washington.edu/~jrl/papers/pdf/fusion.pdf
+[michael]: https://simons.berkeley.edu/workshops/schedule/8815
