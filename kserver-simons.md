@@ -220,7 +220,7 @@ increasing the movement costs by only a constant factor.
 Seb, Michael, Yin Tat, Olek, and I were all long-term partipants in
 the [Optimization program][CDO] (Olek was an organizer) this past fall.
 Our work culminated in an $O((\log k)^2)$-competitive randomized
-algorithm for the $k$-server problem on HSTs: [$k$-server via entropic regularization][BCLLM].
+algorithm for the $k$-server problem on HSTs: [$k$-server via multiscale entropic regularization][BCLLM].
 In followup work, I show how this can be utilized
 to obtain a [$\mathrm{poly}(\log k)$-competitive algorithm
 for any metric space][fusible].
