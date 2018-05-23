@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout:     stud
 title:      Optimization against adversarial uncertainty
 date:       2018-05-21
 summary:    Mirror descent in competitive analysis
