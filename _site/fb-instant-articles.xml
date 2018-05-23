@@ -20,17 +20,18 @@ $$
 $$
 </p>
 
+<p>
 Say that <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span><em><span class="math inline">\(\tau\)</span>-HST metric</em></span> for some <span class="math inline">\(\tau \geq 1\)</span> if <span class="math inline">\(\mathcal L\)</span> is the leaf set of some weighted tree <span class="math inline">\(T=(V,E)\)</span>, and <span class="math inline">\(d_w\)</span> is the ultrametric corresponding to a weight <span class="math inline">\(w\)</span> on <span class="math inline">\(T\)</span> with the property that <span class="math inline">\(w(y) \leq w(x)/\tau\)</span> whenever <span class="math inline">\(y\)</span> is a child of <span class="math inline">\(x\)</span>. (So for a finite metric space, the notions of <span class="math inline">\(1\)</span>-HST metric and ultrametic are equivalent.) Say that <span class="math inline">\((\mathcal L,d)\)</span> is a <span><em>strict <span class="math inline">\(\tau\)</span>-HST metric</em></span> if we require the stronger property that <span class="math inline">\(w(y)=w(x)/\tau\)</span> whenever <span class="math inline">\(x,y \in V\)</span> are internal nodes and <span class="math inline">\(y\)</span> is a child of <span class="math inline">\(x\)</span>.</p>
-<p>Two metrics <span class="math inline">\(d\)</span> and <span class="math inline">\(d'\)</span> on a set <span class="math inline">\(X\)</span> are <span><em><span class="math inline">\(K\)</span>-equivalent</em></span> if there is a constant <span class="math inline">\(c &gt; 0\)</span> such that <span class="math display">\[d(x,y) \leq c d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]</span> We leave the following statements as an exercise:
+<p>Two metrics <span class="math inline">\(d\)</span> and <span class="math inline">\(d'\)</span> on a set <span class="math inline">\(X\)</span> are <span><em><span class="math inline">\(K\)</span>-equivalent</em></span> if there is a constant <span class="math inline">\(c &gt; 0\)</span> such that <span class="math display">\[d(x,y) \leq c\, d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]</span> We leave the following statements as an exercise:
 For every <span class="math inline">\(\tau &gt; 1\)</span>, every <span class="math inline">\(1\)</span>-HST is <span class="math inline">\(\tau\)</span>-equivalent to some strict <span class="math inline">\(\tau\)</span>-HST.</p>
 
-<p><a name="thm:bbm"></a></p>
+<a name="thm:bbm"></a>
 <p class="theorem" text="Bartal-Bollobas-Mendel" ord="1">
 There is a constant <span class="math inline">\(C \geq 1\)</span> such that if <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span class="math inline">\(C (\log n)^2\)</span>-HST metric, where <span class="math inline">\(n=|\mathcal L|\)</span>, then the competitive ratio for MTS on <span class="math inline">\((\mathcal L,d_w)\)</span> is <span class="math inline">\(\Omega\left(\log n\right)\)</span>.</p>
 
-<p>While the preceding theorem applies only to $\tau$-HSTs with $\tau$ sufficiently large,
+While the preceding theorem applies only to $\tau$-HSTs with $\tau$ sufficiently large,
 the next lemma shows how we can improve the separation parameter by passing
-to a subset of leaves.</p>
+to a subset of leaves.
 
 <p class="lemma">
 If <span class="math inline">\((\mathcal L,d)\)</span> is a strict <span class="math inline">\(2\)</span>-HST, then for every <span class="math inline">\(k \in \mathbb N\)</span>, there is a subset <span class="math inline">\(\mathcal L' \subseteq \mathcal L\)</span> with
@@ -41,6 +42,7 @@ $$
 </p>
 and such that <span class="math inline">\((\mathcal L', d)\)</span> is a <span class="math inline">\(2^k\)</span>-HST metric.
 </p>
+
 
 <p>Combining this with <a href="#thm:bbm">Theorem 1</a> yields:</p>
 <p class="corollary">
@@ -56,7 +58,7 @@ For every <span class="math inline">\(n\)</span>-point metric space, the competi
 
 <p>We will not prove <a href="#thm:bbm">Theorem 1</a>, but we will prove a lower bound for two special cases that together capture the essential elements of the full argument. The general case is discussed at the end.</p>
 
-<h2 id="the-complete-d-ary-tree">The complete d-ary tree</h2>
+<h2>The complete d-ary tree</h2>
 
 <p>The first case we’ll consider is when <span class="math inline">\(T\)</span> is a <span class="math inline">\(d\)</span>-ary tree of height <span class="math inline">\(h\)</span>, so that <span class="math inline">\(|\mathcal L|=d^h\)</span>. Define <span class="math inline">\(w(x)=\tau^{-\mathrm{dist}_T(x,r)}\)</span>, where <span class="math inline">\(r\)</span> is the root of <span class="math inline">\(T\)</span> and <span class="math inline">\(\mathrm{dist}_T\)</span> denotes the combinatorial distance on <span class="math inline">\(T\)</span>. Then <span class="math inline">\((\mathcal L,d_w)\)</span> is a <span class="math inline">\(\tau\)</span>-HST.</p>
 <p>Our goal is to establish a lower bound of <span class="math inline">\(\Omega(h \log d)\)</span> on the competitive ratio for MTS when <span class="math inline">\(\tau\)</span> is sufficiently large. Note that when <span class="math inline">\(\tau = \Theta(1)\)</span> and <span class="math inline">\(d=2\)</span>, it is an open problem to exhibit an <span class="math inline">\(\Omega(h)\)</span> lower bound, and proving such a bound is likely the most difficult obstacle in obtaining an <span class="math inline">\(\Omega(\log n)\)</span> lower bound for every <span class="math inline">\(n\)</span>-point ultrametric.</p>
@@ -96,8 +98,7 @@ Let us now analyze an offline algorithm. Let <span class="math inline">\(\rho_i\
 <p>Our choice of <span class="math inline">\(\mu_h\)</span> ensures that
 <span class="math display">
 \begin{align}
-   \mathbb{E}[\mathrm{opt}_h] &amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \nonumber \\
-              &amp;= \mu_h \left(1- \frac{c'}{2} \sqrt{\frac\log d\mu_h}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}].
+   \mathbb{E}[\mathrm{opt}_h] &amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}]
 \label{eq:opt}\end{align}</span>
 Combining this with \eqref{eq:alg} yields
 <p>
@@ -107,9 +108,10 @@ Combining this with \eqref{eq:alg} yields
    \geq \alpha_{h-1} \left(1+\frac{c'}{2} \sqrt{\frac{\log d}{\mu_h}}\right),
    $$
 </p>
+</p>
 where the latter inequality holds because <span class="math inline">\(c' &lt; 1\)</span> and <span class="math inline">\(\mu_h \geq \log d\)</span>. Using \eqref{eq:muh}, this gives <span class="math display">\[\alpha_h \geq \alpha_{h-1} + \frac{c'}{2} \log d\,,\]</span> completing the argument.</p>
-<p>Note that in \eqref{eq:tauchoice}, we required <span class="math inline">\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)</span>. So let us use \eqref{eq:opt} to compute: <span class="math display">\[\mathbb{E}[\mathrm{opt}_h] \leq \mu_h \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \leq \frac{O(1)}\log d \frac\tau{\mathbb{E}[\mathrm{opt}_{h-1}]}\]</span> Since <span class="math display">\[\mathbb{E}[\mathrm{opt}_h] \cdot \mathbb{E}[\mathrm{opt}_{h-1}] \leq O(\tau/\log d)\,,\]</span> and <span class="math inline">\(\mathbb{E}[\mathrm{opt}_h] \geq \mathbb{E}[\mathrm{opt}_{h-1}] \geq 1\)</span> for all <span class="math inline">\(h\)</span>,
-it follows that <span class="math inline">\(\mathbb{E}[\mathrm{opt}_h] \leq \frac{O(\sqrt{\tau})}{\log d}\)</span>, meaning that <span class="math inline">\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)</span> will be satisfied for <span class="math inline">\(\tau \geq C(\alpha_{h-1}/\log d)^2 \asymp h^2\)</span>. Since <span class="math inline">\(h \asymp \frac{\log n}{\log d}\)</span>, this yields completes the proof of in the special case of a <span class="math inline">\(d\)</span>-regular HST.</p>
+<p>Note that in \eqref{eq:tauchoice}, we required <span class="math inline">\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)</span>. So let us use \eqref{eq:opt} to compute: <span class="math display">\[\mathbb{E}[\mathrm{opt}_h] \leq \mu_h \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \leq \frac{O(1)}{\log d} \frac\tau{\mathbb{E}[\mathrm{opt}_{h-1}]}\]</span> Since <span class="math display">\[\mathbb{E}[\mathrm{opt}_h] \cdot \mathbb{E}[\mathrm{opt}_{h-1}] \leq O(\tau/\log d)\,,\]</span> and <span class="math inline">\(\mathbb{E}[\mathrm{opt}_h] \geq \mathbb{E}[\mathrm{opt}_{h-1}] \geq 1\)</span> for all <span class="math inline">\(h\)</span>,
+it follows that <span class="math inline">\(\mathbb{E}[\mathrm{opt}_h] \leq O(\sqrt{\tau/\log d})\)</span>, meaning that <span class="math inline">\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)</span> will be satisfied for <span class="math inline">\(\tau \geq C(\alpha_{h-1}/\log d)^2 \asymp h^2\)</span>. Since <span class="math inline">\(h \asymp \frac{\log n}{\log d}\)</span>, this yields completes the proof of in the special case of a <span class="math inline">\(d\)</span>-regular HST.</p>
 
 <h2>The “superincreasing” metric</h2>
 
@@ -1492,22 +1494,22 @@ There may be some DNS/https hiccups.  I hope those are resolved soon.</p>
                 <link>http://localhost:4000/entropy/2015/11/21/follmer-drift/</link>
                 <content:encoded>
                     <![CDATA[
-                    <h2 id="construction-of-föllmers-drift">Construction of Föllmer’s drift</h2>
+                    ## Construction of F&ouml;llmer's drift
 
-<p>In a previous post, we saw how an entropy-optimal drift process
+In a previous post, we saw how an entropy-optimal drift process
 could be used to prove the Brascamp-Lieb inequalities.
-Our main tool was a result of Föllmer that we now recall and justify.
-Afterward, we will use it to prove the Gaussian log-Sobolev inequality.</p>
+Our main tool was a result of F&ouml;llmer that we now recall and justify.
+Afterward, we will use it to prove the Gaussian log-Sobolev inequality.
 
-<p>Consider $f : \mathbb R^n \to \mathbb R_+$ with $\int f \,d\gamma_n = 1$,
+Consider $f : \mathbb R^n \to \mathbb R_+$ with $\int f \,d\gamma_n = 1$,
 where $\gamma_n$ is the standard Gaussian measure on $\mathbb R^n$.
-Let $\{B_t\}$ denote an $n$-dimensional Brownian motion with $B_0=0$.
+Let $\\{B_t\\}$ denote an $n$-dimensional Brownian motion with $B_0=0$.
 We consider all processes of the form
 \begin{equation}\label{eq:drift}
 W_t = B_t + \int_0^t v_s\,ds\,,
 \end{equation}
-where $\{v_s\}$ is a progressively measurable drift
-and such that $W_1$ has law $f\,d\gamma_n$.</p>
+where $\\{v_s\\}$ is a progressively measurable drift
+and such that $W_1$ has law $f\,d\gamma_n$.
 
 <div class="theorem" text="Energy-entropy">
 It holds that
@@ -1604,11 +1606,11 @@ Now let us relate the density $\alpha_{t+dt}$ to the density $\alpha_{t}$.
 We use here the notations $\\{\hat W_t, \hat v_t, \hat B_t\\}$ to denote
 a (non-random) sample path of $\\{W_t\\}$:
 \begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \alpha_t(\hat W_{[0,t]})  q_t(\hat W_t, \hat W_{t+dt}) \\
-&amp;=  \alpha_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt-\langle \hat v_t,\hat W_t-\hat W_{t+dt}\rangle} \\
-&amp;=
+\alpha_{t+dt}(\hat W_{[0,t+dt]}) &= \alpha_t(\hat W_{[0,t]})  q_t(\hat W_t, \hat W_{t+dt}) \\
+&=  \alpha_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt-\langle \hat v_t,\hat W_t-\hat W_{t+dt}\rangle} \\
+&=
 \alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t,d \hat W_t\rangle} \\
-&amp;=
+&=
 \alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle}\,,
 \end{align*}
 where the last line uses $d\hat W_t = d\hat B_t + \hat v_t\,dt$.
@@ -1616,38 +1618,38 @@ where the last line uses $d\hat W_t = d\hat B_t + \hat v_t\,dt$.
 
 Now by ``heuristic'' induction, we can assume $\alpha_t(\hat W_{[0,t]})=\frac{1}{M_t} \beta_t(\hat W_{[0,t]})$, yielding
 \begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \frac{1}{M_t} \beta_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle} \\
-&amp;=
+\alpha_{t+dt}(\hat W_{[0,t+dt]}) &= \frac{1}{M_t} \beta_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle} \\
+&=
 \frac{1}{M_{t+dt}}  \beta_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) \\
-&amp;=
+&=
 \frac{1}{M_{t+dt}}  \beta_{t+dt}(\hat W_{[0,t+dt]})\,.
 \end{align*}
 In the last line, we used the fact that $p$ is the infinitesimal transition kernel for Brownian motion.
 </div>
 
-<h2 id="the-gaussian-log-sobolev-inequality">The Gaussian log-Sobolev inequality</h2>
+## The Gaussian log-Sobolev inequality
 
-<p>Consider again a measurable $f : \mathbb R^n \to \mathbb R_+$ with $\int f\,d\gamma_n=1$.
-Let us define $\mathrm{Ent}_{\gamma_n}(f) = D(f\,d\gamma_n \,\|\,d\gamma_n)$.
-Then the classical log-Sobolev inequality in Gaussian space asserts that</p>
+Consider again a measurable $f : \mathbb R^n \to \mathbb R_+$ with $\int f\,d\gamma_n=1$.
+Let us define $\mathrm{Ent}_{\gamma_n}(f) = D(f\,d\gamma_n \,\\|\,d\gamma_n)$.
+Then the classical log-Sobolev inequality in Gaussian space asserts that
 
-<p>\begin{equation}\label{eq:logsob}
-\mathrm{Ent}_{\gamma_n}(f) \leq \frac12 \int \frac{|\nabla f|^2}{f}\,d\gamma_n\,.
-\end{equation}</p>
+\begin{equation}\label{eq:logsob}
+\mathrm{Ent}_{\gamma_n}(f) \leq \frac12 \int \frac{\|\nabla f\|^2}{f}\,d\gamma_n\\,.
+\end{equation}
 
-<p>First, we discuss the correct way to interpret this.
-Define the Ornstein-Uhlenbeck semi-group $\{U_t\}$ by its action
-\[
-U_t f(x) = \mathbb{E}[f(e^{-t} x + \sqrt{1-e^{-2t}} B_1)]\,.
-\]
+First, we discuss the correct way to interpret this.
+Define the Ornstein-Uhlenbeck semi-group $\\{U_t\\}$ by its action
+\\[
+U_t f(x) = \mathbb{E}[f(e^{-t} x + \sqrt{1-e^{-2t}} B_1)]\\,.
+\\]
 This is the natural stationary diffusion process on Gaussian space.  For every measurable $f$, we have
-\[
+\\[
 U_t f \to \int f d\gamma_n \quad \textrm{ as $t \to \infty$}\,,
-\]
+\\]
 or equivalently
-\[
+\\[
 \mathrm{Ent}_{\gamma_n}(U_t f) \to 0 \quad \textrm{ as $t \to \infty$}\,.
-\]</p>
+\\]
 
 <p>
 The log-Sobolev inequality yields quantitative convergence in the relative entropy

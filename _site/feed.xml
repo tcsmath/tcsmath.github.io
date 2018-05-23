@@ -15,17 +15,18 @@ $$
 $$
 &lt;/p&gt;
 
+&lt;p&gt;
 Say that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span&gt;&lt;em&gt;&lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST metric&lt;/em&gt;&lt;/span&gt; for some &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq 1\)&lt;/span&gt; if &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L\)&lt;/span&gt; is the leaf set of some weighted tree &lt;span class=&quot;math inline&quot;&gt;\(T=(V,E)\)&lt;/span&gt;, and &lt;span class=&quot;math inline&quot;&gt;\(d_w\)&lt;/span&gt; is the ultrametric corresponding to a weight &lt;span class=&quot;math inline&quot;&gt;\(w\)&lt;/span&gt; on &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; with the property that &lt;span class=&quot;math inline&quot;&gt;\(w(y) \leq w(x)/\tau\)&lt;/span&gt; whenever &lt;span class=&quot;math inline&quot;&gt;\(y\)&lt;/span&gt; is a child of &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;. (So for a finite metric space, the notions of &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST metric and ultrametic are equivalent.) Say that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is a &lt;span&gt;&lt;em&gt;strict &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST metric&lt;/em&gt;&lt;/span&gt; if we require the stronger property that &lt;span class=&quot;math inline&quot;&gt;\(w(y)=w(x)/\tau\)&lt;/span&gt; whenever &lt;span class=&quot;math inline&quot;&gt;\(x,y \in V\)&lt;/span&gt; are internal nodes and &lt;span class=&quot;math inline&quot;&gt;\(y\)&lt;/span&gt; is a child of &lt;span class=&quot;math inline&quot;&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;Two metrics &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(d'\)&lt;/span&gt; on a set &lt;span class=&quot;math inline&quot;&gt;\(X\)&lt;/span&gt; are &lt;span&gt;&lt;em&gt;&lt;span class=&quot;math inline&quot;&gt;\(K\)&lt;/span&gt;-equivalent&lt;/em&gt;&lt;/span&gt; if there is a constant &lt;span class=&quot;math inline&quot;&gt;\(c &amp;gt; 0\)&lt;/span&gt; such that &lt;span class=&quot;math display&quot;&gt;\[d(x,y) \leq c d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]&lt;/span&gt; We leave the following statements as an exercise:
+&lt;p&gt;Two metrics &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(d'\)&lt;/span&gt; on a set &lt;span class=&quot;math inline&quot;&gt;\(X\)&lt;/span&gt; are &lt;span&gt;&lt;em&gt;&lt;span class=&quot;math inline&quot;&gt;\(K\)&lt;/span&gt;-equivalent&lt;/em&gt;&lt;/span&gt; if there is a constant &lt;span class=&quot;math inline&quot;&gt;\(c &amp;gt; 0\)&lt;/span&gt; such that &lt;span class=&quot;math display&quot;&gt;\[d(x,y) \leq c\, d'(x,y) \leq K d(x,y)\qquad \forall x,y \in X\,.\]&lt;/span&gt; We leave the following statements as an exercise:
 For every &lt;span class=&quot;math inline&quot;&gt;\(\tau &amp;gt; 1\)&lt;/span&gt;, every &lt;span class=&quot;math inline&quot;&gt;\(1\)&lt;/span&gt;-HST is &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-equivalent to some strict &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST.&lt;/p&gt;
 
-&lt;p&gt;&lt;a name=&quot;thm:bbm&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a name=&quot;thm:bbm&quot;&gt;&lt;/a&gt;
 &lt;p class=&quot;theorem&quot; text=&quot;Bartal-Bollobas-Mendel&quot; ord=&quot;1&quot;&gt;
 There is a constant &lt;span class=&quot;math inline&quot;&gt;\(C \geq 1\)&lt;/span&gt; such that if &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(C (\log n)^2\)&lt;/span&gt;-HST metric, where &lt;span class=&quot;math inline&quot;&gt;\(n=|\mathcal L|\)&lt;/span&gt;, then the competitive ratio for MTS on &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is &lt;span class=&quot;math inline&quot;&gt;\(\Omega\left(\log n\right)\)&lt;/span&gt;.&lt;/p&gt;
 
-&lt;p&gt;While the preceding theorem applies only to $\tau$-HSTs with $\tau$ sufficiently large,
+While the preceding theorem applies only to $\tau$-HSTs with $\tau$ sufficiently large,
 the next lemma shows how we can improve the separation parameter by passing
-to a subset of leaves.&lt;/p&gt;
+to a subset of leaves.
 
 &lt;p class=&quot;lemma&quot;&gt;
 If &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d)\)&lt;/span&gt; is a strict &lt;span class=&quot;math inline&quot;&gt;\(2\)&lt;/span&gt;-HST, then for every &lt;span class=&quot;math inline&quot;&gt;\(k \in \mathbb N\)&lt;/span&gt;, there is a subset &lt;span class=&quot;math inline&quot;&gt;\(\mathcal L' \subseteq \mathcal L\)&lt;/span&gt; with
@@ -36,6 +37,7 @@ $$
 &lt;/p&gt;
 and such that &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L', d)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(2^k\)&lt;/span&gt;-HST metric.
 &lt;/p&gt;
+
 
 &lt;p&gt;Combining this with &lt;a href=&quot;#thm:bbm&quot;&gt;Theorem 1&lt;/a&gt; yields:&lt;/p&gt;
 &lt;p class=&quot;corollary&quot;&gt;
@@ -51,7 +53,7 @@ For every &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt;-point met
 
 &lt;p&gt;We will not prove &lt;a href=&quot;#thm:bbm&quot;&gt;Theorem 1&lt;/a&gt;, but we will prove a lower bound for two special cases that together capture the essential elements of the full argument. The general case is discussed at the end.&lt;/p&gt;
 
-&lt;h2 id=&quot;the-complete-d-ary-tree&quot;&gt;The complete d-ary tree&lt;/h2&gt;
+&lt;h2&gt;The complete d-ary tree&lt;/h2&gt;
 
 &lt;p&gt;The first case we’ll consider is when &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-ary tree of height &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;, so that &lt;span class=&quot;math inline&quot;&gt;\(|\mathcal L|=d^h\)&lt;/span&gt;. Define &lt;span class=&quot;math inline&quot;&gt;\(w(x)=\tau^{-\mathrm{dist}_T(x,r)}\)&lt;/span&gt;, where &lt;span class=&quot;math inline&quot;&gt;\(r\)&lt;/span&gt; is the root of &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mathrm{dist}_T\)&lt;/span&gt; denotes the combinatorial distance on &lt;span class=&quot;math inline&quot;&gt;\(T\)&lt;/span&gt;. Then &lt;span class=&quot;math inline&quot;&gt;\((\mathcal L,d_w)\)&lt;/span&gt; is a &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt;-HST.&lt;/p&gt;
 &lt;p&gt;Our goal is to establish a lower bound of &lt;span class=&quot;math inline&quot;&gt;\(\Omega(h \log d)\)&lt;/span&gt; on the competitive ratio for MTS when &lt;span class=&quot;math inline&quot;&gt;\(\tau\)&lt;/span&gt; is sufficiently large. Note that when &lt;span class=&quot;math inline&quot;&gt;\(\tau = \Theta(1)\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(d=2\)&lt;/span&gt;, it is an open problem to exhibit an &lt;span class=&quot;math inline&quot;&gt;\(\Omega(h)\)&lt;/span&gt; lower bound, and proving such a bound is likely the most difficult obstacle in obtaining an &lt;span class=&quot;math inline&quot;&gt;\(\Omega(\log n)\)&lt;/span&gt; lower bound for every &lt;span class=&quot;math inline&quot;&gt;\(n\)&lt;/span&gt;-point ultrametric.&lt;/p&gt;
@@ -91,8 +93,7 @@ Let us now analyze an offline algorithm. Let &lt;span class=&quot;math inline&qu
 &lt;p&gt;Our choice of &lt;span class=&quot;math inline&quot;&gt;\(\mu_h\)&lt;/span&gt; ensures that
 &lt;span class=&quot;math display&quot;&gt;
 \begin{align}
-   \mathbb{E}[\mathrm{opt}_h] &amp;amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \nonumber \\
-              &amp;amp;= \mu_h \left(1- \frac{c'}{2} \sqrt{\frac\log d\mu_h}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}].
+   \mathbb{E}[\mathrm{opt}_h] &amp;amp;\leq \left(\mu_h-\frac{c'}{2} \sqrt{\mu_h \log d}\right) \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}]
 \label{eq:opt}\end{align}&lt;/span&gt;
 Combining this with \eqref{eq:alg} yields
 &lt;p&gt;
@@ -102,9 +103,10 @@ Combining this with \eqref{eq:alg} yields
    \geq \alpha_{h-1} \left(1+\frac{c'}{2} \sqrt{\frac{\log d}{\mu_h}}\right),
    $$
 &lt;/p&gt;
+&lt;/p&gt;
 where the latter inequality holds because &lt;span class=&quot;math inline&quot;&gt;\(c' &amp;lt; 1\)&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mu_h \geq \log d\)&lt;/span&gt;. Using \eqref{eq:muh}, this gives &lt;span class=&quot;math display&quot;&gt;\[\alpha_h \geq \alpha_{h-1} + \frac{c'}{2} \log d\,,\]&lt;/span&gt; completing the argument.&lt;/p&gt;
-&lt;p&gt;Note that in \eqref{eq:tauchoice}, we required &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt;. So let us use \eqref{eq:opt} to compute: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \leq \mu_h \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \leq \frac{O(1)}\log d \frac\tau{\mathbb{E}[\mathrm{opt}_{h-1}]}\]&lt;/span&gt; Since &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \cdot \mathbb{E}[\mathrm{opt}_{h-1}] \leq O(\tau/\log d)\,,\]&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \geq \mathbb{E}[\mathrm{opt}_{h-1}] \geq 1\)&lt;/span&gt; for all &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;,
-it follows that &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \leq \frac{O(\sqrt{\tau})}{\log d}\)&lt;/span&gt;, meaning that &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt; will be satisfied for &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq C(\alpha_{h-1}/\log d)^2 \asymp h^2\)&lt;/span&gt;. Since &lt;span class=&quot;math inline&quot;&gt;\(h \asymp \frac{\log n}{\log d}\)&lt;/span&gt;, this yields completes the proof of in the special case of a &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-regular HST.&lt;/p&gt;
+&lt;p&gt;Note that in \eqref{eq:tauchoice}, we required &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt;. So let us use \eqref{eq:opt} to compute: &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \leq \mu_h \tau^{-1} \mathbb{E}[\mathrm{opt}_{h-1}] \leq \frac{O(1)}{\log d} \frac\tau{\mathbb{E}[\mathrm{opt}_{h-1}]}\]&lt;/span&gt; Since &lt;span class=&quot;math display&quot;&gt;\[\mathbb{E}[\mathrm{opt}_h] \cdot \mathbb{E}[\mathrm{opt}_{h-1}] \leq O(\tau/\log d)\,,\]&lt;/span&gt; and &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \geq \mathbb{E}[\mathrm{opt}_{h-1}] \geq 1\)&lt;/span&gt; for all &lt;span class=&quot;math inline&quot;&gt;\(h\)&lt;/span&gt;,
+it follows that &lt;span class=&quot;math inline&quot;&gt;\(\mathbb{E}[\mathrm{opt}_h] \leq O(\sqrt{\tau/\log d})\)&lt;/span&gt;, meaning that &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq \alpha_{h-1} \mathbb{E}[\mathrm{opt}_{h-1}]\)&lt;/span&gt; will be satisfied for &lt;span class=&quot;math inline&quot;&gt;\(\tau \geq C(\alpha_{h-1}/\log d)^2 \asymp h^2\)&lt;/span&gt;. Since &lt;span class=&quot;math inline&quot;&gt;\(h \asymp \frac{\log n}{\log d}\)&lt;/span&gt;, this yields completes the proof of in the special case of a &lt;span class=&quot;math inline&quot;&gt;\(d\)&lt;/span&gt;-regular HST.&lt;/p&gt;
 
 &lt;h2&gt;The “superincreasing” metric&lt;/h2&gt;
 
@@ -1415,22 +1417,22 @@ There may be some DNS/https hiccups.  I hope those are resolved soon.&lt;/p&gt;
     
       <item>
         <title>An entropy optimal drift</title>
-        <description>&lt;h2 id=&quot;construction-of-föllmers-drift&quot;&gt;Construction of Föllmer’s drift&lt;/h2&gt;
+        <description>## Construction of F&amp;ouml;llmer's drift
 
-&lt;p&gt;In a previous post, we saw how an entropy-optimal drift process
+In a previous post, we saw how an entropy-optimal drift process
 could be used to prove the Brascamp-Lieb inequalities.
-Our main tool was a result of Föllmer that we now recall and justify.
-Afterward, we will use it to prove the Gaussian log-Sobolev inequality.&lt;/p&gt;
+Our main tool was a result of F&amp;ouml;llmer that we now recall and justify.
+Afterward, we will use it to prove the Gaussian log-Sobolev inequality.
 
-&lt;p&gt;Consider $f : \mathbb R^n \to \mathbb R_+$ with $\int f \,d\gamma_n = 1$,
+Consider $f : \mathbb R^n \to \mathbb R_+$ with $\int f \,d\gamma_n = 1$,
 where $\gamma_n$ is the standard Gaussian measure on $\mathbb R^n$.
-Let $\{B_t\}$ denote an $n$-dimensional Brownian motion with $B_0=0$.
+Let $\\{B_t\\}$ denote an $n$-dimensional Brownian motion with $B_0=0$.
 We consider all processes of the form
 \begin{equation}\label{eq:drift}
 W_t = B_t + \int_0^t v_s\,ds\,,
 \end{equation}
-where $\{v_s\}$ is a progressively measurable drift
-and such that $W_1$ has law $f\,d\gamma_n$.&lt;/p&gt;
+where $\\{v_s\\}$ is a progressively measurable drift
+and such that $W_1$ has law $f\,d\gamma_n$.
 
 &lt;div class=&quot;theorem&quot; text=&quot;Energy-entropy&quot;&gt;
 It holds that
@@ -1527,11 +1529,11 @@ Now let us relate the density $\alpha_{t+dt}$ to the density $\alpha_{t}$.
 We use here the notations $\\{\hat W_t, \hat v_t, \hat B_t\\}$ to denote
 a (non-random) sample path of $\\{W_t\\}$:
 \begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;amp;= \alpha_t(\hat W_{[0,t]})  q_t(\hat W_t, \hat W_{t+dt}) \\
-&amp;amp;=  \alpha_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt-\langle \hat v_t,\hat W_t-\hat W_{t+dt}\rangle} \\
-&amp;amp;=
+\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \alpha_t(\hat W_{[0,t]})  q_t(\hat W_t, \hat W_{t+dt}) \\
+&amp;=  \alpha_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt-\langle \hat v_t,\hat W_t-\hat W_{t+dt}\rangle} \\
+&amp;=
 \alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{-\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t,d \hat W_t\rangle} \\
-&amp;amp;=
+&amp;=
 \alpha_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle}\,,
 \end{align*}
 where the last line uses $d\hat W_t = d\hat B_t + \hat v_t\,dt$.
@@ -1539,38 +1541,38 @@ where the last line uses $d\hat W_t = d\hat B_t + \hat v_t\,dt$.
 
 Now by ``heuristic'' induction, we can assume $\alpha_t(\hat W_{[0,t]})=\frac{1}{M_t} \beta_t(\hat W_{[0,t]})$, yielding
 \begin{align*}
-\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;amp;= \frac{1}{M_t} \beta_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle} \\
-&amp;amp;=
+\alpha_{t+dt}(\hat W_{[0,t+dt]}) &amp;= \frac{1}{M_t} \beta_t(\hat W_{[0,t]})  p(\hat W_t, \hat W_{t+dt}) e^{\frac12 \|\hat v_t\|^2\,dt+\langle \hat v_t, d \hat B_t\rangle} \\
+&amp;=
 \frac{1}{M_{t+dt}}  \beta_t(\hat W_{[0,t]}) p(\hat W_t, \hat W_{t+dt}) \\
-&amp;amp;=
+&amp;=
 \frac{1}{M_{t+dt}}  \beta_{t+dt}(\hat W_{[0,t+dt]})\,.
 \end{align*}
 In the last line, we used the fact that $p$ is the infinitesimal transition kernel for Brownian motion.
 &lt;/div&gt;
 
-&lt;h2 id=&quot;the-gaussian-log-sobolev-inequality&quot;&gt;The Gaussian log-Sobolev inequality&lt;/h2&gt;
+## The Gaussian log-Sobolev inequality
 
-&lt;p&gt;Consider again a measurable $f : \mathbb R^n \to \mathbb R_+$ with $\int f\,d\gamma_n=1$.
-Let us define $\mathrm{Ent}_{\gamma_n}(f) = D(f\,d\gamma_n \,\|\,d\gamma_n)$.
-Then the classical log-Sobolev inequality in Gaussian space asserts that&lt;/p&gt;
+Consider again a measurable $f : \mathbb R^n \to \mathbb R_+$ with $\int f\,d\gamma_n=1$.
+Let us define $\mathrm{Ent}_{\gamma_n}(f) = D(f\,d\gamma_n \,\\|\,d\gamma_n)$.
+Then the classical log-Sobolev inequality in Gaussian space asserts that
 
-&lt;p&gt;\begin{equation}\label{eq:logsob}
-\mathrm{Ent}_{\gamma_n}(f) \leq \frac12 \int \frac{|\nabla f|^2}{f}\,d\gamma_n\,.
-\end{equation}&lt;/p&gt;
+\begin{equation}\label{eq:logsob}
+\mathrm{Ent}_{\gamma_n}(f) \leq \frac12 \int \frac{\|\nabla f\|^2}{f}\,d\gamma_n\\,.
+\end{equation}
 
-&lt;p&gt;First, we discuss the correct way to interpret this.
-Define the Ornstein-Uhlenbeck semi-group $\{U_t\}$ by its action
-\[
-U_t f(x) = \mathbb{E}[f(e^{-t} x + \sqrt{1-e^{-2t}} B_1)]\,.
-\]
+First, we discuss the correct way to interpret this.
+Define the Ornstein-Uhlenbeck semi-group $\\{U_t\\}$ by its action
+\\[
+U_t f(x) = \mathbb{E}[f(e^{-t} x + \sqrt{1-e^{-2t}} B_1)]\\,.
+\\]
 This is the natural stationary diffusion process on Gaussian space.  For every measurable $f$, we have
-\[
+\\[
 U_t f \to \int f d\gamma_n \quad \textrm{ as $t \to \infty$}\,,
-\]
+\\]
 or equivalently
-\[
+\\[
 \mathrm{Ent}_{\gamma_n}(U_t f) \to 0 \quad \textrm{ as $t \to \infty$}\,.
-\]&lt;/p&gt;
+\\]
 
 &lt;p&gt;
 The log-Sobolev inequality yields quantitative convergence in the relative entropy

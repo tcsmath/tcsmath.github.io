@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57020016-1"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-57020016-1');
+   </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Optimization in the face of uncertainty &#8211; tcs math</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="some mathematics &amp; computation">
+    <meta name="robots" content="all">
+    <meta name="author" content="James R. Lee">
+    
+    <meta name="keywords" content="online, expository">
+    <link rel="canonical" href="http://localhost:4000/kserver-simons/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for tcs math" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201805221707" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } } });
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\[","\]"], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        messageStyle: "none",
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+    </script>
+
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Optimization in the face of uncertainty">
+    <meta property="og:description" content="some mathematics &amp; computation">
+    <meta property="og:url" content="http://localhost:4000/kserver-simons/">
+    <meta property="og:site_name" content="tcs math">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Optimization in the face of uncertainty" />
+    <meta name="twitter:description" content="some mathematics & computation" />
+    <meta name="twitter:url" content="http://localhost:4000/kserver-simons/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+       <a href="http://localhost:4000" class="site-title">tcs math</a>
+      <nav class="site-nav">
+        
+
+
+
+
+    
+    
+    
+    
+        <a href="/about/">about</a>
+    
+
+
+    
+    
+    
+    
+        <a href="/contact/">contact</a>
+    
+
+
+
+<a href="https://tcsmath.wordpress.com/">old tcsmath</a>
+    
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+    <div class="measure">
+       [by <a href="http://www.cs.washington.edu/homes/jrl/">James R. Lee</a>]
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-header mb2">
+  <h1>Optimization in the face of uncertainty</h1>
+  <span class="post-meta">May 21, 2018</span>
+   
+   
+      &nbsp;   <span class="share-links">
+    
+      <a class="fa fa-facebook" href="https://facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fkserver-simons%2F" rel="nofollow" target="_blank" title="Share on Facebook"></a>
+    
+
+    
+      <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text=Optimization+in+the+face+of+uncertainty&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fkserver-simons%2F" rel="nofollow" target="_blank" title="Share on Twitter"></a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </span>
+
+   
+</div>
+
+<article class="post-content mb2">
+  <p>The rise of machine learning in recent decades
+has generated a renewed interest in online decision-making,
+where algorithms are
+equipped only with partial information about the world,
+and must take actions in the face of uncertainty about the future.
+There are various ways to analyze how much the presence 
+of uncertainty 
+degrades optimization.  Two of the most general models
+are “probability free” (aka “worst-case,” or “adversarial”),
+in the sense that one can measure the performance of algorithms
+without making distributional assumptions on the input.</p>
+
+<h2 id="competitive-analysis">Competitive analysis</h2>
+
+<p>One such model goes by the name of <a href="https://en.wikipedia.org/wiki/Competitive_analysis_(online_algorithm)">competitive analysis</a>,
+and has been studied in theoretical CS since the 1970s.
+Imagine, for instance, that one maintains a binary search tree (BST)
+with key-value pairs at the nodes.
+At every point in time, a key is requested, and
+the corresponding value is looked up via binary search.
+Along the search path, the algorithm is allowed to modify the
+tree using standard <a href="https://en.wikipedia.org/wiki/Tree_rotation">tree rotation operations</a>.</p>
+
+<p>The cost of such an algorithm is the average number
+of binary search steps per key-lookup over a long sequence
+of requests.
+To minimize the cost, it is beneficial for the algorithm
+to dynamically rebalance the tree so that frequently-requested
+keys are near the root.  Sleator and Tarjan had this
+model in mind when they invented the <a href="https://en.wikipedia.org/wiki/Splay_tree">Splay Tree</a>
+data structure.
+Their (still unproven) <em>Dynamic Optimality Conjecture</em>
+asserts that, for every sequence of key requests,
+the number of operations used by the Splay Tree
+is within a constant factor of the number of operations
+used by <em>any binary search tree,</em>
+even an <em>offline algorithm</em> that is allowed to see
+the entire sequence of key requests in advance.
+(This is a very strong requirement!  We make no assumption
+on the structure of the request sequence, and have to compare
+our performance to an algorithm that sees the entire
+request sequence up front.)</p>
+
+<p>In the language of competitive analysis, the conjecture 
+states that the Splay Tree algorithm is “competitive.”
+In general, an <em>$\alpha$-competitive</em> online algorithm
+is one whose total cost on every input sequence
+is within an $\alpha$ factor of the cost incurred by the optimal <em>offline</em> algorithm
+that sees the whole input sequence in advance.</p>
+
+<h2 id="multi-arm-bandits">Multi-arm bandits</h2>
+
+<p>Another compelling model arising in online learning
+is the <em>multi-armed bandit problem.</em>
+Here, an agent has a set $\mathcal{A}$ of feasible actions.
+At time $t=1,2,3,\ldots$, the agent plays an action $a_t \in \mathcal{A}$,
+and only then the cost of that action is revealed.
+Imagine, for instance, 
+choosing an advertisement $a_t \in \mathcal{A}$ to present to a user,
+and then learning afterward the probability it
+led to a sale.
+The goal of an algorithm in this model is to achieve
+a total cost (often called the <em>loss</em>) that
+is not too much worse than the best <em>fixed</em> action
+in hindsight.  The gap between the two is called the <em>regret.</em></p>
+
+<p>At first blush, it may seem that these two models (multi-arm bandits and competitive analysis)
+are quite different.  But their relationship rests on a common theme
+in machine learning:  <a href="https://www.offconvex.org/2016/03/14/stability/">The intimate connection between stability and generalization</a>.
+A competitive binary search tree algorithm aspires to be <em>stable</em>
+in the sense that the search tree changes little between lookups
+because the requested key is often near the root.
+A low-regret advertiser aspires for her decisions to <em>generalize</em>
+in the sense that her past observations about users
+are predictive of their future actions.
+(One can consult <a href="http://blog.tcsmath.org/online/2018/04/01/competitive-analysis/">a more in depth look at this connection</a> in the context
+of <em>Metrical Task Systems</em>.)</p>
+
+<h2 id="hedging-and-entropic-regularization">Hedging and entropic regularization</h2>
+
+<p>A fundamental feature of algorithms
+designed in both models is <em>hedging,</em> i.e., making 
+decisions now that protect against the cost of uncertainty in future inputs.
+In the bandit model, where one only learns the cost associated to the
+action played, hedging involves exploring the action space
+(the cost protected against here is opportunity cost).
+In competitive analysis, one can think of hedging as maintaining a state
+that avoids exploitation by an adversary.  For instance, if there are 10 keys
+that are very frequently requested in a BST, hedging might involve a preference
+for a configuration in which all 10 keys are within distance 100 of the root,
+rather than a configuration in which 9 keys are within distance 3 and the 10th key
+is at distance 1000.  This might be preferable even if those 9 keys are requested
+twice as often as the 10th.</p>
+
+<p>In these settings, hedging is a tradeoff between cost (or utility)
+and entropy.
+In modern play of no-limit Texas hold ‘em, this tradeoff is now
+explicit in the vernacular.  Poker players talk of “balancing
+their range.”  For instance, it generally makes sense to bet with strong hands,
+and even to bet more as a hand gets stronger.  But a player has to
+weigh this against their loss in entropy (from the perspective of an observer
+who does not know their hole cards):
+If I only go all-in before the flop
+with aces, my opponent will be able to play optimally against me whenever
+that occurs.</p>
+
+<p>The idea of adding an entropic regularizer to the cost function
+has played a central (and rather explicit) role in online learning.
+The possible application of these ideas to competitive analysis
+was already suggested in work of <a href="https://link.springer.com/article/10.1023/A:1007621832648">Blum and Burch (2000)</a> and
+more recently in a paper conceived at Berkeley by <a href="https://link.springer.com/chapter/10.1007/978-3-642-16108-7_23">Abernethy,
+Barlett, Buchbinder, and Stanton (2010)</a>.
+Those early attempts, while prescient,
+were not able to yield better general
+approaches for the classical problems in online algorithms.</p>
+
+<p>But a collaboration seeded at the Simons Institute,
+and spanning from the <a href="https://simons.berkeley.edu/programs/spectral2014">Algorithmic Spectral Graph Theory</a> program (Fall 2014)
+to the <a href="https://simons.berkeley.edu/programs/optimization2017">Continuous and Discrete Optimization</a> program three years later was key
+in developing a theory of entropic regularization suited to competitive analysis,
+and leading to the resolution of some long-standing open problems in the field.</p>
+
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'tcsmath';
+    var disqus_identifier = '';
+    var disqus_title      = "Optimization in the face of uncertainty";
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
